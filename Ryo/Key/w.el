@@ -1,0 +1,31 @@
+(ryo-modal-key
+	"w"	'(
+		  ("="		balance-windows)
+		  ("SPC"	scroll-other-window)
+		  ("b"		switch-to-buffer-other-window)
+		  ("c"		archmux/copy-region-to-other-window)
+		  ("d"		dired-other-window)
+		  ("f"		find-file-other-window)
+		  ("h"		split-window-horizontally)
+		  ("i"		info-other-window)
+		  ("k"		kill-buffer-and-window)
+		  ("q"		delete-window)
+		  ("Q"		delete-other-windows)
+		  ("r"		recenter-top-bottom)
+		  ("s"		window-swap-states)
+		  ("t"		tear-off-window)
+		  ("u"		scroll-other-window-down)
+		  ("v"		split-window-vertically)
+		 )
+)
+
+(ryo-modal-key
+	"SPC w"	'(
+		  ("."		make-frame)
+		  ("d"		delete-frame)
+		  ("D"		delete-other-frames)
+		  ("C-d"	dired-other-frame)
+		  ("f"		find-file-other-frame)
+		  ("<tab>"	other-frame)
+		 )
+)

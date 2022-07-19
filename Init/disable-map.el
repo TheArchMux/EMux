@@ -1,0 +1,5 @@
+(setcdr global-map	nil)
+(setcdr dired-mode-map	nil)
+(setcdr gnus-mode-map	nil)
+;;(setcdr eshell-mode-map	nil)
+;;(setcdr c-mode-mode	nil)
