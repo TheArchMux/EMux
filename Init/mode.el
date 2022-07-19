@@ -3,10 +3,13 @@
  (setq no-littering-var-directory
 	(expand-file-name "no-littering/var/" user-emacs-directory))
 
+(require 'cc-mode)
 (require 'dired)
 (require 'exheres-mode-autoloads)
 (require 'gnus)
-(require 'eshell)
+(require 'gnus-group)
+(require 'gnus-srvr)
+(require 'esh-mode)
 (require 'info)
 (require 'magit)
 (require 'mini-frame)
