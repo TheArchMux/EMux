@@ -4,6 +4,7 @@
 	(expand-file-name "no-littering/var/" user-emacs-directory))
 
 (require 'cc-mode)
+(require 'conf-mode)
 (require 'dired)
 (require 'exheres-mode-autoloads)
 (require 'gnus)
@@ -12,10 +13,12 @@
 (require 'esh-mode)
 (require 'info)
 (require 'magit)
+(require 'make-mode)
 (require 'mini-frame)
 (require 'no-littering)
 (require 'org)
 (require 'ryo-modal)
+(require 'skeleton)
 
 (add-hook 'dired-mode-hook	'ryo-modal-mode)
 (add-hook 'org-mode-hook	'ryo-modal-mode)
