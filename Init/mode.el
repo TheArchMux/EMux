@@ -38,7 +38,7 @@
 (show-paren-mode)
 (scroll-bar-mode -1)
 (tooltip-mode -1)
-(dirvish-override-dired-mode)
+;; (dirvish-override-dired-mode)
 
 ;; Ryo mode
 
