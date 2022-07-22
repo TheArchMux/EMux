@@ -1,4 +1,4 @@
- (setq no-littering-etc-directory
+(setq no-littering-etc-directory
 	(expand-file-name "no-littering/etc/" user-emacs-directory))
  (setq no-littering-var-directory
 	(expand-file-name "no-littering/var/" user-emacs-directory))
@@ -15,6 +15,7 @@
 (require 'gnus-srvr)
 (require 'esh-mode)
 (require 'info)
+(require 'lambda-themes)
 (require 'magit)
 (require 'make-mode)
 (require 'mini-frame)
@@ -36,7 +37,6 @@
 (global-hl-line-mode)
 (electric-pair-mode)
 (mini-frame-mode)
-(nano-modeline-mode)
 (show-paren-mode)
 (scroll-bar-mode -1)
 (tooltip-mode -1)
@@ -62,6 +62,4 @@
 ;; Mail handler mode
 
 (load-file (concat user-emacs-directory "Mode/Mh/mh.el"))
-
-
 

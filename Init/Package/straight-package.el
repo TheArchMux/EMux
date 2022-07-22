@@ -5,6 +5,12 @@
 (straight-use-package 'doneburn-theme)
 (straight-use-package 'dirvish)
 (straight-use-package 'goto-last-point)
+(straight-use-package 'humanoid-themes)
+
+(straight-use-package
+ '(lamba-themes :type git :host github :repo "lambda-emacs/lambda-themes")
+)
+
 (straight-use-package 'no-littering)
 (straight-use-package 'magit)
 (straight-use-package 'mini-frame)
