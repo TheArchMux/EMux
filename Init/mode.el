@@ -23,6 +23,7 @@
 (require 'ryo-modal)
 (require 'skeleton)
 (require 'shell)
+(require 'stimmung-themes)
 
 (add-hook 'dired-mode-hook	'ryo-modal-mode)
 (add-hook 'org-mode-hook	'ryo-modal-mode)
@@ -35,6 +36,7 @@
 (global-hl-line-mode)
 (electric-pair-mode)
 (mini-frame-mode)
+(nano-modeline-mode)
 (show-paren-mode)
 (scroll-bar-mode -1)
 (tooltip-mode -1)
