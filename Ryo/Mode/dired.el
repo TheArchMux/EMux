@@ -4,5 +4,6 @@
  ("f"		find-file)
  ("g"		revert-buffer)
  ("m"		make-directory)
+ ("t"		make-empty-file)
  ("u"		dired-up-directory)
 )
