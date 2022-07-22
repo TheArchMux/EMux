@@ -6,8 +6,11 @@
 (require 'cc-mode)
 (require 'conf-mode)
 (require 'dired)
+(require 'dirvish)
+(require 'doneburn-theme)
 (require 'exheres-mode-autoloads)
 (require 'gnus)
+(require 'gnus-agent)
 (require 'gnus-group)
 (require 'gnus-srvr)
 (require 'esh-mode)
@@ -19,6 +22,7 @@
 (require 'org)
 (require 'ryo-modal)
 (require 'skeleton)
+(require 'shell)
 
 (add-hook 'dired-mode-hook	'ryo-modal-mode)
 (add-hook 'org-mode-hook	'ryo-modal-mode)
@@ -32,6 +36,9 @@
 (electric-pair-mode)
 (mini-frame-mode)
 (show-paren-mode)
+(scroll-bar-mode -1)
+(tooltip-mode -1)
+(dirvish-override-dired-mode)
 
 ;; Ryo mode
 
