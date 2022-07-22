@@ -6,7 +6,11 @@
 
 ;; Download and compile packages
 
-(load-file (concat user-emacs-directory "Init/Package/package.el"))
+(load-file (concat user-emacs-directory "Init/Package/straight-package.el"))
+
+;; Use-package functions required for maintaining melpa packages
+
+(load-file (concat user-emacs-directory "Init/Package/use-package.el"))
 
 ;; Load theme
 
