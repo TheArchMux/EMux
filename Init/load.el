@@ -6,9 +6,17 @@
 
 (load-file (concat user-emacs-directory "Init/disable-map.el"))
 
+;; Authentication
+
+(load-file (concat user-emacs-directory "Init/Authentication/authentication.el"))
+
 ;; Backup
 
 (load-file (concat user-emacs-directory "Init/backup.el"))
+
+;; Keymap
+
+(load-file (concat user-emacs-directory "Keymap/load.el"))
 
 ;; Global map
 
