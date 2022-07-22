@@ -1,6 +1,6 @@
-* EMux
+# EMux
 
-* Why?
+## Why?
 
 Use modal features effectively using ryo-modal.
 
