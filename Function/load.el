@@ -18,6 +18,10 @@
 
 (load-file (concat user-emacs-directory "Function/General/function.el"))
 
+;; Indent function
+
+(load-file (concat user-emacs-directory "Function/Indent/function.el"))
+
 ;; Kill function
 
 (load-file (concat user-emacs-directory "Function/Kill/function.el"))
