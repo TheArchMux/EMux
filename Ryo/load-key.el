@@ -28,6 +28,9 @@
 ;; o
 (load-file (concat user-emacs-directory "Ryo/Key/o.el"))
 
+;; q
+(load-file (concat user-emacs-directory "Ryo/Key/q.el"))
+
 ;; s
 (load-file (concat user-emacs-directory "Ryo/Key/s.el"))
 
