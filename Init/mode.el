@@ -1,6 +1,6 @@
 (setq no-littering-etc-directory
 	(expand-file-name "no-littering/etc/" user-emacs-directory))
- (setq no-littering-var-directory
+(setq no-littering-var-directory
 	(expand-file-name "no-littering/var/" user-emacs-directory))
 
 (require 'cc-mode)
