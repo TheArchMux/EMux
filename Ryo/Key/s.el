@@ -1,6 +1,1 @@
-(ryo-modal-key
-	"s"	'(
-		  ("s"		isearch-forward)
-		  ("r"		isearch-backward)
-		 )
-)
+(ryo-modal-key "s" 'isearch-forward)
