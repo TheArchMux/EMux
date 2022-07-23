@@ -1,1 +1,1 @@
-(ryo-modal-key "<tab>" 'tab-to-tab-stop)
+(ryo-modal-key "<tab>" 'archmux/conditional-indent)
