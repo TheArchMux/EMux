@@ -4,7 +4,6 @@
  '(less-theme :type git :host github :repo "nobiot/less-theme")
 )
 
-(straight-use-package 'dirvish)
 (straight-use-package 'doneburn-theme)
 (straight-use-package 'goto-last-point)
 (straight-use-package 'humanoid-themes)

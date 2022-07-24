@@ -6,7 +6,6 @@
 (require 'cc-mode)
 (require 'conf-mode)
 (require 'dired)
-(require 'dirvish)
 (require 'doneburn-theme)
 (require 'exheres-mode-autoloads)
 (require 'gnus)
@@ -41,7 +40,6 @@
 (show-paren-mode)
 (scroll-bar-mode -1)
 (tooltip-mode -1)
-;; (dirvish-override-dired-mode)
 
 ;; Ryo mode
 
