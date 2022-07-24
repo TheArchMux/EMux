@@ -1,5 +1,5 @@
 (ryo-modal-key
-  "SPC a" '(
+  "a" '(
 	    ("d"	dired-jump)
 	    ("e"	eshell)
 	    ("C-e"	ediff)
