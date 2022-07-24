@@ -32,15 +32,6 @@
 (add-hook 'after-save-hook	'archmux/compile-when-config-dot-h)
 (add-hook 'find-file-hook	'archmux/append-to-project-file)
 
-;; Enable mode
-
-(global-hl-line-mode)
-(electric-pair-mode)
-(mini-frame-mode)
-(show-paren-mode)
-(scroll-bar-mode -1)
-(tooltip-mode -1)
-
 ;; Ryo mode
 
 (setq initial-major-mode 'ryo-modal-mode)
@@ -57,4 +48,18 @@
 ;; Gnus mode
 
 (load-file (concat user-emacs-directory "Mode/Gnus/gnus.el"))
+
+;; Indent guide mode
+
+(load-file "~/Internet/Git/Emacs/Package/Utility/indent-guide/indent-guide.el")
+
+;; Enable mode
+
+(global-hl-line-mode)
+(electric-pair-mode)
+(indent-guide-global-mode)
+(mini-frame-mode)
+(show-paren-mode)
+(scroll-bar-mode -1)
+(tooltip-mode -1)
 
