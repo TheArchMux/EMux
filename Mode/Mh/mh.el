@@ -1,6 +1,0 @@
-(setq mh-progs "/usr/x86_64-pc-linux-musl/bin/mu-mh")
-(setq mh-lib "/usr/share/mailutils/mh")
-(setq mh-lib-progs mh-progs)
-(load "mh-e")
-(setq mh-variant 'gnu-mh)
-(setq mh-path "~/Media/Document/Mail/")

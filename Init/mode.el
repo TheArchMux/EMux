@@ -58,7 +58,3 @@
 
 (load-file (concat user-emacs-directory "Mode/Gnus/gnus.el"))
 
-;; Mail handler mode
-
-(load-file (concat user-emacs-directory "Mode/Mh/mh.el"))
-
