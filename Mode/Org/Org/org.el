@@ -1,1 +1,1 @@
-(setq org-directory "~/Media/Document/Emacs/Org")
+(setq org-directory "~/Media/Document/Emacs/Org/")
