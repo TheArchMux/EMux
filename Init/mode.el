@@ -30,6 +30,7 @@
 (add-hook 'org-mode-hook	'ryo-modal-mode)
 (add-hook 'prog-mode-hook	'ryo-modal-mode)
 
+(add-hook 'after-save-hook	'archmux/compile-when-config-dot-h)
 (add-hook 'find-file-hook	'archmux/append-to-project-file)
 
 ;; Enable mode

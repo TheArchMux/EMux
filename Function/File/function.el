@@ -18,3 +18,14 @@
 	(append-to-file append_string nil project_file)))
   )
 )
+
+(defun archmux/compile-when-config-dot-h ()
+  "Compile program after editing 'config.h'."
+  (interactive)
+  (let ((editing_file (file-name-nondirectory (buffer-file-name)))
+    (file_comparison "config.h")
+    (compile_command "doas make install"))
+    (if (string-equal editing_file file_comparison)
+	(compile compile_command))
+    )
+  )
