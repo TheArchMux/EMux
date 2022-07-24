@@ -6,6 +6,7 @@
 
 (straight-use-package 'doneburn-theme)
 (straight-use-package 'goto-last-point)
+(straight-use-package 'highlight-indent-guides)
 (straight-use-package 'humanoid-themes)
 
 (straight-use-package

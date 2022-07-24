@@ -13,6 +13,7 @@
 (require 'gnus-group)
 (require 'gnus-srvr)
 (require 'esh-mode)
+(require 'highlight-indent-guides)
 (require 'info)
 (require 'lambda-themes)
 (require 'magit)
@@ -28,6 +29,7 @@
 (add-hook 'dired-mode-hook	'ryo-modal-mode)
 (add-hook 'org-mode-hook	'ryo-modal-mode)
 (add-hook 'prog-mode-hook	'ryo-modal-mode)
+(add-hook 'prog-mode-hook	'highlight-indent-guides-mode)
 
 (add-hook 'after-save-hook	'archmux/compile-when-config-dot-h)
 (add-hook 'find-file-hook	'archmux/append-to-project-file)
@@ -49,15 +51,14 @@
 
 (load-file (concat user-emacs-directory "Mode/Gnus/gnus.el"))
 
-;; Indent guide mode
+;; Hightlight-indent-guides mode
 
-(load-file "~/Internet/Git/Emacs/Package/Utility/indent-guide/indent-guide.el")
+(load-file (concat user-emacs-directory "Mode/Highlight-Indent-Guides/highlight-indent-guides.el"))
 
 ;; Enable mode
 
 (global-hl-line-mode)
 (electric-pair-mode)
-(indent-guide-global-mode)
 (mini-frame-mode)
 (show-paren-mode)
 (scroll-bar-mode -1)
