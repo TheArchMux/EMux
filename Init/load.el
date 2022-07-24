@@ -27,6 +27,10 @@
 (load-file (concat user-emacs-directory "Ryo/load-key.el"))
 (load-file (concat user-emacs-directory "Ryo/load-mode.el"))
 
+;; Org mode
+
+(load-file (concat user-emacs-directory "Mode/Org/load.el"))
+
 ;; Visual adjustments
 
 (load-file (concat user-emacs-directory "Init/visual.el"))
