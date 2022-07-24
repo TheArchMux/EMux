@@ -13,6 +13,7 @@
  '(lamba-themes :type git :host github :repo "lambda-emacs/lambda-themes")
 )
 
+(straight-use-package 'load-relative)
 (straight-use-package 'no-littering)
 (straight-use-package 'magit)
 (straight-use-package 'mini-frame)

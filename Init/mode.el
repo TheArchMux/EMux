@@ -16,6 +16,7 @@
 (require 'highlight-indent-guides)
 (require 'info)
 (require 'lambda-themes)
+(require 'load-relative)
 (require 'magit)
 (require 'make-mode)
 (require 'mini-frame)
