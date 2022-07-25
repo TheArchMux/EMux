@@ -5,3 +5,9 @@
 
 (load-file "~/Internet/Git/Emacs/Package/Utility/emacs-load-relative/load-relative.elc")
 
+;; Visual: font
+;;	Sarasa Mono CL
+;;	Link: https://github.com/be5invis/Sarasa-Gothic
+
+(load-relative "Configuration/Visual/font.el")
+
