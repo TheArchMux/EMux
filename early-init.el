@@ -11,6 +11,12 @@
 
 (load-relative "Configuration/Visual/font.el")
 
+;; Visual: mode
+;;	Configure modes enchaning visual asthetics
+;;	Link: https://github.com/seagle0128/.emacs.d/raw/master/early-init.el
+
+(load-relative "Configuration/Visual/mode.el")
+
 ;; Visual: theme
 ;;	Mindre
 ;;	Link: https://github.com/erikbackman/mindre-theme
