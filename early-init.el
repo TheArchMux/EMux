@@ -11,3 +11,9 @@
 
 (load-relative "Configuration/Visual/font.el")
 
+;; Visual: theme
+;;	Mindre
+;;	Link: https://github.com/erikbackman/mindre-theme
+
+(load-relative "Configuration/Visual/theme.el")
+
