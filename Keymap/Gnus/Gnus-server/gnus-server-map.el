@@ -1,6 +1,0 @@
-(define-key gnus-server-mode-map (kbd "RET")	'gnus-server-read-server-in-server-buffer)
-(define-key gnus-server-mode-map (kbd ";")	'gnus-server-read-server)
-(define-key gnus-server-mode-map (kbd "k")	'next-line)
-(define-key gnus-server-mode-map (kbd "l")	'previous-line)
-(define-key gnus-server-mode-map (kbd "o")	'gnus-server-open-server)
-(define-key gnus-server-mode-map (kbd "q")	'gnus-server-exit)
