@@ -13,9 +13,6 @@
 (when blink-cursor-mode
   (blink-cursor-mode -1))
 
-(when electric-indent-mode
-  (electric-indent-mode -1))
-
 (when file-name-shadow-mode
   (file-name-shadow-mode -1))
 

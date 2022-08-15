@@ -3,7 +3,7 @@
 ;;	Load first allowing it to be used throughout Emacs configuration
 ;;	Link: https://github.com/rocky/emacs-load-relative
 
-(load-file "~/Internet/Git/Emacs/Package/Utility/emacs-load-relative/load-relative.elc")
+(load-file "~/Internet/Git/Emacs/emacs-load-relative/load-relative.elc")
 
 ;; Visual: font
 ;;	Sarasa Mono CL
@@ -18,8 +18,20 @@
 (load-relative "Configuration/Visual/mode.el")
 
 ;; Visual: theme
-;;	Mindre
-;;	Link: https://github.com/erikbackman/mindre-theme
+;;	Load theme
 
 (load-relative "Configuration/Visual/theme.el")
+
+;; Package: no-littering
+
+(load-relative "Configuration/Miscellaneous/No-Littering/no-littering.el")
+
+;; Configuration: garbage collection
+
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6)
+
+;; Configuration: debug
+
+(load-relative "Configuration/Miscellaneous/Debug/debug.el")
 

@@ -1,0 +1,8 @@
+(global-set-key (kbd "C-c C-f C-c") 'archmux/open-collection-file)
+(global-set-key (kbd "C-c C-f C-p") 'find-file-at-point)
+(global-set-key (kbd "C-c C-a C-n") 'gnus-other-frame)
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+(global-set-key (kbd "C-j") 'newline)
+(global-set-key (kbd "C-c C-o C-a") 'org-agenda)
+(global-set-key (kbd "C-c C-o C-c") 'org-capture)
