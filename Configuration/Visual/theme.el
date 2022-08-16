@@ -9,6 +9,6 @@
 (load-file "~/Internet/Git/Emacs/autothemer/autothemer.el")
 (load-file "~/Internet/Git/Emacs/emacs-theme-cyanometric/cyanometric-theme.el")
 (load-file "~/Internet/Git/Emacs/emacs-theme-vegetative/vegetative-theme.el")
-;; (load-theme 'almost-mono-white t)
-(load-theme 'mindre t)
+(load-theme 'almost-mono-white t)
+;; (load-theme 'mindre t)
 ;; (load-theme 'cyanometric t)
