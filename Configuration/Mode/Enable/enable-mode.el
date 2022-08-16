@@ -5,7 +5,8 @@
 (savehist-mode		1)
 (show-paren-mode	1)
 
-;;(load-file "~/Internet/Git/Emacs/slow-keys/slow-keys.elc")
+(load-file "~/Internet/Git/Emacs/slow-keys/slow-keys.el")
 
-;;(slow-keys-mode)
+(slow-keys-mode)
 
+(add-to-list 'slow-keys-prohibited-command 'magit-status)
