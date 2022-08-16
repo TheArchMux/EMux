@@ -6,3 +6,5 @@
 (global-set-key (kbd "C-j") 'newline)
 (global-set-key (kbd "C-c C-o C-a") 'org-agenda)
 (global-set-key (kbd "C-c C-o C-c") 'org-capture)
+(define-key (current-global-map) [remap magit-status] 'archmux/magit-status-other-frame)
+
