@@ -43,5 +43,13 @@
   (interactive)
   (executable-make-buffer-file-executable-if-script-p))
 
+(defun archmux/find-file-conditional ()
+  "Find file using doas when necessary."
+  (interactive)
+  (find-file (read-file-name "Visit file: "))
+  (unless (and (buffer-file-name)
+	       (file-writable-p buffer-file-name))
+	       (find-alternate-file (concat "/doas:root@localhost:" buffer-file-name))))
+
 (add-hook 'find-file-hook 'archmux/append-to-collection-file)
 (add-hook 'after-save-hook 'archmux/recompile-config-dot-h)
