@@ -6,3 +6,7 @@
 
 (load-relative "File/function.el")
 
+;; Load: frame function
+
+(load-relative "Frame/function.el")
+
