@@ -1,3 +1,4 @@
+(auto-save-visited-mode 1)
 (display-time-mode	1)
 (electric-pair-mode	1)
 (global-hl-line-mode	1)
