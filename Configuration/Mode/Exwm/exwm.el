@@ -21,7 +21,7 @@
 
 (setq exwm-input-global-keys
       `(
-	(,(kbd "M-<tab>") . other-window)
+	(,(kbd "<tab>") . other-window)
 	(,(kbd "C-<tab>") . other-frame)))
 
 ;; (read-key)
