@@ -10,5 +10,5 @@
   (select-frame (make-frame-command))
   (magit-status)
   (delete-other-windows)
-  (local-set-key (kbd "q") 'delete-frame))
+  (local-set-key (kbd "q") 'archmux/kill-buffer-and-frame))
 
