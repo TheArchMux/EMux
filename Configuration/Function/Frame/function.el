@@ -1,8 +1,8 @@
 (defun archmux/kill-buffer-and-frame ()
   "Kill current buffer and totality of frame."
   (interactive)
-  (kill-buffer (current-buffer))
-  (kill-frame (frame-selected-window)))
+  (kill-this-buffer)
+  (delete-frame))
 
 (defun archmux/magit-status-other-frame ()
   "Call `magit-status' in another frame."
