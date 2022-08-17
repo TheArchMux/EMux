@@ -21,8 +21,12 @@
 
 (setq exwm-input-global-keys
       `(
-	(,(kbd "<tab>") . other-window)
-	(,(kbd "C-<tab>") . other-frame)))
+	(,(kbd "C-<tab>") . other-frame)
+	(,(kbd "M-o") . other-window)))
+
+(setq exwm-manage-configurations 
+   '(((member exwm-class-name '("llpp"))
+       char-mode t)))
 
 ;; (read-key)
 (exwm-enable)
