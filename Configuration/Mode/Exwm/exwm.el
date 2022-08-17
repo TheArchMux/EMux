@@ -21,8 +21,8 @@
 
 (setq exwm-input-global-keys
       `(
-	(,(kbd "s-<tab>") . other-window)
-	(,(kbd "s-<iso-lefttab>") . other-frame)))
+	(,(kbd "M-<tab>") . other-window)
+	(,(kbd "C-<tab>") . other-frame)))
 
 ;; (read-key)
 (exwm-enable)
