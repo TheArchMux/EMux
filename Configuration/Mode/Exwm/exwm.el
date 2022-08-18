@@ -28,5 +28,6 @@
    '(((member exwm-class-name '("llpp"))
        char-mode t)))
 
+(setq exwm-workspace-minibuffer-position 'top)
 ;; (read-key)
 (exwm-enable)
