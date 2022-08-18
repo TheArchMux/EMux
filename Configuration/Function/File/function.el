@@ -30,6 +30,8 @@
   "Open collection file."
   (interactive)
   (find-file-existing "~/Media/Document/Text/Collection-File/collection.txt")
+  (beginning-of-buffer)
+  (call-interactively (isearch-forward))
   )
 
 (defun archmux/recompile-config-dot-h ()
