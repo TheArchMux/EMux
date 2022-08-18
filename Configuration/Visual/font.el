@@ -1,3 +1,3 @@
 ;; Default font
 
-(set-face-attribute 'default nil :family "Comic Code Ligatures" :height 105)
+(set-face-attribute 'default nil :family "Comic Code Ligatures" :height 100)
