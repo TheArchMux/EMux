@@ -5,5 +5,6 @@
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "C-c o m") 'man)
 (global-set-key (kbd "C-c o w") 'woman)
+(global-set-key (kbd "C-'") 'execute-extended-command)
 (define-key (current-global-map) [remap magit-status] 'archmux/magit-status-other-frame)
 
