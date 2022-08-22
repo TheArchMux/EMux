@@ -10,9 +10,6 @@
 (when auto-encryption-mode
   (auto-encryption-mode -1))
 
-(when blink-cursor-mode
-  (blink-cursor-mode -1))
-
 (when file-name-shadow-mode
   (file-name-shadow-mode -1))
 
