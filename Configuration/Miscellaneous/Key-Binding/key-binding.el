@@ -1,6 +1,7 @@
 (global-set-key (kbd "C-c f c") 'archmux/open-collection-file)
 (global-set-key (kbd "C-c f p") 'find-file-at-point)
 (global-set-key (kbd "C-c a n") 'gnus-other-frame)
+(global-set-key (kbd "C-c a m") 'mh-rmail)
 (global-set-key (kbd "<backtab>") 'hippie-expand)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "C-c o e") 'eshell)
