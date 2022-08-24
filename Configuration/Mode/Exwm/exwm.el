@@ -21,13 +21,26 @@
 
 (setq exwm-input-global-keys
       `(
-	(,(kbd "C-<tab>") . other-frame)
-	(,(kbd "M-o") . other-window)))
+	(,(kbd "s-f s-m") . make-frame-command)
+	(,(kbd "s-f s-o") . other-frame)
+	(,(kbd "s-w s-o") . other-window)
+	(,(kbd "s-b s-s") . switch-to-buffer)
+	(,(kbd "s-f s-d") . delete-frame)))
+
+(setq exwm-workspace-number 3)
 
 (setq exwm-manage-configurations 
-   '(((member exwm-class-name '("llpp"))
-       char-mode t)))
+      '(
+	((member exwm-class-name '("Firefox")) workspace 2)
+	((member exwm-class-name '("firefox")) workspace 2)
+	((member exwm-class-name '("firefox-default")) workspace 2)
+	((member exwm-class-name '("llpp")) char-mode t)
+	))
 
-(setq exwm-workspace-minibuffer-position 'top)
+(add-hook 'exwm-update-class-hook
+	  (lambda ()
+	    (exwm-workspace-rename-buffer exwm-class-name)))
+
+;; (setq exwm-workspace-minibuffer-position 'bottom)
 ;; (read-key)
 (exwm-enable)
