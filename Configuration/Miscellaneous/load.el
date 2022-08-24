@@ -16,5 +16,3 @@
 (load-relative "Authentication/authentication.el")
 
 (load-relative "Pinentry/pinentry.el")
-
-(load-file "~/Internet/Git/Emacs/portage/portage.el")
