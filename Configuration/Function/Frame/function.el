@@ -14,5 +14,5 @@
 	(delete-other-windows)
 	(local-set-key (kbd "q") 'archmux/kill-buffer-and-frame))))
 
-(add-hook 'after-save-hook 'archmux/magit-status-other-frame)
+;; (add-hook 'after-save-hook 'archmux/magit-status-other-frame)
 
