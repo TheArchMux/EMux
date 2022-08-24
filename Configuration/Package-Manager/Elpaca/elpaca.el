@@ -26,4 +26,5 @@
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca (elpaca :host github :repo "progfolio/elpaca"))
 
-(elpaca 'magit)
+(elpaca 'magit
+	(require 'magit))
