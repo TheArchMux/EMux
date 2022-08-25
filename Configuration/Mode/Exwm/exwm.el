@@ -22,8 +22,8 @@
 (setq exwm-input-global-keys
       `(
 	(,(kbd "s-f s-m") . make-frame-command)
-	(,(kbd "s-`") . other-frame)
-	(,(kbd "s-<tab>") . other-window)
+	(,(kbd "s-<return>") . other-frame)
+	(,(kbd "s-o") . other-window)
 	(,(kbd "s-b s-s") . switch-to-buffer)
 	(,(kbd "s-f s-d") . delete-frame)))
 
