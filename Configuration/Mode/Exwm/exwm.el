@@ -1,6 +1,5 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/xelb/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/exwm/")
-;; (add-to-list 'load-path "~/Internet/Git/Emacs/switch-window/")
 
 (require 'exwm)
 (require 'exwm-config)
