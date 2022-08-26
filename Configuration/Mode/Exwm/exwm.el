@@ -24,7 +24,12 @@
 	(,(kbd "s-<return>") . other-frame)
 	(,(kbd "s-o") . other-window)
 	(,(kbd "s-b s-s") . switch-to-buffer)
-	(,(kbd "s-f s-d") . delete-frame)))
+	(,(kbd "s-f s-d") . delete-frame)
+	(,(kbd "s-j") . windmove-left)
+	(,(kbd "s-k") . windmove-down)
+	(,(kbd "s-l") . windmove-up)
+	(,(kbd "s-;") . windmove-right)
+	))
 
 (setq exwm-workspace-number 5)
 
