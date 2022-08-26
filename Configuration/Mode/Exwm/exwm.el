@@ -27,7 +27,7 @@
 	(,(kbd "s-b s-s") . switch-to-buffer)
 	(,(kbd "s-f s-d") . delete-frame)))
 
-(setq exwm-workspace-number 3)
+(setq exwm-workspace-number 5)
 
 (setq exwm-manage-configurations 
       '(
@@ -35,6 +35,7 @@
 	((member exwm-class-name '("firefox")) workspace 2)
 	((member exwm-class-name '("firefox-default")) workspace 2)
 	((member exwm-class-name '("llpp")) char-mode t)
+	((member exwm-class-name '("st-256color")) workspace 3)
 	))
 
 (add-hook 'exwm-update-class-hook
@@ -44,3 +45,6 @@
 ;; (setq exwm-workspace-minibuffer-position 'bottom)
 ;; (read-key)
 (exwm-enable)
+
+
+
