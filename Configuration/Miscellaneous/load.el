@@ -15,4 +15,6 @@
 
 (load-relative "Authentication/authentication.el")
 
+(load-relative "Debug/debug.el")
+
 (load-relative "Pinentry/pinentry.el")
