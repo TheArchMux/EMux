@@ -14,8 +14,6 @@
 
 (load-relative "Mailutils/mailutils.el")
 
-(load-relative "Pulsar/pulsar.el")
-
 (load-relative "Purpose/purpose.el")
 
 (load-relative "Tmr/tmr.el")
