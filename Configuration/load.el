@@ -1,7 +1,3 @@
-;; Load: configuration pertaining to package-manager
-
-(load-relative "Package-Manager/Elpaca/elpaca.el")
-
 ;; Load: miscellaneous configuration
 
 (load-relative "Miscellaneous/load.el")
@@ -18,3 +14,6 @@
 
 (load-relative "Edit/load.el")
 
+;; Load: visual configuration
+
+(load-relative "Visual/load.el")
