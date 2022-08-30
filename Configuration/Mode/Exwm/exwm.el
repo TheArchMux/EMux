@@ -29,7 +29,7 @@
 	(,(kbd "s-k") . windmove-down)
 	(,(kbd "s-l") . windmove-up)
 	(,(kbd "s-;") . windmove-right)
-	))
+	(,(kbd "C-<tab>") . ryo-modal-mode)))
 
 (setq exwm-workspace-number 5)
 
