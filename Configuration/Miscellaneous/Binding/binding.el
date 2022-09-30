@@ -1,0 +1,5 @@
+(global-set-key (kbd "C-c a m") 'mh-rmail)
+(global-set-key (kbd "C-c f r") 'recentf-open-more-files)
+(global-set-key (kbd "C-c f p") 'find-file-at-point)
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
