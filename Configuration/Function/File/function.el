@@ -14,3 +14,9 @@
       (if (not (file-exists-p destination-file))
 	  (make-directory destination-file t))))
 
+(defun wymux/save-buffer-compile-config-h ()
+  "Execute make install when file is named 'config.h'"
+  (interactive)
+  (let ((current-file-name (file-name-nondirectory (buffer-file-name))))
+    (if (string= current-file-name "config.h")
+	(compile "doas make install"))))
