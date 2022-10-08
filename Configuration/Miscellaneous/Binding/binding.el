@@ -1,4 +1,8 @@
+(global-set-key (kbd "C-c a e") 'eshell)
+(global-set-key (kbd "C-c a h") 'man)
 (global-set-key (kbd "C-c a m") 'mh-rmail)
+(global-set-key (kbd "C-c f e") 'wymux/find-exheres)
+(global-set-key (kbd "C-c f n") 'find-name-dired)
 (global-set-key (kbd "C-c f r") 'recentf-open-more-files)
 (global-set-key (kbd "C-c f p") 'find-file-at-point)
 (global-set-key (kbd "M-/") 'hippie-expand)
