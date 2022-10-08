@@ -5,5 +5,7 @@
 (global-set-key (kbd "C-c f n") 'find-name-dired)
 (global-set-key (kbd "C-c f r") 'recentf-open-more-files)
 (global-set-key (kbd "C-c f p") 'find-file-at-point)
+(global-set-key (kbd "<f7>") 'wymux/enable-light-theme)
+(global-set-key (kbd "<f8>") 'wymux/enable-dark-theme)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
