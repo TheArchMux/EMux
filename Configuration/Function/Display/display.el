@@ -2,12 +2,12 @@
   "Enable dark theme."
   (interactive)
   (disable-theme wymux--theme)
-  (setq wymux--theme 'tao-yin)
+  (setq wymux--theme 'lambda-dark)
   (load-theme wymux--theme t))
 
 (defun wymux/enable-light-theme ()
   "Enable light theme."
   (interactive)
   (disable-theme wymux--theme)
-  (setq wymux--theme 'tao-yang)
+  (setq wymux--theme 'lambda-light)
   (load-theme wymux--theme t))
