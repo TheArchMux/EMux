@@ -12,21 +12,13 @@
 ;;
 ;;
 
-(setq window-divider-default-bottom-width 2)
-(setq window-divider-default-right-width 2)
-
-;; Configuration
-;;
-;;
-
 (auto-insert-mode               1)
-(auto-save-mode                 1)
+(auto-save-mode			1)
+(auto-save-visited-mode         1)
 (fringe-mode			2)
 (global-hl-line-mode            1)
 (savehist-mode			1)
 (window-divider-mode		1)
-
-;; (set-face-attribute hl-line-face nil :background "#EEEEEE")
 
 ;; Enable modes disabled by default
 ;;
@@ -36,14 +28,30 @@
 
 (zoom-mode 1)
 
-
-
 (setq zoom-size '(0.538 . 0.538))
  
-(fido-vertical-mode 1)
+(fido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
 (setq ido-everywhere t)
+
+
+(load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
+(load-file "~/Internet/File/sr-speedbar.el")
+(load-file "~/Internet/File/c-eldoc.el")
+
+(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+(add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
+
+(setq c-eldoc-cpp-command "/usr/bin/clang")
+(setq c-eldoc-cpp-macro-arguments "-dD -w -P")
+(setq c-eldoc-cpp-normal-arguments "-w -P")
+(setq c-eldoc-includes "`pkg-config glfw --libs` -I./ -I../ ") ;; include flags
+
+(add-hook 'c-mode-common-hook
+	  (lambda ()
+	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+	      (ggtags-mode 1))))
 
 ;; Non-standard minor modes
 ;;
