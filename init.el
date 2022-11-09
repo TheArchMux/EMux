@@ -1,7 +1,9 @@
+(require 'exheres-mode)
+
 (load-file (concat user-emacs-directory "Configuration/Mode/Exwm/exwm.el"))
 
 ;; Exwm Configuration
-;; 
+;;
 ;;
 
 (load-file (concat user-emacs-directory "Configuration/File/Backup/backup.el"))
@@ -54,6 +56,8 @@
 
 (load-file (concat user-emacs-directory "Configuration/Mode/Pass/pass.el"))
 
+(load-file (concat user-emacs-directory "Configuration/Function/Display/display.el"))
+
 ;; Pass mode
 ;;
 ;;
@@ -71,3 +75,6 @@
 ;;
 
 (load-file (concat user-emacs-directory "Configuration/Miscellaneous/Config/config.el"))
+(load-file (concat user-emacs-directory "Configuration/Function/Exherbo/exherbo.el"))
+(load-file (concat user-emacs-directory "Configuration/Function/File/function.el"))
+(load-file (concat user-emacs-directory "Configuration/Function/File/hook.el"))
