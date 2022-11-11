@@ -113,7 +113,8 @@
  kw-command-file-and-buffer
  (keywork--make-map
   :map
-  `(("f f" find-file)
+  `(("f d" dired-jump)
+    ("f f" find-file)
     ("f n" find-name-dired)
     ("f r" recentf-open-more-files)
     ("f s" save-buffer))))
@@ -157,9 +158,3 @@
 (add-hook 'minibuffer-exit-hook (kw-on 'kw-command))
 (push (lambda (_) (keywork-refresh)) window-selection-change-functions)
 (push (lambda (_) (keywork-refresh)) window-buffer-change-functions)
-
-(defadvice ido-find-file (after find-file-sudo activate)
-  "Find file as root if necessary."
-  (unless (and buffer-file-name
-               (file-writable-p buffer-file-name))
-    (find-alternate-file (concat "/doas:root@localhost:" buffer-file-name))))
