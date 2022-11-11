@@ -24,4 +24,5 @@
 (defun wymux/reset-search ()
   "Reset search."
   (interactive)
-  (setq search-string (read-string "Search string: " search-string)))
+  (setq search-string (read-string "Search string: "))
+  (wymux/search-forward))
