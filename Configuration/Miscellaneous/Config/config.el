@@ -66,6 +66,7 @@
 (keywork--add-child 'kw-command 'kw-command-help)
 (keywork--add-child 'kw-command 'kw-command-eval)
 (keywork--add-child 'kw-command 'kw-command-narrow)
+(keywork--add-child 'kw-command 'kw-command-mark)
 
 (setq
  kw-command-mode-select
@@ -118,6 +119,7 @@
   :map
   `(("d d" kill-whole-line)
     ("d p" kill-paragraph)
+    ("d r" kill-region)
     ("d s" kill-sexp)
     ("D" kill-line))))
 
@@ -172,6 +174,12 @@
     ("' p" narrow-to-page)
     ("' r" narrow-to-region)
     ("' w" widen))))
+
+(setq
+ kw-command-mark
+ (keywork--make-map
+  :map
+  `(("m b" mark-whole-buffer))))
 
 (keywork-mode)
 (funcall (kw-on 'kw-command))
