@@ -1,3 +1,10 @@
+(require 'autoinsert)
+
+(setq auto-insert-directory (expand-file-name "Configuration/Mode/Auto-Insert/" user-emacs-directory))
+
+(setq auto-insert-alist '(
+			  (makefile-mode	. "makefile.template")))
+
 (setq recentf-max-saved-items 1000)
 (setq recentf-max-menu-items 1000)
 (setq use-short-answers t)
@@ -6,25 +13,7 @@
 (setq mail-user-agent 'mh-e-user-agent)
 (setq exheres-skeleton-realname "Edward Bates")
 
-(eval-after-load 'autoinsert
-  '(define-auto-insert '("Makefile\\'" . "Makefile insert")
-     '(
-       "Short description: "
-       "CC = gcc" \n
-       "CFLAGS = -g" \n
-       "LDFLAGS = " \n \n
-       "PROG = program" \n
-       "SRC = ${PROG}.c" \n
-       "OBJ = ${PROG}.o" \n
-       "all: ${PROG}" \n \n
-       "${OBJ}: ${SRC}" \n >
-       "${CC} -c ${SRC} ${CFLAGS}" \n
-       "${PROG}: ${OBJ}" \n >
-       "${CC} -o $@ ${OBJ} ${LDFLAGS}" \n
-       )
-     )
-  )
-
+(set-register ?b '(file . "~/.local/bin/"))
 (set-register ?g '(file . "~/Internet/Git/"))
 (set-register ?p '(file . "~/Media/Document/Programming/"))
 
@@ -75,6 +64,8 @@
 (keywork--add-child 'kw-command 'kw-command-digit)
 (keywork--add-child 'kw-command 'kw-command-kill)
 (keywork--add-child 'kw-command 'kw-command-help)
+(keywork--add-child 'kw-command 'kw-command-eval)
+(keywork--add-child 'kw-command 'kw-command-narrow)
 
 (setq
  kw-command-mode-select
@@ -116,8 +107,10 @@
   `(("f d" dired-jump)
     ("f f" find-file)
     ("f n" find-name-dired)
+    ("f p" find-file-at-point)
     ("f r" recentf-open-more-files)
-    ("f s" save-buffer))))
+    ("f s" save-buffer)
+    ("r j" jump-to-register))))
 
 (setq
  kw-command-kill
@@ -132,9 +125,18 @@
  kw-command-help
  (keywork--make-map
   :map
-  `(("h d c" describe-key)
+  `(("h a c" apropos-command)
+    ("h a d" apropos-documentation)
+    ("h a f" apropos-function)
+    ("h a l" apropos-library)
+    ("h a v" apropos-variable)
+    ("h a x" apropos-value)
+    ("h d c" describe-key)
     ("h d f" describe-function)
-    ("h i" info)
+    ("h d v" describe-variable)
+    ("h d x" describe-value)
+    ("h i a" info-apropos)
+    ("h i i" info)
     ("h m" man))))
 
 (setq
@@ -151,6 +153,25 @@
     ("7" digit-argument)
     ("8" digit-argument)
     ("9" digit-argument))))
+
+(setq
+ kw-command-eval
+ (keywork--make-map
+  :map
+  `(("x e b" eval-buffer)
+    ("x e d" eval-defun)
+    ("x e e" eval-expression)
+    ("x e l" eval-last-sexp)
+    ("x e r" eval-region))))
+
+(setq
+ kw-command-narrow
+ (keywork--make-map
+  :map
+  `(("' d" narrow-to-defun)
+    ("' p" narrow-to-page)
+    ("' r" narrow-to-region)
+    ("' w" widen))))
 
 (keywork-mode)
 (funcall (kw-on 'kw-command))
