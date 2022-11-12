@@ -20,6 +20,9 @@
 (savehist-mode			1)
 (window-divider-mode		1)
 
+;; (setq-default scroll-lock-mode  nil)
+(set-face-attribute hl-line-face nil :background "#DDDDDD")
+
 ;; Enable modes disabled by default
 ;;
 ;;
@@ -35,7 +38,6 @@
 (setq ido-use-filename-at-point 'guess)
 (setq ido-everywhere t)
 
-
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
 (load-file "~/Internet/File/sr-speedbar.el")
 (load-file "~/Internet/File/c-eldoc.el")
@@ -48,6 +50,10 @@
 (setq c-eldoc-cpp-normal-arguments "-w -P")
 (setq c-eldoc-includes "`pkg-config glfw --libs` -I./ -I../ ") ;; include flags
 
+(setq window-divider-default-places t)
+(setq window-divider-default-bottom-width 4)
+(setq window-divider-default-right-width 4)
+
 (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
@@ -56,4 +62,14 @@
 ;; Non-standard minor modes
 ;;
 ;;
+
+(add-hook 'compilation-finish-functions
+  (lambda (buf str)
+    (if (null (string-match ".*exited abnormally.*" str))
+        ;;no errors, make the compilation window go away in a few seconds
+        (progn
+          (run-at-time
+           "2 sec" nil 'delete-windows-on
+           (get-buffer-create "*compilation*"))
+          (message "No Compilation Errors!")))))
 
