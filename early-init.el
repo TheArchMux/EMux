@@ -10,11 +10,19 @@
 
 (require 'no-littering)
 
-(setq wymux--theme 'lambda-light)
+(setq wymux--theme 'brutalist)
 
-(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
-(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
-(require 'lambda-themes)
+(set-face-attribute 'default nil :family  "Iosevka" :height 120 :weight 'normal)
+(set-face-attribute 'variable-pitch nil :family "Iosevka" :height 1.0)
+(set-face-attribute 'fixed-pitch nil :family "Iosevka" :height 1.0)
+(set-face-attribute 'mode-line nil :font "Iosevka" :height 120)
+(set-face-attribute 'mode-line-buffer-id nil :font "Iosevka" :height 120)
+(set-face-attribute 'mode-line-emphasis nil :font "Iosevka" :height 120)
+(set-face-attribute 'minibuffer-prompt nil :font "Iosevka" :height 120)
+(set-face-attribute 'feebleline-dir-face nil :font "Iosevka" :height 120)
+
+(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
+(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
 
 (load-theme wymux--theme t)
 (setq window-divider-default-places t)
@@ -25,11 +33,7 @@
 (fringe-mode 0)
 (recentf-mode 1)
 
-(set-face-attribute 'default nil :family  "Iosevka" :height 120 :weight 'normal)
-(setq-default line-spacing 0.00)
 (setq initial-buffer-choice 'recentf-open-more-files)
-
-(setq wymux--light-theme 'lambda-light)
-(setq wymux--dark-theme 'lambda-dark) 
-
+(setq wymux--light-theme 'brutalist)
+(setq wymux--dark-theme 'brutalist-dark) 
 (global-font-lock-mode -1)
