@@ -42,8 +42,6 @@
 (load-file "~/.config/emacs/Configuration/Function/Modal/modal.el")
 (load-file "~/Internet/Git/Emacs/Modal/KeyWork/keywork.el")
 
-(setq-default window-divider-default-places t)
-
 (setq
  kw-insert
  (keywork--make-map
