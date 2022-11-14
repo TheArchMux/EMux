@@ -95,3 +95,9 @@
 ;; File operation hook
 ;;
 ;;
+
+(load-file (concat user-emacs-directory "Configuration/Mode/Keywork/keywork.el"))
+
+;; Keywork modal definiton
+;;
+;;
