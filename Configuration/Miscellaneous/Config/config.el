@@ -41,6 +41,8 @@
 (load-file "~/.config/emacs/Configuration/Function/Modal/modal.el")
 (load-file "~/Internet/Git/Emacs/Modal/KeyWork/keywork.el")
 
+(setq-default window-divider-default-places t)
+
 (setq
  kw-insert
  (keywork--make-map
@@ -51,6 +53,7 @@
 (setq
  kw-command
  (keywork--make-map
+  :color "#CD5C5C"
   :map
   `(("a" execute-extended-command)
     ("u" undo)
