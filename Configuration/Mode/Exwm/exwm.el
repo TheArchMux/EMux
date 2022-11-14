@@ -50,6 +50,8 @@
 	([?\s-\;] . windmove-right)
 	([?\s-x] . kill-buffer)))
 
+(setq exwm-workspace-minibuffer-position 'top)
+
 (exwm-enable)
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
