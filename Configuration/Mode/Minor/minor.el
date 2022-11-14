@@ -36,10 +36,11 @@
 ;;
 ;;
 
-(fido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point 'guess)
-(setq ido-everywhere t)
+(load-file (concat user-emacs-directory "Configuration/Mode/Ido/ido.el"))
+
+;; Define `ido-mode' variables
+;;
+;;
 
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
 
