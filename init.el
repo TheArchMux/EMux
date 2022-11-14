@@ -79,6 +79,25 @@
 ;;
 
 (load-file (concat user-emacs-directory "Configuration/Miscellaneous/Config/config.el"))
+
+;; Miscellaneous configuration
+;;
+;;
+
 (load-file (concat user-emacs-directory "Configuration/Function/Exherbo/exherbo.el"))
+
+;; Exherbo function
+;;
+;;
+
 (load-file (concat user-emacs-directory "Configuration/Function/File/function.el"))
+
+;; File function
+;;
+;;
+
 (load-file (concat user-emacs-directory "Configuration/Function/File/hook.el"))
+
+;; File operation hook
+;;
+;;
