@@ -42,14 +42,9 @@
 ;;
 ;;
 
-(load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
+(load-file (concat user-emacs-directory "Configuration/Mode/GGtags/ggtags.el"))
 
-(add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-	      (ggtags-mode 1))))
-
-;; Non-standard minor modes
-;;
+;; gg-tags mode
+;; https://github.com/leoliu/ggtags
 ;;
 
