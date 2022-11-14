@@ -24,12 +24,12 @@
 ;;
 ;;
 
-(load-file "~/Internet/Git/Emacs/Mode/zoom/zoom.el")
+(load-file (concat user-emacs-directory "Configuration/Mode/Zoom/zoom.el"))
 
-(zoom-mode 1)
+;; Resize focus window automatically: Zoom Mode
+;; https://github.com/cyrus-and/zoom
+;;
 
-(setq zoom-size '(0.538 . 0.538))
- 
 (fido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
