@@ -54,12 +54,6 @@
 ;;
 ;;
 
-(load-file (concat user-emacs-directory "Configuration/Mode/Pass/pass.el"))
-
-;; Pass mode
-;;
-;;
-
 (load-file (concat user-emacs-directory "Configuration/Function/Display/display.el"))
 
 ;; Appearance function
