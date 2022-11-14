@@ -37,6 +37,7 @@
 
 (load-file "~/Internet/Git/Emacs/Modeline/feebleline/feebleline.el")
 (feebleline-mode 1)
+(set-face-attribute 'feebleline-dir-face nil :font "Iosevka" :height 120)
 
 (load-file "~/.config/emacs/Configuration/Function/Modal/modal.el")
 (load-file "~/Internet/Git/Emacs/Modal/KeyWork/keywork.el")
@@ -94,7 +95,9 @@
     ("]" backward-paragraph)
     ("n" wymux/search-forward)
     ("N" wymux/search-backward)
-    ("/" wymux/reset-search))))
+    ("/" wymux/reset-search)
+    ("C-[" end-of-buffer)
+    ("C-]" beginning-of-buffer))))
 
 (setq
  kw-command-program
