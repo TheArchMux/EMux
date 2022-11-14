@@ -38,8 +38,8 @@
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
 
 (setq window-divider-default-places t)
-(setq window-divider-default-bottom-width 4)
-(setq window-divider-default-right-width 4)
+(setq window-divider-default-bottom-width 2)
+(setq window-divider-default-right-width 2)
 
 (add-hook 'c-mode-common-hook
 	  (lambda ()
