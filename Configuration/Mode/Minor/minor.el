@@ -20,9 +20,6 @@
 (savehist-mode			1)
 (window-divider-mode		1)
 
-;; (setq-default scroll-lock-mode  nil)
-(set-face-attribute hl-line-face nil :background "#DDDDDD")
-
 ;; Enable modes disabled by default
 ;;
 ;;
@@ -39,7 +36,6 @@
 (setq ido-everywhere t)
 
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
-(load-file "~/Internet/File/sr-speedbar.el")
 (load-file "~/Internet/File/c-eldoc.el")
 
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
