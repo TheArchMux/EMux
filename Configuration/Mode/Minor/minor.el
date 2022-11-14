@@ -36,15 +36,6 @@
 (setq ido-everywhere t)
 
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
-(load-file "~/Internet/File/c-eldoc.el")
-
-(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-(add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
-
-(setq c-eldoc-cpp-command "/usr/bin/clang")
-(setq c-eldoc-cpp-macro-arguments "-dD -w -P")
-(setq c-eldoc-cpp-normal-arguments "-w -P")
-(setq c-eldoc-includes "`pkg-config glfw --libs` -I./ -I../ ") ;; include flags
 
 (setq window-divider-default-places t)
 (setq window-divider-default-bottom-width 4)
