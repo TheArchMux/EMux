@@ -1,9 +1,10 @@
 (setq emms-source-file-default-directory "~/Media/Musica/")
 (setq emms-player-mpd-music-directory "~/Media/Musica/")
 
-(require 'emms-setup)
-(require 'emms-player-mpd)
+(require 'emms-info-exiftool)
 (require 'emms-mark)
+(require 'emms-player-mpd)
+(require 'emms-setup)
 
 (emms-history-load)
 (emms-minimalistic)
@@ -15,7 +16,6 @@
 
 (setq emms-source-file-directory-tree-function 'emms-source-file-directory-tree-find)
 
-(require 'emms-info-exiftool)
 (setq emms-info-functions '(emms-info-exiftool))
 
 (emms-browser-make-filter
