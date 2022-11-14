@@ -25,7 +25,6 @@
 (add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
 
 (load-theme wymux--theme t)
-(setq window-divider-default-places t)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -34,6 +33,9 @@
 (recentf-mode 1)
 
 (setq initial-buffer-choice 'recentf-open-more-files)
+(setq window-divider-default-places t)
+
 (setq wymux--light-theme 'brutalist)
 (setq wymux--dark-theme 'brutalist-dark) 
+
 (global-font-lock-mode -1)
