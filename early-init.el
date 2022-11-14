@@ -32,7 +32,6 @@
 (recentf-mode 1)
 
 (setq initial-buffer-choice 'recentf-open-more-files)
-(setq window-divider-default-places t)
 
 (setq wymux--light-theme 'brutalist)
 (setq wymux--dark-theme 'brutalist-dark) 
