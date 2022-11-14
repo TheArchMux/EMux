@@ -30,16 +30,18 @@
 ;; https://github.com/cyrus-and/zoom
 ;;
 
+(load-file (concat user-emacs-directory "Configuration/Mode/Window-Divider/window_divider.el"))
+
+;; Define `window-divider-mode' variables
+;;
+;;
+
 (fido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
 (setq ido-everywhere t)
 
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
-
-(setq window-divider-default-places t)
-(setq window-divider-default-bottom-width 2)
-(setq window-divider-default-right-width 2)
 
 (add-hook 'c-mode-common-hook
 	  (lambda ()
