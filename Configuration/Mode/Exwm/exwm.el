@@ -40,7 +40,7 @@
 	([?\s-m] . make-frame-command)
 	([?\s-d] . delete-frame)
 	([?\s-w] . delete-window)
-	([?\s-q] . wimux/exwm-kill)
+	([?\s-q] . wymux/exwm-kill)
 	([?\s-2] . split-window-vertically)
 	([?\s-3] . split-window-horizontally)
 	([?\s-b] . switch-to-buffer)
