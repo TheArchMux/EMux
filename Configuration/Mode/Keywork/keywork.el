@@ -16,7 +16,8 @@
   `(("a" execute-extended-command)
     ("u" undo)
     ("v" set-mark-command)
-    ("y" yank))))
+    ("y" yank)
+    ("C-r" query-replace))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
