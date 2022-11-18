@@ -1,6 +1,9 @@
 (defvar exheres-directory nil
   "Exheres local directory.")
 
+(defvar paludis-cache-file nil
+  "File generated with paludis containing all packages.")
+
 (defun wymux/find-exheres ()
   "Find exheres in exheres-directory."
   (interactive)
@@ -9,3 +12,5 @@
     (find-dired exheres-directory find-args)))
 
 (setq exheres-directory "~/Internet/Git/Exherbo/")
+
+(setq paludis-cache-file "~/.cache/cave_all")
