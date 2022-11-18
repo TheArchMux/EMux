@@ -1,0 +1,15 @@
+CC = gcc
+CFLAGS = -g -Wall
+LDFLAGS =
+
+PROG = program
+SRC = ${PROG}.c
+OBJ = ${PROG}.o
+
+all: ${PROG}
+
+${OBJ}: ${SRC}
+	${CC} -c ${SRC} ${CFLAGS}
+
+${PROG}: ${OBJ}
+	${CC} -o $@ ${OBJ} ${LDFLAGS}
