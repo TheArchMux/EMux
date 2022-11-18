@@ -5,6 +5,22 @@
 	  (lambda ()
 	    (dired-hide-details-mode)))
 
+(defun wymux/dired-ediff-mark ()
+  "Ediff marked dired file."
+  (interactive)
+  (let* ((files (dired-get-marked-files)))
+    (if (<= (length files) 2)
+	(let ((file1 (car files))
+	      (file2 (if (cdr files)
+			 (cadr files)
+		       (read-file-name
+			"file: "
+			(dired-dwim-target-directory)))))
+	  (if (file-newer-than-file-p file1 file2)
+	      (ediff-files file2 file1)
+	    (ediff-files file1 file2))
+      (error "Only 2 files can be marked.")))))
+
 (defun wymux/dired-open()
   ""
   (interactive)
