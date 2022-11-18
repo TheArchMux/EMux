@@ -15,6 +15,10 @@
   "Return category of package."
   (string-trim-right package "\/[A-Za-z]+"))
 
+(defun wymux/extract--package (package)
+  "Return category of package."
+  (string-trim-left package "[-A-Za-z]+\/"))
+
 (defun wymux/read--package-from-cache ()
   "Return one line from `paludis-cache-file'."
   (let ((all-packages (with-temp-buffer
