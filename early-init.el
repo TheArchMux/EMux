@@ -12,13 +12,10 @@
 
 (setq wymux--theme 'brutalist)
 
-(set-face-attribute 'default nil :family  "Iosevka" :height 120 :weight 'normal)
-(set-face-attribute 'fixed-pitch nil :family "Iosevka" :height 1.0)
-(set-face-attribute 'minibuffer-prompt nil :font "Iosevka" :height 120)
-(set-face-attribute 'mode-line nil :font "Iosevka" :height 120)
-(set-face-attribute 'mode-line-buffer-id nil :font "Iosevka" :height 120)
-(set-face-attribute 'mode-line-emphasis nil :font "Iosevka" :height 120)
-(set-face-attribute 'variable-pitch nil :family "Iosevka" :height 1.0)
+(set-face-attribute 'default nil :family  "Cozette" :height 90 :weight 'normal)
+(set-face-attribute 'fixed-pitch nil :family "Cozette" :height 1.0)
+(set-face-attribute 'minibuffer-prompt nil :font "Cozette" :height 80)
+(set-face-attribute 'variable-pitch nil :family "Cozette" :height 1.0)
 
 (add-to-list 'load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
 (add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
