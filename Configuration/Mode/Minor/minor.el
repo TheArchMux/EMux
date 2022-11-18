@@ -24,12 +24,6 @@
 ;;
 ;;
 
-(load-file (concat user-emacs-directory "Configuration/Mode/Zoom/zoom.el"))
-
-;; Resize focus window automatically: Zoom Mode
-;; https://github.com/cyrus-and/zoom
-;;
-
 (load-file (concat user-emacs-directory "Configuration/Mode/Window-Divider/window_divider.el"))
 
 ;; Define `window-divider-mode' variables
