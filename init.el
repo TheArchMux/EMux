@@ -44,7 +44,13 @@
 
 (load-file (concat user-emacs-directory "Configuration/Mode/Dired/dired.el"))
 
-;; Dired mode configuration
+;; Ediff mode configuration
+;;
+;;
+
+(load-file (concat user-emacs-directory "Configuration/Mode/Ediff/ediff.el"))
+
+;; Emms mode configuration
 ;;
 ;;
 
