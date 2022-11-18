@@ -14,6 +14,12 @@
 	(find-args (concat "-name " exheres-file "*.ex*")))
     (find-dired exheres-directory find-args)))
 
+(defun wymux/insert-package-cache ()
+  "Insert package from cache file."
+  (interactive)
+  (let* ((package (wymux/read--package-from-cache)))
+    (insert package)))
+
 (defun wymux/make-directory-tree ()
   "Make diirectory category/package in `exheres-directory'."
   (interactive)
