@@ -21,6 +21,4 @@
 (emms-browser-make-filter
  "all-files" (emms-browser-filter-only-type 'file))
 
-(emms-player-mpd-connect)
-
 (add-hook 'emms-playlist-cleared-hook 'emms-player-mpd-clear)
