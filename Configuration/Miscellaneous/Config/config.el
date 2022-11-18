@@ -14,6 +14,7 @@
 (setq exheres-skeleton-realname "Edward Bates")
 
 (set-register ?b '(file . "~/.local/bin/"))
+(set-register ?e '(file . "~/Internet/Compressed/Package/Exherbo/"))
 (set-register ?g '(file . "~/Internet/Git/"))
 (set-register ?p '(file . "~/Media/Document/Programming/"))
 
