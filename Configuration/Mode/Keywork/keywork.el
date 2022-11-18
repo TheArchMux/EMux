@@ -17,7 +17,8 @@
     ("u" undo)
     ("v" set-mark-command)
     ("y" yank)
-    ("C-r" query-replace))))
+    ("C-r" query-replace)
+    ("C-\\" magit-status))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
