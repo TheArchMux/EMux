@@ -11,6 +11,10 @@
 	(find-args (concat "-name " exheres-file "*.ex*")))
     (find-dired exheres-directory find-args)))
 
+(defun wymux/extract--category (package)
+  "Return category of package."
+  (string-trim-right package "\/[A-Za-z]+"))
+
 (defun wymux/read--package-from-cache ()
   "Return one line from `paludis-cache-file'."
   (let ((all-packages (with-temp-buffer
