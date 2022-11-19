@@ -71,6 +71,7 @@
  (keywork--make-map
   :map
   `(("f d" dired-jump)
+    ("f e" wymux/find-exheres)
     ("f f" find-file)
     ("f n" find-name-dired)
     ("f p" find-file-at-point)
