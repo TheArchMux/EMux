@@ -14,6 +14,11 @@
       (if (not (file-exists-p destination-file))
 	  (make-directory destination-file t))))
 
+(defun wymux/insert-file-into-buffer ()
+  "Insert file path into buffer."
+  (interactive)
+  (insert (read-file-name "File: ")))
+
 (defun wymux/save-buffer-compile-config-h ()
   "Execute make install when file is named 'config.h'"
   (interactive)
