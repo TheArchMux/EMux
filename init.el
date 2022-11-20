@@ -78,6 +78,12 @@
 ;;
 ;;
 
+(load-file (concat user-emacs-directory "Configuration/Function/CC/cc.el"))
+
+;; CC function
+;;
+;;
+
 (load-file (concat user-emacs-directory "Configuration/Mode/Paludis/paludis.el"))
 
 ;; Paludis function
