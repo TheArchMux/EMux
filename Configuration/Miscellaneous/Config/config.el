@@ -38,3 +38,6 @@
 
 (load-file "~/Internet/Git/Emacs/Modeline/feebleline/feebleline.el")
 (feebleline-mode 1)
+
+(load-file "~/Internet/Git/Emacs/Utility/goto-last-point/goto-last-point.el")
+(goto-last-point-mode)

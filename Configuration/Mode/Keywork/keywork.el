@@ -18,7 +18,8 @@
     ("v" set-mark-command)
     ("y" yank)
     ("C-r" query-replace)
-    ("C-\\" magit-status))))
+    ("C-\\" magit-status)
+    ("g" goto-last-point))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
