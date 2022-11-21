@@ -11,7 +11,7 @@
 (setq sentence-end-double-space t)
 (setq mh-send-uses-spost-flag t)
 (setq mail-user-agent 'mh-e-user-agent)
-(setq exheres-skeleton-realname "Edward Bates")
+(setq exheres-skeleton-realname "Edward Bates <gitmux@stemux.com>")
 
 (set-register ?b '(file . "~/.local/bin/"))
 (set-register ?e '(file . "~/Internet/Compressed/Package/Exherbo/"))
