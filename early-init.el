@@ -10,7 +10,7 @@
 
 (require 'no-littering)
 
-(setq wymux--theme 'brutalist)
+(setq wymux--theme 'lambda-light)
 
 (set-face-attribute 'default nil :family  "Cozette" :height 90 :weight 'normal)
 (set-face-attribute 'fixed-pitch nil :family "Cozette" :height 1.0)
@@ -19,6 +19,9 @@
 
 (add-to-list 'load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
 (add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
+
+(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
+(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
 
 (load-theme wymux--theme t)
 
@@ -30,7 +33,7 @@
 
 (setq initial-buffer-choice 'recentf-open-more-files)
 
-(setq wymux--light-theme 'brutalist)
+(setq wymux--light-theme 'lambda-light)
 (setq wymux--dark-theme 'brutalist-dark) 
 
 (global-font-lock-mode -1)
