@@ -1,3 +1,8 @@
+(defun wymux/doas-edit ()
+  "Elevate permissions with doas."
+  (unless (file-writable-p buffer-file-name)
+    (find-alternate-file (concat "/doas:root@localhost:" buffer-file-name))))
+
 (defun wymux/exheres-ediff ()
   "Ediff between two files."
   (interactive)
