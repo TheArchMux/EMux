@@ -12,6 +12,7 @@
 (global-set-key (kbd "M-[") 'hippie-expand)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
+(define-key dired-mode-map (kbd "C-d") 'wymux/dired-open)
 (define-key exlib-mode-map (kbd "C-c m d") 'exheres-add-dependency)
 (define-key exlib-mode-map (kbd "C-c m o") 'exheres-add-option)
 (define-key exheres-mode-map (kbd "C-c m d") 'exheres-add-dependency)
