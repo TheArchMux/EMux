@@ -1,3 +1,16 @@
+(defun wymux/clear-function ()
+  "Kill contents of c-function"
+  (interactive)
+  (c-beginning-of-defun)
+  (search-forward "{")
+  (forward-char)
+  (set-mark-command 1)
+  (c-end-of-defun)
+  (search-backward "}")
+  (backward-char)
+  (kill-region (mark) (point))
+  (insert "\n\t"))
+
 (defun wymux/convert-declaration-to-prototype ()
   "Convert all declarations to prototypes."
   (interactive)
