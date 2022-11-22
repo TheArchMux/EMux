@@ -19,7 +19,8 @@
     ("y" yank)
     ("C-r" query-replace)
     ("C-\\" magit-status)
-    ("g" goto-last-point))))
+    ("g" goto-last-point)
+    ("z" zap-up-to-char))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
@@ -76,7 +77,7 @@
     ("f f" find-file)
     ("f n" find-name-dired)
     ("f p" find-file-at-point)
-    ("f r" recentf-open-more-files)
+    ("f r" wymux/recentf-find)
     ("f s" save-buffer)
     ("r j" jump-to-register))))
 
