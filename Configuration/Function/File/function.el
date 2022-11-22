@@ -27,7 +27,7 @@
 (defun wymux/recentf-find ()
   "Recent find."
   (interactive)
-  (find-file (ido-completing-read "File: " recentf-list)))
+  (find-file (completing-read "File: " recentf-list)))
 
 (defun wymux/save-buffer-compile-config-h ()
   "Execute make install when file is named 'config.h'"
