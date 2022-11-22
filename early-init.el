@@ -10,18 +10,18 @@
 
 (require 'no-littering)
 
-(setq wymux--theme 'lambda-light)
+(setq wymux--theme 'lambda-light-faded)
 
 (set-face-attribute 'default nil :family  "Cozette" :height 90 :weight 'normal)
 (set-face-attribute 'fixed-pitch nil :family "Cozette" :height 1.0)
 (set-face-attribute 'minibuffer-prompt nil :font "Cozette" :height 80)
 (set-face-attribute 'variable-pitch nil :family "Cozette" :height 1.0)
 
-(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
-(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/brutalist-theme.el.git/")
-
 (add-to-list 'load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
 (add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
+
+(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/punpun-themes.git/")
+(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/punpun-themes.git/")
 
 (load-theme wymux--theme t)
 
@@ -33,7 +33,7 @@
 
 (setq initial-buffer-choice 'recentf-open-more-files)
 
-(setq wymux--light-theme 'lambda-light)
-(setq wymux--dark-theme 'brutalist-dark) 
+(setq wymux--light-theme 'lambda-light-faded)
+(setq wymux--dark-theme 'punpun-dark)
 
-(global-font-lock-mode -1)
+(global-font-lock-mode 1)
