@@ -66,6 +66,12 @@
 ;;
 ;;
 
+(load-file (concat user-emacs-directory "Configuration/Mode/Gnus/gnus.el"))
+
+;; Gnus function
+;;
+;;
+
 (load-file (concat user-emacs-directory "Configuration/Function/Display/display.el"))
 
 ;; Appearance function
