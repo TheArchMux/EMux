@@ -32,6 +32,7 @@
 (keywork--add-child 'kw-command 'kw-command-eval)
 (keywork--add-child 'kw-command 'kw-command-narrow)
 (keywork--add-child 'kw-command 'kw-command-mark)
+(keywork--add-child 'kw-command 'kw-command-project)
 
 (setq
  kw-command-mode-select
@@ -150,6 +151,19 @@
  (keywork--make-map
   :map
   `(("m b" mark-whole-buffer))))
+
+(setq
+ kw-command-project
+ (keywork--make-map
+ :map
+ `(("p b" project-switch-to-buffer)
+   ("p c" project-compile)
+   ("p d" project-dired)
+   ("p f" project-find-file)
+   ("p k" project-kill-buffers)
+   ("p p" project-switch-project)
+   ("p s" project-shell)
+   ("p !" project-shell-command))))
 
 (keywork-mode)
 (funcall (kw-on 'kw-command))
