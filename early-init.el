@@ -10,7 +10,7 @@
 
 (require 'no-littering)
 
-(setq wymux--theme 'lambda-light-faded)
+(setq wymux--theme 'lambda-light)
 
 (set-face-attribute 'default nil :family  "Cozette" :height 90 :weight 'normal)
 (set-face-attribute 'fixed-pitch nil :family "Cozette" :height 1.0)
@@ -33,7 +33,7 @@
 
 (setq initial-buffer-choice 'recentf-open-more-files)
 
-(setq wymux--light-theme 'lambda-light-faded)
-(setq wymux--dark-theme 'punpun-dark)
+(setq wymux--light-theme 'lambda-light)
+(setq wymux--dark-theme 'lambda-dark)
 
 (global-font-lock-mode 1)
