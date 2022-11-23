@@ -24,6 +24,12 @@
   (interactive)
   (insert (read-file-name "File: ")))
 
+(defun wymux/kill-path ()
+  "Kill path."
+  (interactive)
+  (let ((path (expand-file-name (read-file-name "Path: "))))
+    (kill-new path)))
+
 (defun wymux/recentf-find ()
   "Recent find."
   (interactive)
