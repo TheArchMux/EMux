@@ -41,3 +41,6 @@
 
 (load-file "~/Internet/Git/Emacs/Utility/goto-last-point/goto-last-point.el")
 (goto-last-point-mode)
+
+(load-file "~/Internet/Git/Emacs/Mode/golden/golden.el")
+(global-golden-mode)
