@@ -65,6 +65,7 @@
  (keywork--make-map
   :map
   `(("\\ e" emms)
+    ("\\ g" gnus-other-frame)
     ("\\ m" mh-rmail)
     ("\\ s" eshell))))
 
@@ -75,6 +76,7 @@
   `(("f d" dired-jump)
     ("f e" wymux/find-exheres)
     ("f f" find-file)
+    ("f l" locate)
     ("f n" find-name-dired)
     ("f p" find-file-at-point)
     ("f r" wymux/recentf-find)
