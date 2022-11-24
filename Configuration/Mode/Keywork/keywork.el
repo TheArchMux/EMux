@@ -33,6 +33,7 @@
 (keywork--add-child 'kw-command 'kw-command-narrow)
 (keywork--add-child 'kw-command 'kw-command-mark)
 (keywork--add-child 'kw-command 'kw-command-project)
+(keywork--add-child 'kw-command 'kw-command-terminal)
 
 (setq
  kw-command-mode-select
@@ -164,6 +165,15 @@
    ("p p" project-switch-project)
    ("p s" project-shell)
    ("p !" project-shell-command))))
+
+(setq
+ kw-command-terminal
+ (keywork--make-map
+  :map
+  `(("C-j" wymux/term-left)
+    ("C-k" wymux/term-below)
+    ("C-l" wymux/term-above)
+    ("C-;" wymux/term-right))))
 
 (keywork-mode)
 (funcall (kw-on 'kw-command))
