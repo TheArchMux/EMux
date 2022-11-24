@@ -13,6 +13,12 @@
 	 (currentcategoryfile (string-trim currententirefile "packages/" (concat "/" currentfilenoversion))))
     (find-dired directory (concat currentcategoryfile "/" currentfilenoversion))))
 
+(defun wymux/find-all ()
+  "Find any file in ~."
+  (interactive)
+  (let ((name (read-from-minibuffer "File: ")))
+    (find-name-dired "~" name)))
+
 (defun archmux/find-file-create ()
     "Create directory when utilizing `find-file'."
     (let ((destination-file (file-name-directory buffer-file-name)))
