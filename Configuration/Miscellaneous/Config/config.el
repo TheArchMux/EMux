@@ -44,3 +44,22 @@
 
 (load-file "~/Internet/Git/Emacs/Mode/golden/golden.el")
 (global-golden-mode)
+
+(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/fzf-native.git/")
+(require 'fzf-native)
+
+(add-to-list 'load-path "~/Internet/Git/Emacs/Completion/flx.git/")
+(load-file "~/Internet/Git/Emacs/Completion/fussy.git/fussy.el")
+
+(setq fussy-score-fn 'fussy-fzf-native-score)
+
+(add-to-list 'completion-styles 'fussy t)
+(setq completion-category-overrides nil)
+(setq completion-category-defaults nil)
+
+(setq completion-styles '(fussy))
+
+(load-file "~/Internet/Git/Emacs/Utility/vertico.git/vertico.el")
+
+(vertico-mode +1)
+
