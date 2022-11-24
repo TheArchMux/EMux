@@ -20,7 +20,8 @@
     ("C-r" query-replace)
     ("C-\\" magit-status)
     ("g" goto-last-point)
-    ("z" zap-up-to-char))))
+    ("z" zap-up-to-char)
+    ("C-=" compat-recenter))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
