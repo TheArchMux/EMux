@@ -18,3 +18,16 @@
   (interactive)
   (split-window-vertically)
   (term "mksh"))
+
+(defun wymux/term-left ()
+  "Open `term' in window left."
+  (interactive)
+  (split-window-horizontally)
+  (term "mksh"))
+
+(defun wymux/term-right ()
+  "Open `term' in window right."
+  (interactive)
+  (split-window-vertically)
+  (windmove-right)
+  (term "mksh"))
