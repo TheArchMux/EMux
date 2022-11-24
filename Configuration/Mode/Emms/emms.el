@@ -22,3 +22,8 @@
  "all-files" (emms-browser-filter-only-type 'file))
 
 (add-hook 'emms-playlist-cleared-hook 'emms-player-mpd-clear)
+
+(setq emms-player-mpd-supported-regexp
+      (regexp-opt '(".ogg" ".mp3" ".wav" ".mpg" ".mpeg" ".wmv" ".wma" ".dsf"
+                    ".mov" ".avi" ".divx" ".ogm" ".asf" ".mkv" "http://" "mms://"
+                    ".rm" ".rmvb" ".mp4" ".flac" ".vob" ".m4a" ".flv" ".ogv" ".pls")))
