@@ -2,6 +2,7 @@
 (setq emms-player-mpd-music-directory "~/Media/Musica/")
 
 (require 'emms-info-exiftool)
+(require 'emms-history)
 (require 'emms-mark)
 (require 'emms-player-mpd)
 (require 'emms-setup)
