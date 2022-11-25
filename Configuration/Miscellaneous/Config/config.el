@@ -63,3 +63,4 @@
 
 (vertico-mode +1)
 
+(load-file "~/Internet/Git/Emacs/Mode/obvious.el.git/obvious.el")
