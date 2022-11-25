@@ -28,3 +28,5 @@
       (regexp-opt '(".ogg" ".mp3" ".wav" ".mpg" ".mpeg" ".wmv" ".wma" ".dsf"
                     ".mov" ".avi" ".divx" ".ogm" ".asf" ".mkv" "http://" "mms://"
                     ".rm" ".rmvb" ".mp4" ".flac" ".vob" ".m4a" ".flv" ".ogv" ".pls")))
+
+(setq emms-history-start-playing t)
