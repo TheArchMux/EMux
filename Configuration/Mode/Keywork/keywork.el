@@ -35,6 +35,7 @@
 (keywork--add-child 'kw-command 'kw-command-mark)
 (keywork--add-child 'kw-command 'kw-command-project)
 (keywork--add-child 'kw-command 'kw-command-terminal)
+(keywork--add-child 'kw-command 'kw-command-emms)
 
 (setq
  kw-command-mode-select
@@ -175,6 +176,30 @@
     ("C-k" wymux/term-below)
     ("C-l" wymux/term-above)
     ("C-;" wymux/term-right))))
+
+(setq
+ kw-command-emms
+ (keywork--make-map
+  :map
+  `(("<f10> a d" emms-add-directory)
+    ("<f10> a f" emms-add-find)
+    ("<f10> a t" emms-add-directory-tree)
+    ("<f10> b a" emms-browse-by-album)
+    ("<f10> b b" emms-browser)
+    ("<f10> c r" emms-player-mpd-update-all-reset-cache)
+    ("<f10> m c" emms-player-mpd-connect)
+    ("<f10> m u" emms-player-mpd-update-all)
+    ("<f10> e" emms)
+    ("<f10> p d" emms-play-directory)
+    ("<f10> p f" emms-play-find)
+    ("<f10> p t" emms-play-directory-tree)
+    ("<f10> s" emms-show)
+    ("<f10> t r" emms-toggle-repeat-track)
+    ("<f10> v" emms-mark)
+    ("<XF86AudioNext>" emms-next)
+    ("<XF86AudioPrev>" emms-previous)
+    ("<XF86AudioPlay>" emms-start)
+    ("<XF86AudioStop>" emms-stop))))
 
 (keywork-mode)
 (funcall (kw-on 'kw-command))
