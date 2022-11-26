@@ -21,7 +21,7 @@
     ("C-\\" magit-status)
     ("g" goto-last-point)
     ("z" zap-up-to-char)
-    ("C-=" compat-recenter))))
+    ("C-=" recenter-top-bottom))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
