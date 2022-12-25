@@ -34,3 +34,5 @@
 (add-hook 'emms-playlist-cleared-hook 'emms-player-mpd-clear)
 
 (setq emms-history-start-playing t)
+(setq emms-player-finished-hook 'emms-show-all)
+ 
