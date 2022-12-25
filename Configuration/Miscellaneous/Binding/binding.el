@@ -9,7 +9,7 @@
 (global-set-key (kbd "<f7>") 'wymux/enable-light-theme)
 (global-set-key (kbd "<f8>") 'wymux/enable-dark-theme)
 (global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key (kbd "M-[") 'hippie-expand)
+(global-set-key (kbd "M-[") 'hippie-completing-read)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
 (define-key dired-mode-map (kbd "C-d") 'wymux/dired-open)
