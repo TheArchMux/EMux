@@ -11,23 +11,23 @@
   (interactive)
   (split-window-vertically)
   (windmove-down)
-  (term "mksh"))
+  (vterm))
 
 (defun wymux/term-above ()
   "Open `term' in window above."
   (interactive)
   (split-window-vertically)
-  (term "mksh"))
+  (vterm))
 
 (defun wymux/term-left ()
   "Open `term' in window left."
   (interactive)
   (split-window-horizontally)
-  (term "mksh"))
+  (vterm))
 
 (defun wymux/term-right ()
   "Open `term' in window right."
   (interactive)
-  (split-window-vertically)
+  (split-window-horizontally)
   (windmove-right)
-  (term "mksh"))
+  (vterm))
