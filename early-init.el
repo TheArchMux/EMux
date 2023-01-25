@@ -10,18 +10,13 @@
 
 (require 'no-littering)
 
-(setq wymux--theme 'lambda-light)
-
-(set-face-attribute 'default nil :family  "Cozette" :height 90 :weight 'normal)
-(set-face-attribute 'fixed-pitch nil :family "Cozette" :height 1.0)
-(set-face-attribute 'minibuffer-prompt nil :font "Cozette" :height 80)
-(set-face-attribute 'variable-pitch nil :family "Cozette" :height 1.0)
+(set-face-attribute 'default nil :family  "Comic Code Ligatures" :height 110 :weight 'normal)
+(setq line-spacing 0.15)
 
 (add-to-list 'load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
 (add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
 
-(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/punpun-themes.git/")
-(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/punpun-themes.git/")
+(setq wymux--theme 'lambda-light)
 
 (load-theme wymux--theme t)
 
@@ -36,4 +31,5 @@
 (setq wymux--light-theme 'lambda-light)
 (setq wymux--dark-theme 'lambda-dark)
 
-(global-font-lock-mode 1)
+(global-font-lock-mode -1)
+
