@@ -1,121 +1,16 @@
 (require 'exheres-mode)
 
-(load-file (concat user-emacs-directory "Configuration/Mode/Exwm/exwm.el"))
+(defun load-directory (directory)
+  "Load recursively all `.el' files in DIRECTORY."
+  (dolist (element (directory-files-and-attributes directory nil nil nil))
+    (let* ((path (car element))
+	   (fullpath (concat directory "/" path))
+	   (isdir (car (cdr element)))
+	   (ignore-dir (or (string= path ".") (string= path ".."))))
+      (cond
+       ((and (eq isdir t) (not ignore-dir))
+	(load-directory fullpath))
+       ((and (eq isdir nil) (string= (substring path -3) ".el"))
+	(load (file-name-sans-extension fullpath)))))))
 
-;; Exwm Configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/File/Backup/backup.el"))
-
-;; Backup Configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Compile/compile.el"))
-
-;; Compilation Configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Minor/minor.el"))
-
-;; Minor mode Configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Mailutils/mailutils.el"))
-
-;; Mailutils (MH-E Configuration)
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Magit/magit.el"))
-
-;; Magit
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/CC/cc.el"))
-
-;; CC mode configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Dired/dired.el"))
-
-;; Ediff mode configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Ediff/ediff.el"))
-
-;; Emms mode configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Emms/emms.el"))
-
-;; Emms mode configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Function/Exwm/exwm.el"))
-
-;; Exwm function
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Gnus/gnus.el"))
-
-;; Gnus function
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Function/Display/display.el"))
-
-;; Appearance function
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Miscellaneous/Binding/binding.el"))
-
-;; Bindings
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Function/CC/cc.el"))
-
-;; CC function
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Paludis/paludis.el"))
-
-;; Paludis function
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Miscellaneous/Config/config.el"))
-
-;; Miscellaneous configuration
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Function/File/function.el"))
-
-;; File function
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Function/File/hook.el"))
-
-;; File operation hook
-;;
-;;
-
-(load-file (concat user-emacs-directory "Configuration/Mode/Keywork/keywork.el"))
-
-;; Keywork modal definiton
-;;
-;;
+(load-directory "/home/wymux/.config/emacs/Configuration")
