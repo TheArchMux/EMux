@@ -1,3 +1,5 @@
+(require 'dired)
+
 (setq dired-listing-switches "-alb")
 (setq dired-kill-when-opening-new-dired-buffer t)
 
