@@ -26,3 +26,16 @@
   (interactive)
   (setq search-string (read-string "Search string: "))
   (wymux/search-forward))
+ 
+(defun wymux/goto-char ()
+  "Goto char."
+  (interactive)
+  (let ((char (read-char-from-minibuffer "Goto char: " nil 'read-char-history)))
+    (search-forward (char-to-string char))))
+
+(defun wymux/goto-upto-char ()
+  "Goto char."
+  (interactive)
+  (let ((char (read-char-from-minibuffer "Goto char: " nil 'read-char-history)))
+    (search-forward (char-to-string char))
+    (backward-char 1)))
