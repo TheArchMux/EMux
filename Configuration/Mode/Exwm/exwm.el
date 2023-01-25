@@ -3,6 +3,7 @@
 
 (require 'exwm)
 (require 'exwm-config)
+(require 'exwm-randr)
 
 (setq exwm-manage-configurations '(
 				   ((member exwm-class-name '("Firefox")) char-mode t)
@@ -34,6 +35,11 @@
   (interactive)
   (funcall (kw-on 'kw-command)))
 
+(defun wymux/bookmark ()
+  "Bookmark."
+  (interactive)
+  (start-process "Bookmark" nil "bookmark.sh"))
+
 (setq exwm-input-global-keys
       `(([?\s-o] . other-window)
         ([?\s-f] . other-frame)
@@ -48,11 +54,21 @@
 	([?\s-k] . windmove-down)
 	([?\s-l] . windmove-up)
 	([?\s-\;] . windmove-right)
-	([?\s-x] . kill-buffer)))
+	([?\s-x] . kill-buffer)
+	([?\s-t] . wymux/bookmark)))
+;;
 
 (setq exwm-workspace-minibuffer-position 'top)
-
-(exwm-enable)
+(setq exwm-randr-workspace-output-plist '(1 "DP-1-0"))
+(add-hook 'exwm-randr-screen-change-hook
+          (lambda ()
+            (start-process-shell-command
+             "xrandr" nil "xrandr --output DP-1-0 --rate 60 --above eDP1 --mode 3440x1440 --primary")))
+(exwm-randr-enable)
+;;;
+(exwm-randr-enable)
+(exwm-init)
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq ediff-split-window-function 'split-window-horizontally)
+
