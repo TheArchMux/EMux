@@ -30,9 +30,3 @@
 (global-set-key (kbd "<XF86AudioLowerVolume>") 'wymux/lower-volume)
 (global-set-key (kbd "<XF86AudioRaiseVolume>") 'wymux/raise-volume)
 (global-set-key (kbd "<XF86AudioMute>") 'wymux/toggle-volume)
-
-;;(define-key dired-mode-map (kbd "C-d") 'wymux/dired-open)
-;;define-key exlib-mode-map (kbd "C-c m d") 'exheres-add-dependency)
-;;(define-key exlib-mode-map (kbd "C-c m o") 'exheres-add-option)
-;;(define-key exheres-mode-map (kbd "C-c m d") 'exheres-add-dependency)
-;;(define-key exheres-mode-map (kbd "C-c m o") 'exheres-add-dependency)
