@@ -19,9 +19,10 @@
     ("y" yank)
     ("C-r" query-replace)
     ("C-\\" magit-status)
-    ("g" goto-last-point)
+    ("g g" goto-last-point)
     ("z" zap-up-to-char)
-    ("C-=" recenter-top-bottom))))
+    ("C-=" recenter-top-bottom)
+    ("C-c" compile))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
@@ -36,7 +37,9 @@
 (keywork--add-child 'kw-command 'kw-command-project)
 (keywork--add-child 'kw-command 'kw-command-terminal)
 (keywork--add-child 'kw-command 'kw-command-emms)
-
+(keywork--add-child 'kw-command 'kw-command-tempo)
+(keywork--add-child 'kw-command 'kw-command-twelve)
+ 
 (setq
  kw-command-mode-select
  (keywork--make-map
@@ -61,8 +64,11 @@
     ("n" wymux/search-forward)
     ("N" wymux/search-backward)
     ("/" wymux/reset-search)
+    ("g c" wymux/goto-char)
+    ("g u" wymux/goto-upto-char)
     ("C-[" end-of-buffer)
-    ("C-]" beginning-of-buffer))))
+    ("C-]" beginning-of-buffer)
+    ("t" binky-binky))))
 
 (setq
  kw-command-program
@@ -158,15 +164,16 @@
 (setq
  kw-command-project
  (keywork--make-map
- :map
- `(("p b" project-switch-to-buffer)
-   ("p c" project-compile)
-   ("p d" project-dired)
-   ("p f" project-find-file)
-   ("p k" project-kill-buffers)
-   ("p p" project-switch-project)
-   ("p s" project-shell)
-   ("p !" project-shell-command))))
+  :map
+  `(("p b" project-switch-to-buffer)
+    ("p c" project-compile)
+    ("p d" project-dired)
+    ("p f" project-find-file)
+    ("p k" project-kill-buffers)
+    ("p p" project-switch-project)
+    ("p s" project-shell)
+    ("p x" project-forget-project)
+    ("p !" project-shell-command))))
 
 (setq
  kw-command-terminal
@@ -193,13 +200,79 @@
     ("<f10> p d" emms-play-directory)
     ("<f10> p f" emms-play-find)
     ("<f10> p t" emms-play-directory-tree)
-    ("<f10> s" emms-show)
+    ("<f10> s a" emms-show-all)
+    ("<f10> s s" emms-show)
     ("<f10> t r" emms-toggle-repeat-track)
     ("<f10> v" emms-mark)
     ("<XF86AudioNext>" emms-next)
-    ("<XF86AudioPrev>" emms-previous)
+    ("< XF86AudioPrev>" emms-previous)
     ("<XF86AudioPlay>" emms-start)
     ("<XF86AudioStop>" emms-stop))))
+
+(setq
+ kw-command-tempo
+ (keywork--make-map
+  :map
+  `()))
+
+(defun wymux/kw-command-tempo-c ()
+  "Set tempo for c mode."
+  (interactive)
+  (setq
+   kw-command-tempo
+   (keywork--make-map
+    :map
+    `(("w c" tempo-template-c-if)
+      ("w i i" tempo-template-c-include)
+      ("w i q" tempo-template-c-include-quote)))))
+
+(defun wymux/bookmark ()
+  "Bookmark."
+  (interactive)
+  (start-process "Bookmark" nil "bookmark.sh"))
+    
+(defun wymux/browser ()
+  "Browser."
+  (interactive)
+  (start-process "Browser" nil "firefox"))
+
+(defun wymux/dmenu ()
+  "Dmenu."
+  (interactive)
+  (start-process "Dmenu" nil "dmenu_run"))
+
+(defun wymux/document-read ()
+  "Document read."
+  (interactive)
+  (start-process "Document read" nil "document_read.sh"))
+
+(defun wymux/git-clone ()
+  "Git clone."
+  (interactive)
+  (start-process "Git clone" nil "git_clone.sh"))
+
+(defun wymux/terminal ()
+  "Terminal."
+  (interactive)
+  (start-process "Terminal" nil "st"))
+
+(defun wymux/video-view ()
+  "Terminal."
+  (interactive)
+  (start-process "Video view" nil "video_view.sh"))
+
+(setq
+ kw-command-twelve
+ (keywork--make-map
+  :map
+  `(("<f12> t" wymux/terminal)
+    ("<f12> w" wymux/browser)
+    ("<f12> d" wymux/dmenu)
+    ("<f12> r" wymux/document-read)
+    ("<f12> g" wymux/git-clone)
+    ("<f12> v" wymux/video-view))))
+
+(add-hook 'c-mode-hook 'wymux/kw-command-tempo-c)
 
 (keywork-mode)
 (funcall (kw-on 'kw-command))
@@ -207,3 +280,4 @@
 (add-hook 'minibuffer-exit-hook (kw-on 'kw-command))
 (push (lambda (_) (keywork-refresh)) window-selection-change-functions)
 (push (lambda (_) (keywork-refresh)) window-buffer-change-functions)
+
