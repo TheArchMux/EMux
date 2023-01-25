@@ -55,7 +55,9 @@
 	([?\s-l] . windmove-up)
 	([?\s-\;] . windmove-right)
 	([?\s-x] . kill-buffer)
-	([?\s-t] . wymux/bookmark)))
+	([?\s-t] . wymux/bookmark)
+	([?\s-n] . next-buffer)
+	([?\s-p] . previous-buffer)))
 ;;
 
 (setq exwm-workspace-minibuffer-position 'top)
