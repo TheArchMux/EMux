@@ -18,7 +18,6 @@
 (auto-save-visited-mode         1)
 (global-hl-line-mode            1)
 (savehist-mode			1)
-(window-divider-mode		1)
 
 ;; Enable modes disabled by default
 ;;
