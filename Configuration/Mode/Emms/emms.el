@@ -35,4 +35,11 @@
 
 (setq emms-history-start-playing t)
 (setq emms-player-finished-hook 'emms-show-all)
- 
+
+(defface emms-playlist-track-face
+      '((t (:background "#F5F5F5")))
+      "Face for the tracks in a playlist buffer.")
+
+(defface emms-playlist-selected-face
+      '((t (:background "#F5F5F5")))
+      "Face for highlighting the selected track.")
