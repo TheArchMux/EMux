@@ -46,7 +46,9 @@
 	([?\s-m] . make-frame-command)
 	([?\s-d] . delete-frame)
 	([?\s-w] . delete-window)
+	([?\s-4] . wymux/kill-delete-buffer)
 	([?\s-q] . wymux/exwm-kill)
+	([?\s-1] . delete-other-windows)
 	([?\s-2] . split-window-vertically)
 	([?\s-3] . split-window-horizontally)
 	([?\s-b] . switch-to-buffer)
@@ -54,10 +56,10 @@
 	([?\s-k] . windmove-down)
 	([?\s-l] . windmove-up)
 	([?\s-\;] . windmove-right)
-	([?\s-x] . kill-buffer)
+	([?\s-x] . wymux/kill-current-buffer)
 	([?\s-t] . wymux/bookmark)
-	([?\s-n] . next-buffer)
-	([?\s-p] . previous-buffer)))
+	([?\s-=] . next-buffer)
+	([?\s-\-] . previous-buffer)))
 ;;
 
 (setq exwm-workspace-minibuffer-position 'top)
@@ -65,9 +67,7 @@
 (add-hook 'exwm-randr-screen-change-hook
           (lambda ()
             (start-process-shell-command
-             "xrandr" nil "xrandr --output DP-1-0 --rate 60 --above eDP1 --mode 3440x1440 --primary")))
-(exwm-randr-enable)
-;;;
+             "xrandr" nil "xrandr --output DP-1-1 --rate 75 --above eDP1 --mode 3440x1440 --primary")))
 (exwm-randr-enable)
 (exwm-init)
 
