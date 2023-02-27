@@ -51,7 +51,8 @@
 	([?\s-x] . wymux/kill-current-buffer)
 	([?\s-t] . wymux/term)
 	([?\s-=] . next-buffer)
-	([?\s-\-] . previous-buffer)))
+	([?\s-\-] . previous-buffer)
+	([?\s-5] . balance-windows)))
 
 (setq exwm-workspace-minibuffer-position 'top)
 (add-hook 'exwm-randr-screen-change-hook
