@@ -30,4 +30,12 @@
   (interactive)
   (find-name-dired  "/var/db/paludis/repositories/" (concat (thing-at-point 'word) "*.exlib")))
 
- 
+(defun wymux/exherbo ()
+  "Exherbo function based on mode."
+  (interactive)
+  (cond
+   ((derived-mode-p 'dired-mode)
+    (wymux/bump-exheres))
+   ((derived-mode-p 'exheres-mode)
+    (wymux/find-exlib)))
+  (wymux/find-exheres))
