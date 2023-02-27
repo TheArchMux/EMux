@@ -21,5 +21,7 @@
 (global-set-key (kbd "<XF86AudioLowerVolume>") 'wymux/lower-volume)
 (global-set-key (kbd "<XF86AudioRaiseVolume>") 'wymux/raise-volume)
 (global-set-key (kbd "<XF86AudioMute>") 'wymux/toggle-volume)
+(global-set-key (kbd "<XF86MonBrightnessUp>") 'wymux/raise-brightness)
+(global-set-key (kbd "<XF86MonBrightnessDown>") 'wymux/lower-brightness)
 
 (define-key ggtags-mode-map (kbd "C-w") 'wymux/kill-delete-buffer)
