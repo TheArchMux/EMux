@@ -1,4 +1,4 @@
-(require 'exheres-mode)
+(load-file "~/.config/emacs/config/lib/init/load.el")
 
 (defun load-directory (directory)
   "Load recursively all `.el' files in DIRECTORY."
@@ -13,4 +13,5 @@
        ((and (eq isdir nil) (string= (substring path -3) ".el"))
 	(load (file-name-sans-extension fullpath)))))))
 
-(load-directory "/home/wymux/.config/emacs/Configuration")
+(load-directory "/home/wymux/.config/emacs/config")
+

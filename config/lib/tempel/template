@@ -1,0 +1,57 @@
+;; ~/.config/emacs/config/lib/tempel/template
+
+fundamental-mode ;; Available everywhere
+
+(daying (format-time-string "%Y-%m-%d %A"))
+
+c-mode :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerror)
+
+c++-mode;; :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerror)
+
+(argcv "int argc, char* argv[]")
+(coutn "\tstd::cout << \"\\n\"")
+(scin "\tstd::cin >> ")
+(scout "\tstd::cout << ")
+(sifstr "std::ifstream")
+(sofstr "std::ofstream")
+(incio "#include <iostream>\n")
+(incfs "#include <fstream>\n")
+(stvo "static void")
+(cnint "const int")
+(re "return")
+
+(for "for (" p "; " p "; " p ") {" n "\t" p ";" n "}")
+(felclose n"static void closeFiles(std::ifstream &infile, std::ofstream &outfile)"n
+"{"n
+"\tinfile.close();"n
+"\toutfile.close();"n
+"}"n)
+
+(pfelclose n"static void closeFiles(std::ifstream &infile, std::ofstream &outfile);")
+
+(felopen n"static void openFiles(std::ifstream &infile, std::ofstream &outfile)" n
+"{"n
+"\tchar inFileName[40];"n
+"\tchar outFileName[40];"n n
+"\tstd::cout << \"Enter the input file name \";"n
+"\tstd::cin >> inFileName;"n
+"\tinfile.open(inFileName);"n n
+"\tstd::cout << \"Enter the output file name: \";"n
+"\tstd::cin >> outFileName;"n
+"\toutfile.open(outFileName);"n
+"}"n)
+
+(pfelopen "static void openFiles(std::ifstream &infile, std::ofstream &outfile);")
+
+(pcomment "// Purpose: " p n
+"// Recieves: " p n
+"// Returns: " p n)
+
+eshell-mode
+
+(er "doas cave resolve")
+
+;; Local Variables:
+;; mode: lisp-data
+;; outline-regexp: "[a-z]"
+;; End:

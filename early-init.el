@@ -1,24 +1,28 @@
-(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/compat/")
-(require 'compat)
-
 (setq no-littering-etc-directory
-      (expand-file-name "No-Littering/Config/" user-emacs-directory))
+      (expand-file-name "config/var/no-littering/etc/" user-emacs-directory))
 (setq no-littering-var-directory
-      (expand-file-name "No-Littering/Data/" user-emacs-directory))
-
+      (expand-file-name "config/var/no-littering/var/" user-emacs-directory))
+(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/compat/")
 (load-file "~/Internet/Git/Emacs/Utility/no-littering.git/no-littering.el")
-
 (require 'no-littering)
 
-(set-face-attribute 'default nil :family  "Comic Code Ligatures" :height 110 :weight 'normal)
-(setq line-spacing 0.15)
+;; (set-face-attribute 'default nil :family  "Cozette " :height 105 :weight 'normal)
+;; (set-face-attribute 'default nil :family  "Berkeley Mono" :height 105 :weight 'normal)
+(set-face-attribute 'default nil :family  "Monolisa" :height 105 :weight 'normal)
+(setq line-spacing 0.10)
 
-(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
-(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
+(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/sketch-themes.git/")
+(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/sketch-themes.git/")
 
-(setq wymux--theme 'lambda-light)
+(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/tao-theme-emacs.git/")
+(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/tao-theme-emacs.git/")
 
-(load-theme wymux--theme t)
+(setq wymux--light-theme 'tao-yang)
+(setq wymux--dark-theme 'tao-yin)
+
+(setq tao-theme-use-boxes nil)
+
+(setq wymux--theme wymux--light-theme)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -26,10 +30,24 @@
 (fringe-mode 0)
 (recentf-mode 1)
 
-(setq initial-buffer-choice 'recentf-open-more-files)
+(global-font-lock-mode 1)
 
-(setq wymux--light-theme 'lambda-light)
-(setq wymux--dark-theme 'lambda-dark)
+(defun wymux/disable-bold()
+  "Disable bold."
+  (set-face-bold 'bold nil))
 
-(global-font-lock-mode -1)
+(defun wymux/enable-dark-theme ()
+  "Enable dark theme."
+  (interactive)
+  (disable-theme wymux--theme)
+  (setq wymux--theme wymux--dark-theme)
+  (load-theme wymux--theme t))
 
+(defun wymux/enable-light-theme ()
+  "Enable light theme."
+  (interactive)
+  (disable-theme wymux--theme)
+  (setq wymux--theme wymux--light-theme)
+  (load-theme wymux--theme t))
+
+(wymux/enable-light-theme)

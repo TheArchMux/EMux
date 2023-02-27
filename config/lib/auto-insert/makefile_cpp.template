@@ -1,0 +1,16 @@
+PROG = program
+
+CXX = g++
+CXXFLAGS = -g -Wall
+LDFLAGS =
+
+SRC = ${PROG}.cpp
+OBJ = ${PROG}.o
+
+all: ${PROG}
+
+${OBJ}: ${SRC}
+	${CXX} -c ${SRC} ${CXXFLAGS}
+
+${PROG}: ${OBJ}
+	${CXX} -o $@ ${OBJ} ${LDFLAGS}
