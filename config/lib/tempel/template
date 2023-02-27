@@ -47,9 +47,24 @@ c++-mode;; :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerro
 "// Recieves: " p n
 "// Returns: " p n)
 
+emacs-lisp-mode
+
+(defun "(defun" (p "Name: ") " ()" n
+       "\"" (p "Comment") ".\"" n
+       "(interactive \"" (p "Interactive: ") "\")"n
+       p")"n
+    )
+
 eshell-mode
 
-(er "doas cave resolve")
+(er "doas cave resolve ")
+(ere "doas cave resolve -x "
+          (string-trim-left (eshell/pwd) "/home/wymux/Internet/Git/Exherbo/[0-9a-z-.]+/[a-z-]+/[a-z-]+/"))
+(es "doas cave sync ")
+(esl "doas cave sync -s local "
+     (string-trim-right (replace-regexp-in-string ".git" "" (string-trim-left (eshell/pwd) "/home/wymux/Internet/Git/Exherbo/")) "/[a-z-]+/[a-z-]+/[a-z-]+")
+     " -r origin/"
+     (string-trim-left (eshell/pwd) "/home/wymux/Internet/Git/Exherbo/[0-9a-z-.]+/[a-z-]+/[a-z-]+/"))
 
 ;; Local Variables:
 ;; mode: lisp-data
