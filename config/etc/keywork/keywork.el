@@ -91,7 +91,8 @@
   :map
   `(("\\ e" emms)
     ("\\ g" gnus-other-frame)
-    ("\\ m" mh-rmail))))
+    ("\\ m" mh-rmail)
+    ("\\ s" magit))))
 
 (setq
  kw-command-file-and-buffer
@@ -194,15 +195,6 @@
     ("p s" project-shell)
     ("p x" project-forget-project)
     ("p !" project-shell-command))))
-
-(setq
- kw-command-terminal
- (keywork--make-map
-  :map
-  `(("C-j" wymux/term-left)
-    ("C-k" wymux/term-below)
-    ("C-l" wymux/term-above)
-    ("C-;" wymux/term-right))))
 
 (setq
  kw-command-emms
