@@ -49,7 +49,7 @@
 	([?\s-l] . windmove-up)
 	([?\s-\;] . windmove-right)
 	([?\s-x] . wymux/kill-current-buffer)
-	([?\s-t] . wymux/bookmark)
+	([?\s-t] . wymux/term)
 	([?\s-=] . next-buffer)
 	([?\s-\-] . previous-buffer)))
 
