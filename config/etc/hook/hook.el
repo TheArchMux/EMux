@@ -7,8 +7,11 @@
 (add-hook 'find-file-hook 'wymux/doas-edit)
 (add-hook 'find-file-not-found-functions 'archmux/find-file-create)
 (add-hook 'ediff-after-quit-hook-internal 'winner-undo)
-(add-hook 'eshell-load-hook #'eat-eshell-mode)
-(add-hook 'eshell-mode-hook #'abbrev-mode)
+(add-hook 'emacs-lisp-mode-hook 'abbrev-mode)
+(add-hook 'lisp-data-mode-hook 'abbrev-mode)
+(add-hook 'eshell-load-hook 'eat-eshell-mode)
+(add-hook 'eshell-mode-hook 'abbrev-mode)
+(add-hook 'shell-mode-hook 'abbrev-mode)
  
 (add-hook 'compilation-finish-functions
 	  (lambda (buf str)
