@@ -1,4 +1,4 @@
-(setq exheres-directory "~/Internet/Compressed/Package/Exherbo/")
+(setq exheres-directory "~/Internet/Git/Exherbo/")
 (setenv "GTAGSTHROUGH" "false")
 
 (setq use-short-answers t)
