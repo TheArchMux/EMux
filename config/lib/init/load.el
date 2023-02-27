@@ -9,6 +9,8 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/Completion/flx.git/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/fzf-native.git/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/vertico.git/extensions/")
+(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/with-editor/lisp/")
+(add-to-list 'load-path "~/Internet/Git/Emacs/Git/magit/lisp/")
 (load-file "~/Internet/Git/Emacs/Mode/zoom/zoom.el")
 
 (load-file "~/Internet/Git/Emacs/Utility/goto-last-point/goto-last-point.el")
@@ -25,6 +27,7 @@
 (load-file "~/Internet/Git/Emacs/Utility/holymotion.git/holymotion.el")
 (load-file "~/Internet/Git/Emacs/Utility/tempel.git/tempel.el")
 (load-file "~/Internet/Git/Emacs/Utility/emacs-eat.git/eat.el")
+(load-file "~/Internet/Git/Emacs/Utility/dash.el/dash.el")
 
 (load "mailutils-mh")
 
@@ -46,4 +49,4 @@
 (require 'vertico-buffer)
 (require 'vertico-grid)
 (require 'vertico-multiform)
-(require 'vterm)
+(require 'magit)
