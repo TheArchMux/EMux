@@ -1,6 +1,6 @@
 (setq vertico-count 7)
 (vertico-mode t)
-(vertico-grid-mode t)
+(vertico-grid-mode -1)
 (vertico-buffer-mode -1)
 (fido-mode 1)
 (setq vetico-multi-formcommands
