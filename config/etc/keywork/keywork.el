@@ -43,7 +43,6 @@
 (keywork--add-child 'kw-command 'kw-command-narrow)
 (keywork--add-child 'kw-command 'kw-command-mark)
 (keywork--add-child 'kw-command 'kw-command-project)
-(keywork--add-child 'kw-command 'kw-command-terminal)
 (keywork--add-child 'kw-command 'kw-command-emms)
 (keywork--add-child 'kw-command 'kw-command-tempo)
 (keywork--add-child 'kw-command 'kw-command-twelve)
