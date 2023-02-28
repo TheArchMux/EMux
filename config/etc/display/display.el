@@ -5,7 +5,7 @@
    ("\\*Tags List\\*" display-buffer-in-side-window
     (side . right) (slot . 0) (window-width . fit-window-to-buffer)
     (preserve-size . (t . nil)) )
-   ("\\*\\(?:help\\|grep\\|Completions\\)\\*"
+   ("\\*\\(?:help\\|grep\\|Completions\\|compilation\\)\\*"
     display-buffer-in-side-window
     (window-min-height . 20) (side . bottom) (slot . -1) (preserve-size . (t . t))
     )
