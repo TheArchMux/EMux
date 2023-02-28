@@ -26,3 +26,5 @@
 (set-face-foreground 'window-divider (face-background 'header-line))
 
 (setq c-default-style '((other . "linux")))
+
+(setq show-paren-style 'expression)
