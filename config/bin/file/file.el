@@ -62,4 +62,9 @@
   (let ((current-file-name (file-name-nondirectory (buffer-file-name))))
     (if (string= current-file-name "config.h")
 	(compile "doas make install"))))
- 
+
+(defun wymux/rgrep ()
+  "Rgrep."
+  (interactive)
+  (let ((pattern (read-string "Search: ")))
+    (rgrep pattern "*" default-directory)))
