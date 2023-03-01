@@ -38,4 +38,5 @@
     (wymux/bump-exheres))
    ((derived-mode-p 'exheres-mode)
     (wymux/find-exlib)))
-  (wymux/find-exheres))
+  (t
+   (wymux/find-exheres)))
