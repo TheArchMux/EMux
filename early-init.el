@@ -6,18 +6,16 @@
 (load-file "~/Internet/Git/Emacs/Utility/no-littering.git/no-littering.el")
 (require 'no-littering)
 
-;; (set-face-attribute 'default nil :family  "Cozette " :height 105 :weight 'normal)
-;; (set-face-attribute 'default nil :family  "Berkeley Mono" :height 105 :weight 'normal)
-(set-face-attribute 'default nil :family  "Monolisa" :height 105 :weight 'normal)
-(setq line-spacing 0.10)
-
-(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/sketch-themes.git/")
-(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/sketch-themes.git/")
+(set-face-attribute 'default nil :family  "MonoLisa" :height 100 :weight 'normal)
+(setq-default line-spacing 0.20)
 
 (add-to-list 'load-path "~/Internet/Git/Emacs/Theme/tao-theme-emacs.git/")
 (add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/tao-theme-emacs.git/")
 
-(setq wymux--light-theme 'tao-yang)
+(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/tok-theme.git/")
+(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/tok-theme.git/")
+
+(setq wymux--light-theme 'tok)
 (setq wymux--dark-theme 'tao-yin)
 
 (setq tao-theme-use-boxes nil)
@@ -32,7 +30,7 @@
 
 (global-font-lock-mode 1)
 
-(defun wymux/disable-bold()
+(defun wymux/disable-bold ()
   "Disable bold."
   (set-face-bold 'bold nil))
 
