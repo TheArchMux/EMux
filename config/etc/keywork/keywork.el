@@ -208,7 +208,7 @@
     ("<f10> m c" emms-player-mpd-connect)
     ("<f10> m u" emms-player-mpd-update-all)
     ("<f10> p d" emms-play-directory)
-    ("<f10> p f" emms-play-find)
+    ("<f10> p f" wymux/emms-play-find)
     ("<f10> p t" emms-play-directory-tree)
     ("<f10> s a" emms-show-all)
     ("<f10> s s" emms-show)
