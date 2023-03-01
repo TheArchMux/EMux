@@ -8,19 +8,19 @@ c-mode :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerror)
 
 c++-mode;; :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerror)
 
-(argcv "int argc, char* argv[]")
+(argcv "(int argc, char* argv[])")
 (coutn "\tstd::cout << \"\\n\"")
 (scin "\tstd::cin >> ")
 (scout "\tstd::cout << ")
-(sifstr "std::ifstream")
-(sofstr "std::ofstream")
+(sifstr "std::ifstream ")
+(sofstr "std::ofstream ")
 (incio "#include <iostream>\n")
 (incfs "#include <fstream>\n")
-(stvo "static void")
-(cnint "const int")
-(re "return")
+(stvo "static void ")
+(cnint "const int ")
+(re "return ")
 
-(for "for (" p "; " p "; " p ") {" n "\t" p ";" n "}")
+(for "for ("p "; " p "; " p ") {" n "\t" p ";" n "}")
 (felclose n"static void closeFiles(std::ifstream &infile, std::ofstream &outfile)"n
 "{"n
 "\tinfile.close();"n
@@ -54,6 +54,8 @@ emacs-lisp-mode
        "(interactive \"" (p "Interactive: ") "\")"n
        p")"n
     )
+
+(addhook "(add-hook \'"p "\'"p ")")
 
 eshell-mode
 
