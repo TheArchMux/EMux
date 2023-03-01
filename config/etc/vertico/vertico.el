@@ -1,8 +1,9 @@
-(setq vertico-count 7)
+(setq vertico-count 5)
 (vertico-mode t)
 (vertico-grid-mode -1)
 (vertico-buffer-mode -1)
-(fido-mode 1)
+(fido-mode -1)
+
 (setq vetico-multi-formcommands
       '((hippie-completing-read)
 	(execute-extended-command unobtrusive)))
