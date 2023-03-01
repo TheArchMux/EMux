@@ -13,7 +13,5 @@
     (display-buffer-use-some-frame display-buffer-pop-up-frame))
    ("\\*\\(?:shell\\|compilation\\|tex-shell\\)\\*" display-buffer-in-side-window
     (window-max-height . 30) (side . top) (slot . 1) (preserve-size . (nil . t)))
-   ("firefox-default" display-buffer-in-side-window
-    (side . right) (slot . 0) (window-width . fit-window-to-buffer))
    ("magit*" display-buffer-in-side-window
     (side . left) (slot . 0) (window-width . fit-window-to-buffer))))
