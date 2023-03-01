@@ -60,5 +60,14 @@
             (start-process-shell-command
              "xrandr" nil "xrandr --output DP-1-1 --mode 3440x1440 --primary --rate 100")))
 
+(defun wymux/exwm-init ()
+  "Intialize firefox."
+  (make-frame-command)
+  (wymux/browser)
+  (sleep-for 1 500)
+  (other-frame 1))
+
+(add-hook 'exwm-init-hook 'wymux/exwm-init)
+
 (exwm-randr-enable)
 (exwm-init)
