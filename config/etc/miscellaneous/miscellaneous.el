@@ -13,18 +13,13 @@
 (setq confirm-nonexistent-file-or-buffer nil)
 (set-buffer-modified-p nil)
 
-(setq-default tab-width 8)
-(setq-default c-basic-offset 8)
+(setq c-default-style "linux")
 
 (setq require-final-newline t)
 (setq gnus-select-method '(nntp "localhost"))
 
-(setq zoom-size '(0.618 . 0.618))
-
 (goto-last-point-mode)
-(setq mode-line-format t)
+(setq-default mode-line-format nil)
 (set-face-foreground 'window-divider (face-background 'header-line))
 
-(setq c-default-style '((other . "linux")))
-
-(setq show-paren-style 'expression)
+(setq show-paren-style 'nil)
