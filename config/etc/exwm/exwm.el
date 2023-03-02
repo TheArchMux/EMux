@@ -50,6 +50,7 @@
 	([?\s-\;] . windmove-right)
 	([?\s-x] . wymux/kill-current-buffer)
 	([?\s-t] . wymux/term)
+	([?\s-6] . wymux/bookmark)
 	([?\s-=] . next-buffer)
 	([?\s-\-] . previous-buffer)
 	([?\s-5] . balance-windows)))
