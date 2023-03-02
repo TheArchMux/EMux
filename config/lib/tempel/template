@@ -2,9 +2,17 @@
 
 fundamental-mode ;; Available everywhere
 
-(daying (format-time-string "%Y-%m-%d %A"))
+(daying (format-time-string "%Y-%m-%d %A %H:%M"))
+(Dirst "* Directory: \'")
 
-c-mode :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerror)
+c-mode;; :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerror)
+
+(argcv "(int argc, char* argv[])")
+(re "return ")
+(re0 "return 0;")
+(NU "NULL")
+(LNE "__LINE__")
+(Version "Vers")
 
 c++-mode;; :when (re-search-backward "^\\S-*$" (line-beginning-position) 'noerror)
 
@@ -61,12 +69,16 @@ eshell-mode
 
 (er "doas cave resolve ")
 (ere "doas cave resolve -x "
-          (string-trim-left (eshell/pwd) "/home/wymux/Internet/Git/Exherbo/[0-9a-z-.]+/[a-z-]+/[a-z-]+/"))
+     (string-trim-left (eshell/pwd) "~/Internet/Git/Exherbo/[0-9a-z-.]+/[a-z-]+/[a-z-]+/"))
+(eru "doas cave resolve -x !")
+(erold "doas cave resolve -c world -x")
+(erx "doas cave resolve -x ")
 (es "doas cave sync ")
+(esh "doas cave show ")
 (esl "doas cave sync -s local "
-     (string-trim-right (replace-regexp-in-string ".git" "" (string-trim-left (eshell/pwd) "/home/wymux/Internet/Git/Exherbo/")) "/[a-z-]+/[a-z-]+/[a-z-]+")
+     (string-trim-right (replace-regexp-in-string ".git" "" (string-trim-left (eshell/pwd) "~/Internet/Git/Exherbo/")) "/packages/[a-z-]+/[a-z-]+")
      " -r origin/"
-     (string-trim-left (eshell/pwd) "/home/wymux/Internet/Git/Exherbo/[0-9a-z-.]+/[a-z-]+/[a-z-]+/"))
+     (string-trim-left (eshell/pwd) "~/Internet/Git/Exherbo/[0-9A-Za-z-.]+/[A-Za-z-]+/[A-Za-z-]+/"))
 
 ;; Local Variables:
 ;; mode: lisp-data
