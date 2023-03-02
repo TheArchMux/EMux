@@ -33,11 +33,11 @@
   "Terminal"
   (interactive "p")
   (cond
-   ((eq (1- arg) 0)
+   ((eq current-prefix-arg nil)
     (wymux/term-below))
-   ((eq (1- arg) 1)
+   ((eq current-prefix-arg 1)
     (wymux/term-left))
-   ((eq (1- arg) 2)
+   ((eq current-prefix-arg 2)
     (wymux/term-above))
-   ((eq (1- arg) 3)
+   ((eq current-prefix-arg 3)
     (wymux/term-right))))
