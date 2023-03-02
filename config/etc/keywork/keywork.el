@@ -14,23 +14,13 @@
     ("u" undo)
     ("v" set-mark-command)
     ("y" yank)
-    ("g g" goto-last-point)
     ("o" open-line)
     ("z" zap-up-to-char)
     ("C-v" visual-line-mode)
     ("C-\\" recenter-top-bottom)
     ("C-0" read-only-mode)
-    ("C-g c" compile)
-    ("<tab> d" wymux/toggle-debug-on-error)
-    ("<tab> n" holymotion-next-line)
-    ("<tab> p" holymotion-previous-line)
-    ("<tab> f" holymotion-forward-word)
-    ("<tab> b" holymotion-backward-word)
-    ("m p" tempel-previous)
-    ("m n" tempel-next)
-    ("m d" tempel-done)
     ("C-r" query-replace)
-    ("<backspace>" nil))))
+    ("<f5>" compile))))
 
 (keywork--add-child 'kw-command 'kw-command-mode-select)
 (keywork--add-child 'kw-command 'kw-command-movement)
@@ -44,10 +34,10 @@
 (keywork--add-child 'kw-command 'kw-command-mark)
 (keywork--add-child 'kw-command 'kw-command-project)
 (keywork--add-child 'kw-command 'kw-command-emms)
-(keywork--add-child 'kw-command 'kw-command-tempo)
 (keywork--add-child 'kw-command 'kw-command-twelve)
 (keywork--add-child 'kw-command 'kw-command-comment)
 (keywork--add-child 'kw-command 'kw-command-c)
+(keywork--add-child 'kw-command 'kw-command-dynamic)
 
 (keywork--add-child 'kw-dired 'kw-command)
 (keywork--add-child 'kw-dired 'kw-command-movement)
@@ -82,7 +72,8 @@
     ("C-]" beginning-of-buffer)
     ("t" binky-binky)
     ("<tab> <tab>" indent-region)
-    ("<tab> i" tab-to-tab-stop))))
+    ("<tab> i" tab-to-tab-stop)
+    ("." repeat))))
 
 (setq
  kw-command-program
@@ -91,6 +82,7 @@
   `(("\\ e" emms)
     ("\\ g" gnus-other-frame)
     ("\\ m" mh-rmail)
+    ("\\ q" wymux/gitlab-qr)
     ("\\ s" magit))))
 
 (setq
@@ -119,7 +111,6 @@
     ("d p" kill-paragraph)
     ("d r" kill-region)
     ("d s" kill-sexp)
-    ("d t" tempel-kill)
     ("D" kill-line))))
 
 (setq
@@ -160,11 +151,11 @@
  kw-command-eval
  (keywork--make-map
   :map
-  `(("x e b" eval-buffer)
-    ("x e d" eval-defun)
-    ("x e e" eval-expression)
-    ("x e l" eval-last-sexp)
-    ("x e r" eval-region))))
+  `(("SPC e b" eval-buffer)
+    ("SPC e d" eval-defun)
+    ("SPC e e" eval-expression)
+    ("SPC e l" eval-last-sexp)
+    ("SPC e r" eval-region))))
 
 (setq
  kw-command-narrow
@@ -185,15 +176,15 @@
  kw-command-project
  (keywork--make-map
   :map
-  `(("p b" project-switch-to-buffer)
-    ("p c" project-compile)
-    ("p d" project-dired)
-    ("p f" project-find-file)
-    ("p k" project-kill-buffers)
-    ("p p" project-switch-project)
-    ("p s" project-shell)
-    ("p x" project-forget-project)
-    ("p !" project-shell-command))))
+  `(("SPC p b" project-switch-to-buffer)
+    ("SPC p c" project-compile)
+    ("SPC p d" project-dired)
+    ("SPC p f" project-find-file)
+    ("SPC p k" project-kill-buffers)
+    ("SPC p p" project-switch-project)
+    ("SPC p s" project-shell)
+    ("SPC p x" project-forget-project)
+    ("SPC p i" project-shell-command))))
 
 (setq
  kw-command-emms
@@ -220,82 +211,14 @@
     ("<XF86AudioStop>" emms-stop))))
 
 (setq
- kw-command-tempo
- (keywork--make-map
-  :map
-  `()))
-
-(defun wymux/kw-command-tempo-c ()
-  "Set tempo for c mode."
-  (interactive)
-  (setq
-   kw-command-tempo
-   (keywork--make-map
-    :map
-    `(("w c" tempo-template-c-if)
-      ("w i i" tempo-template-c-include)
-      ("w i q" tempo-template-c-include-quote)))))
-
-(setq
  kw-command-c
  (keywork--make-map
   :map
-  `(("<backspace>" ggtags-find-tag-dwim)
-    ("C-c c" wymux/clear-function)
-    ("C-c s" ggtags-find-other-symbol)
-    ("C-c g" ggtags-grep)
-    ("C--" ggtags-prev-mark)
-    ("C-=" ggtags-next-mark))))
-
-(defun wymux/kw-command-tempo-c++ ()
-  "Set tempo for c++ mode."
-  (interactive)
-  (setq
-   kw-command-tempo
-   (keywork--make-map
-    :map
-    `(("w i i" tempo-template-c++-include)
-       ("w c n" tempo-template-c++-out)))))
-
-(defun wymux/bookmark ()
-  "Bookmark."
-  (interactive)
-  (start-process "Bookmark" nil "bookmark.sh"))
-
-(defun wymux/browser ()
-  "Browser."
-  (interactive)
-  (start-process "Browser" nil "firefox"))
-
-(defun wymux/dmenu ()
-  "Dmenu."
-  (interactive)
-  (start-process "Dmenu" nil "dmenu_run"))
-
-(defun wymux/document-read ()
-  "Document read."
-  (interactive)
-  (start-process "Document read" nil "document_read.sh"))
-
-(defun wymux/git-clone ()
-  "Git clone."
-  (interactive)
-  (start-process "Git clone" nil "git_clone.sh"))
-
-(defun wymux/terminal ()
-  "Terminal."
-  (interactive)
-  (start-process "Terminal" nil "st"))
-
-(defun wymux/time ()
-  "Time."
-  (interactive)
-  (start-process "Time" nil "time.sh"))
-
-(defun wymux/video-view ()
-  "Terminal."
-  (interactive)
-  (start-process "Video view" nil "video_view.sh"))
+  `(("SPC g t" ggtags-find-tag-dwim)
+    ("SPC g s" ggtags-find-other-symbol)
+    ("SPC g g" ggtags-grep)
+    ("SPC g p" previous-error-no-select)
+    ("SPC g n" next-error-no-select))))
 
 (setq
  kw-command-twelve
@@ -313,13 +236,10 @@
  kw-command-comment
  (keywork--make-map
   :map
-  `(("' c b" comment-box)
-    ("' c k" kill-comment)
-    ("' c l" comment-line)
-    ("' c r" comment-or-uncomment-region))))
-
-(add-hook 'c-mode-hook 'wymux/kw-command-tempo-c)
-(add-hook 'c++-mode-hook 'wymux/kw-command-tempo-c++)
+  `(("c b" comment-box)
+    ("c k" kill-comment)
+    ("c l" comment-line)
+    ("c r" comment-or-uncomment-region))))
 
 (setq
  kw-dired
@@ -335,6 +255,12 @@
  kw-html
  (keywork--make-map
   :color "#FF00FF"
+  :map
+  `(("C-b" wymux/insert-br))))
+
+(setq
+ kw-command-dynamic
+ (keywork--make-map
   :map
   `(("C-b" wymux/insert-br))))
 
