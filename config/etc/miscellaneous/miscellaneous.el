@@ -19,7 +19,9 @@
 (setq gnus-select-method '(nntp "localhost"))
 
 (goto-last-point-mode)
-(setq-default mode-line-format nil)
 (set-face-foreground 'window-divider (face-background 'header-line))
 
 (setq show-paren-style 'nil)
+(setq x-underline-at-descent-line t)
+(setq echo-keystrokes 0)
+(setq inhibit-message nil)
