@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/Window-Manager/xelb/")
 
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/vertico.git/")
+(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/vertico.git/extensions/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/fzf-native.git/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Completion/flx.git")
 (load-file "~/Internet/Git/Emacs/Completion/fussy.git/fussy.el")
@@ -19,6 +20,7 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/with-editor/lisp/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/dash.el/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Git/magit/lisp/")
+(load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
 
 (require 'eat)
 (require 'eglot)
@@ -31,6 +33,7 @@
 (require 'exwm-randr)
 (require 'fzf-native)
 (require 'vertico)
+(require 'vertico-buffer)
 
-(require 'paper)
 (require 'magit)
+(require 'paper)
