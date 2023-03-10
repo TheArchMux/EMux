@@ -61,6 +61,7 @@
 (defun hippie-completing-read ()
   "Offer `completing-read' based completion for word at point."
   (interactive)
-  (hippie-completing-read-expand-with 'hippie-expand))
+  (hippie-completing-read-expand-with 'hippie-expand)
+  (keymux-modal-mode -1))
 
 
