@@ -38,7 +38,7 @@
 	([?\s-k] . windmove-down)
 	([?\s-l] . windmove-up)
 	([?\s-\;] . windmove-right)
-	([?\s-x] . kill-this-buffer)
+	([?\s-x] . kill-current-buffer)
 	([?\s-q] . kill-emacs)
 	([<XF86MonBrightnessDown>] . wymux/darken-monitor)
 	([<XF86MonBrightnessUp>] . wymux/brighten-monitor)	
@@ -48,6 +48,8 @@
          (lambda ()
             (start-process-shell-command
              "xrandr" nil "xrandr --output DP-1-1 --mode 3440x1440 --primary --rate 100 --above eDP1")))
+
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (exwm-randr-enable)
 (exwm-enable)
