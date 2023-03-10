@@ -6,8 +6,13 @@
 (load-file "~/Internet/Git/Emacs/Utility/no-littering.git/no-littering.el")
 (require 'no-littering)
 
+(add-to-list 'load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
+(add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
 
-(set-face-attribute 'default nil :family "Iosevka" :height '110)
+(load-theme 'lambda-light t)
+
+(set-face-attribute 'default nil :family "Iosevka" :height '120)
+(setq-default line-spacing 0.10)
 
 (global-font-lock-mode -1)
 (menu-bar-mode -1)
