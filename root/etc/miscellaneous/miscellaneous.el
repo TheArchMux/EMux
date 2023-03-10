@@ -1,3 +1,4 @@
+(blink-cursor-mode -1)
 (coterm-mode 1)
 (global-eldoc-mode -1)
 (global-so-long-mode 1)
