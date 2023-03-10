@@ -4,9 +4,6 @@
 (add-hook 'makefile-mode 'abbrev-mode)
 (add-hook 'prog-mode-hook 'abbrev-mode)
 (add-hook 'shell-mode-hook 'abbrev-mode)
-(add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
-(add-hook 'rust-mode-hook 'eglot-ensure)
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 (add-to-list 'find-file-not-found-functions 'wymux/make-directory)
