@@ -116,7 +116,7 @@
 (define-key keymux-command-map (kbd "9") 'digit-argument)
 
 (define-key keymux-command-map (kbd "<f5>") 'wymux/compile)
-(define-key keymux-command-map (kbd "<f10> p f") 'emms-play-find)
+(define-key keymux-command-map (kbd "<f10> p f") 'wymux/emms-play-find)
 (define-key keymux-command-map (kbd "<f10> p t") 'emms-play-directory-tree)
 (define-key keymux-command-map (kbd "<f12> r") 'wymux/document-read)
 (define-key keymux-command-map (kbd "<f12> w") 'wymux/firefox)
@@ -129,6 +129,7 @@
 (define-key keymux-command-map (kbd "\\ m") 'emms)
 (define-key keymux-command-map (kbd "\\ r") 'mh-rmail)
 (define-key keymux-command-map (kbd "\\ s") 'wymux/shell)
+(define-key keymux-command-map (kbd "\\ v") 'magit)
 
 (define-key keymux-command-map (kbd ".") 'repeat)
 (define-key keymux-command-map (kbd "SPC .") 'repeat-complex-command)
