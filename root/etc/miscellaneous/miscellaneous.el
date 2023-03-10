@@ -1,3 +1,10 @@
+(coterm-mode 1)
+(global-eldoc-mode -1)
+(global-so-long-mode 1)
+(global-tempel-abbrev-mode 1)
 (recentf-mode 1)
+(savehist-mode 1)
 
 (setq use-short-answers t)
+(setq kill-buffer-query-functions nil)
+(setq-default bidi-display-reordering nil)
