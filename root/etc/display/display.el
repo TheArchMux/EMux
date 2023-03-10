@@ -1,4 +1,3 @@
-(setq display-buffer-alist nil)
-	     ;; '(("\\*eshell*"
-	     ;; 	(display-buffer-below-selected
-	     ;; 	 (window-width . 0.5)))))
+(setq display-buffer-alist
+	     '(("\\*compilation*"
+		(display-buffer-no-window))))
