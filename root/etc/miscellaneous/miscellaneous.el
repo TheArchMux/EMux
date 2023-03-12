@@ -5,7 +5,9 @@
 (global-tempel-abbrev-mode 1)
 (recentf-mode 1)
 (savehist-mode 1)
+(winner-mode 1)
 
 (setq use-short-answers t)
 (setq kill-buffer-query-functions nil)
 (setq-default bidi-display-reordering nil)
+(setq transient-history-file nil)
