@@ -92,3 +92,10 @@ Created: Wednesday, March-08-2023 20:16:33"
       (replace-regexp " " "-")
       (widen))))
 
+(defun wymux/find-doas ()
+  "Open file as doas.
+Created: Friday, March-10-2023 14:42:23"
+  (when (and (not (file-writable-p buffer-file-name))
+	     (not (string-prefix-p "/doas:" buffer-file-name)))
+    (setq buffer-file-name (concat "/doas:root@localhost:" buffer-file-name))
+    (setq buffer-read-only nil)))
