@@ -55,6 +55,7 @@
 
 (define-key keymux-command-map (kbd "f a") 'wymux/find-all)
 (define-key keymux-command-map (kbd "f d") 'dired-jump)
+(define-key keymux-command-map (kbd "f e") 'wymux/find-exheres)
 (define-key keymux-command-map (kbd "f f") 'find-file)
 (define-key keymux-command-map (kbd "f m") 'wymux/find-makefile)
 (define-key keymux-command-map (kbd "f p") 'ffap)
@@ -128,7 +129,7 @@
 (define-key keymux-command-map (kbd "\\ g") 'gnus-other-frame)
 (define-key keymux-command-map (kbd "\\ m") 'emms)
 (define-key keymux-command-map (kbd "\\ r") 'mh-rmail)
-(define-key keymux-command-map (kbd "\\ s") 'wymux/shell)
+(define-key keymux-command-map (kbd "\\ s") 'wymux/eshell)
 (define-key keymux-command-map (kbd "\\ v") 'magit)
 
 (define-key keymux-command-map (kbd ".") 'repeat)
