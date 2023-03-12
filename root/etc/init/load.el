@@ -32,6 +32,7 @@
 (require 'exwm)
 (require 'exwm-randr)
 (require 'fzf-native)
+(require 'gnus)
 (require 'vertico)
 (require 'vertico-buffer)
 
