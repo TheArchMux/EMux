@@ -10,11 +10,10 @@
   (interactive)
   (start-process "Firefox" nil "firefox"))
 
-(defun wymux/shell ()
-  "`shell'."
+(defun wymux/eshell ()
+  "`eshell'."
   (interactive)
-  (shell)
-  (rename-uniquely))
+  (eshell 'N))
 
 (defun wymux/brighten-monitor ()
   "Brighten monitor."
