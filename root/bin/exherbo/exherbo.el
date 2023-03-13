@@ -36,14 +36,32 @@ Created: Friday, March-10-2023 12:01:18"
 	     (dir (completing-read "Diff diretory" other-dir)))
 	(ediff-files cur-file (replace-regexp-in-string cur-dir-v dir (buffer-file-name))))))
 
-(defun wymux/exherbo-get-url ()
+(defun wymux/exherbo-get-url (category package)
   "Acquire url for package.
-Created: Saturday, March-11-2023 08:53:57"
-  (interactive)
+Created: Saturday, March-11-2023 08:53:57
+Revised: Sunday, March-12-2023 21:03:49"
   (let ((urls))
     (with-temp-buffer
-      (shell-command "doas cave show -k DOWNLOADS cmus" (current-buffer))
+      (shell-command (concat "doas cave show -k DOWNLOADS "
+			     (shell-quote-argument category)
+			     "/"
+			     (shell-quote-argument package)) (current-buffer))
       (search-forward "Summary")
       (while (re-search-forward "\\(https?://\\|www\\.\\)[^\s]+\\(\s\\|$\\)" nil t)
-	(setq urls (string-trim (match-string 0)))
-	(url-copy-file urls "test" t)))))
+	(setq urls (string-trim (match-string 0)))))
+    urls))
+
+(defun wymux/exherbo-acquire-category-package-exheres ()
+  "Acquire category/package from current exheres.
+Created: Saturday, March-11-2023 21:26:08"
+  (interactive)
+  (let ((cut-str "packages/")
+	(cut-path (buffer-file-name))
+	(cut-dir (file-name-nondirectory (buffer-file-name))))
+    (let ((i1 (+ 9 (string-match cut-str cut-path)))
+	  (i2 (- (string-match cut-dir cut-path) 1)))
+      (let* ((short-str (substring cut-path i1 i2))
+	    (exlist (split-string short-str "/")))
+	(let ((category (nth 0 exlist))
+	  (package (nth 1 exlist)))
+	(message "%s/%s" category package))))))
