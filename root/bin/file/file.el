@@ -58,14 +58,11 @@
     (wymux/swap-line-down))))
 
 (defun wymux/zap-backward-up-to-char ()
-  "Inverse of `zap-up-to-char'."
+  "Inverse of `zap-up-to-char'.
+Revised: Monday, March-13-2023 09:06:15"
   (interactive)
-  (let ((char (read-char-from-minibuffer "Reverse zap: "))
-	(pt (point)))
-    (save-excursion
-      (search-backward (char-to-string char))
-      (forward-char)
-      (delete-region (point) pt))))
+  (let ((char (read-char-from-minibuffer "Reverse zap: ")))
+      (zap-up-to-char -1 char)))
 
 (defun wymux/compile ()
   "`compile'
