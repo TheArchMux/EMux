@@ -65,7 +65,7 @@
 (define-key keymux-command-map (kbd "h d f") 'describe-function)
 (define-key keymux-command-map (kbd "h d v") 'describe-variable)
 (define-key keymux-command-map (kbd "h d k") 'describe-key)
-
+(define-key keymux-command-map (kbd "h m") 'man)
 (define-key keymux-command-map (kbd "i") 'keymux-to-insert)
 (define-key keymux-command-map (kbd "j") 'backward-char)
 (define-key keymux-command-map (kbd "k") 'next-line)
