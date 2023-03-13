@@ -1,0 +1,52 @@
+fundamental-mode
+
+(tday (format-time-string "%A, %B-%d-%Y %H:%M:%S"))
+(ctday (concat "Created: " (format-time-string "%A, %B-%d-%Y %H:%M:%S") "\""))
+(rtday (concat "Revised: " (format-time-string "%A, %B-%d-%Y %H:%M:%S")))
+(wym "wymux")
+
+c-mode
+
+(def "#define ")
+(in "#include <"p".h>\n"p)
+(pr "printf(")
+(fpr "fprintf(")
+(ret "return")
+(ret0 "return 0;")
+(ret1 "return 1;")
+
+c++-mode
+
+(stri "std::string ")
+
+emacs-lisp-mode
+
+(bkch "(backward-char)")
+(bkuplst "(backward-up-list)")
+(dfn "(defun ")
+(fwdch "(forward-char)")
+(lkat "(looking-at ")
+(iact "(interactive)")
+(pot "(point)")
+(svex "(save-excursion\n" (lisp-indent-line))
+(strch "(string-to-char ")
+
+eshell-mode
+
+(cs "doas cave show ")
+(csl "doas cave sync -s local " (file-name-base (expand-file-name "../../../.")) " -r origin/"
+(file-name-base (expand-file-name ".")))
+(erx "doas cave resolve -x ")
+
+makefile-mode
+
+(mkc (insert-file "~/Media/Document/Template/Makefile/C/Makefile"))
+
+makefile-gmake-mode
+
+(mkc (insert-file "~/Media/Document/Template/Makefile/C/Makefile"))
+
+shell-mode
+
+(cs "doas cave show ")
+(erx "doas cave resolve -x ")
