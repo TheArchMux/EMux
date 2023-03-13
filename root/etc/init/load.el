@@ -21,6 +21,7 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/dash.el/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Git/magit/lisp/")
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/exheres-mode/")
 
 (require 'eat)
 (require 'eglot)
@@ -29,6 +30,7 @@
 (require 'emms-playlist-mode)
 (require 'emms-player-mpd)
 (require 'emms-setup)
+(require 'exheres-mode)
 (require 'exwm)
 (require 'exwm-randr)
 (require 'fzf-native)
