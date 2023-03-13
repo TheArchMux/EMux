@@ -1,21 +1,54 @@
 (defcustom wymux-exheres-directory "~/Internet/Git/Exherbo/"
   "Directory of local exheres.")
 
-(defun wymux/bump-exheres ()
-  "Bump exheres."
-  (interactive)
-  (cond
-   ((derived-mode-p 'dired-mode)
-    (wymux/dired-bump-exheres))))
+(defcustom wymux-local-exherbo-directory "~/Internet/Compressed/Package/Exherbo/"
+  "Directory of local exheres.")
 
-(defun wymux/dired-bump-exheres ()
-  "Bump package in dired."
-  (let ((file (file-name-nondirectory (dired-get-filename)))
-	(new-version (read-from-minibuffer "Bump to: "))
-	(version))
-    (setq file (string-trim-right file ".exheres-0"))
-    (setq version (string-trim-left file "[A-Za-z]+-"))
-    (dired-do-rename-regexp version new-version)))
+(defcustom wymux-exheres-revision-p nil
+  "Whether current exheres is revised version.")
+
+(defvar wymux-exheres-category nil
+  "Category.")
+
+(defvar wymux-exheres-package nil
+  "Package.")
+
+(defvar wymux-exheres-version nil
+  "Version.")
+
+(defvar wymux-exheres-url nil
+  "Url.")
+
+(defvar wymux-exheres-new-url nil
+  "Bump url.")
+
+(defvar wymux-exheres-download-path nil
+  "Download path.")
+
+(defun wymux/exherbo-create-local-dir (category package)
+  "Create local directory.
+Created: Monday, March-13-2023 11:09:59"
+  (let ((path (concat wymux-local-exherbo-directory category "/" package)))
+    (when (not (file-exists-p path))
+      (make-directory (expand-file-name path) t))))
+
+(defun wymux/exherbo-get-version ()
+  "Acquire version from file.
+Created: Sunday, March-12-2023 22:02:55"
+  (let* ((file (file-name-nondirectory (buffer-file-name)))
+	 (file (string-trim-right file ".exheres-0"))
+	 (version (string-trim-left file "[A-Za-z0-9]+-")))
+    (when (string-match "-r[0-9]" version)
+      (progn
+	(setq version (substring version nil (- (length version) 3)))
+	(setq wymux-exherbo-revision-p t)))
+    (setq wymux-exheres-version version)))
+
+(defun wymux/exherbo-get-new-version ()
+  "User supplied version.
+Created: Monday, March-13-2023 09:26:32"
+  (let ((nvers (read-from-minibuffer "New version: " wymux-exheres-version)))
+    nvers))
 
 (defun wymux/find-exheres ()
   "Find exheres in 'exheres-directory'.
@@ -54,14 +87,72 @@ Revised: Sunday, March-12-2023 21:03:49"
 (defun wymux/exherbo-acquire-category-package-exheres ()
   "Acquire category/package from current exheres.
 Created: Saturday, March-11-2023 21:26:08"
+  (let* ((cut-str "packages/")
+	 (cut-path (buffer-file-name))
+	 (cut-dir (file-name-nondirectory (buffer-file-name)))
+	 (i1 (+ 9 (string-match cut-str cut-path)))
+	 (i2 (- (string-match cut-dir cut-path) 1))
+	 (short-str (substring cut-path i1 i2))
+	 (exlist (split-string short-str "/")))
+    exlist))
+
+(defun wymux/exherbo ()
+  "Primary exherbo function.
+Created: Sunday, March-12-2023 21:43:25"
   (interactive)
-  (let ((cut-str "packages/")
-	(cut-path (buffer-file-name))
-	(cut-dir (file-name-nondirectory (buffer-file-name))))
-    (let ((i1 (+ 9 (string-match cut-str cut-path)))
-	  (i2 (- (string-match cut-dir cut-path) 1)))
-      (let* ((short-str (substring cut-path i1 i2))
-	    (exlist (split-string short-str "/")))
-	(let ((category (nth 0 exlist))
-	  (package (nth 1 exlist)))
-	(message "%s/%s" category package))))))
+  (let ((url (wymux/exherbo-get-url wymux-exheres-category wymux-exheres-package)))
+    (wymux/exherbo-create-local-dir wymux-exheres-category wymux-exheres-package)
+    (setq wymux-exheres-url url)))
+
+(defun wymux/exherbo-download-package ()
+  "Download compressed file of current exheres.
+Created: Monday, March-13-2023 11:25:58"
+  (interactive)
+  (let* ((nvers (wymux/exherbo-get-new-version))
+	 (path (concat wymux-exheres-download-path "/" nvers "/"))
+	 (url (replace-regexp-in-string wymux-exheres-version nvers wymux-exheres-url))
+	 (file (concat path (file-name-nondirectory wymux-exheres-url))))
+    (make-directory path t)
+    (url-copy-file url file)))
+
+(defun wymux/exherbo-set-category-package ()
+  "Set 'wymux-exheres-category' and 'wymux-exheres-package'.
+Created: Monday, March-13-2023 11:57:05"
+  (let ((plist (wymux/exherbo-acquire-category-package-exheres)))
+    (setq wymux-exheres-category (nth 0 plist))
+    (setq wymux-exheres-package (nth 1 plist))))
+
+(defun wymux/bump-exheres ()
+  "Bump current exheres.
+Created: Monday, March-13-2023 12:15:31"
+  (interactive)
+  (wymux/exherbo-get-version)
+  (let ((nvers (wymux/exherbo-get-new-version))
+	(file (file-name-nondirectory (buffer-file-name))))
+    (rename-file file (replace-regexp-in-string wymux-exheres-version nvers file))))
+
+(defun wymux/exherbo-get-new-version-url (version)
+  "Set 'wymux-exheres-new-url'.
+Created: Monday, March-13-2023 12:37:56"
+  (setq wymux-exheres-new-url (replace-regexp-in-string wymux-exheres-version version wymux-exheres-url)))
+
+(defun wymux/exherbo-set-download-path ()
+  "Set 'wymux-exheres-download-path'.
+Created: Monday, March-13-2023 12:48:08"
+  (setq wymux-exheres-download-path
+	(concat wymux-local-exherbo-directory wymux-exheres-category "/" wymux-exheres-package)))
+
+(defun wymux/exheres-mode-entrance ()
+  "`exheres-mode' initialization functions.
+Created: Monday, March-13-2023 15:34:43"
+  (interactive)
+  (wymux/exherbo-set-category-package)
+  (wymux/exherbo-get-version)
+  (wymux/exherbo)
+  (wymux/exherbo-set-download-path))
+
+(defun wymux/exherbo-travel-local-compressed ()
+  "Travel to local compressed file.
+Created: Monday, March-13-2023 15:53:14"
+  (interactive)
+  (dired (concat wymux-local-exherbo-directory wymux-exheres-category "/" wymux-exheres-package)))
