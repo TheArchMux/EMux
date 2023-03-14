@@ -33,4 +33,12 @@
 (defun wymux/increase-volume ()
   "Increase volume."
   (interactive)
-  (start-process "Increase volume" nil "amixer" "sset" "Master" "2%+"))
+  (start-process "Increase volume" nil "amixer" "sset" "Master" "2%+"))https://github.com/syohex/emacs-pcre.githttps://github.com/syohex/emacs-pcre.githttps://github.com/syohex/emacs-pcre.git
+
+(defun wymux/git-clone ()
+  "Git clone Into local directory.
+Created: Tuesday, March-14-2023 11:11:59"
+  (interactive)
+  (let ((git-url (car kill-ring))
+	(dir (read-directory-name "Git clone directory: " "~/Internet/Git/")))
+    (async-shell-command (concat "git clone " git-url " " dir (file-name-base git-url)))))
