@@ -37,7 +37,7 @@ Created: Monday, March-13-2023 11:09:59"
 Created: Sunday, March-12-2023 22:02:55"
   (let* ((file (file-name-nondirectory (buffer-file-name)))
 	 (file (string-trim-right file ".exheres-0"))
-	 (version (string-trim-left file "[A-Za-z0-9]+-")))
+	 (version (string-trim-left file "[A-Za-z0-9-]+-")))
     (when (string-match "-r[0-9]" version)
       (progn
 	(setq version (substring version nil (- (length version) 3)))
@@ -67,7 +67,7 @@ Created: Friday, March-10-2023 12:01:18"
 	     (cur-dir-v (format "%s" (nth 9 (split-string (buffer-file-name) "/"))))
 	     (other-dir (delete cur-dir-v (delete "." (delete ".." (directory-files "../../.")))))
 	     (dir (completing-read "Diff diretory" other-dir)))
-	(ediff-files cur-file (replace-regexp-in-string cur-dir-v dir (buffer-file-name))))))
+	(ediff-files (replace-regexp-in-string cur-dir-v dir (buffer-file-name)) cur-file))))
 
 (defun wymux/exherbo-get-url (category package)
   "Acquire url for package.
@@ -111,7 +111,7 @@ Created: Monday, March-13-2023 11:25:58"
   (let* ((nvers (wymux/exherbo-get-new-version))
 	 (path (concat wymux-exheres-download-path "/" nvers "/"))
 	 (url (replace-regexp-in-string wymux-exheres-version nvers wymux-exheres-url))
-	 (file (concat path (file-name-nondirectory wymux-exheres-url))))
+	 (file (concat path (file-name-nondirectory url))))
     (make-directory path t)
     (url-copy-file url file)))
 
@@ -156,3 +156,11 @@ Created: Monday, March-13-2023 15:34:43"
 Created: Monday, March-13-2023 15:53:14"
   (interactive)
   (dired (concat wymux-local-exherbo-directory wymux-exheres-category "/" wymux-exheres-package)))
+
+(defun wymux/find-exlib ()
+  "Find exlib.
+Created: Tuesday, March-14-2023 09:30:55"
+  (interactive)
+  (let ((exlib-directory "/var/db/paludis/repositories/")
+	(exlib (concat "*" (wymux/extract-word-at-point) "*" )))
+    (find-name-dired exlib-directory exlib)))
