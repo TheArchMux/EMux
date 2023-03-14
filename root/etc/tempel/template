@@ -8,7 +8,7 @@ fundamental-mode
 c-mode
 
 (def "#define ")
-(in "#include <"p".h>\n"p)
+(in "#include <"(read-from-minibuffer "Include:" )".h>")
 (pr "printf(")
 (fpr "fprintf(")
 (ret "return")
