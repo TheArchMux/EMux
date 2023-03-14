@@ -22,6 +22,8 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/Git/magit/lisp/")
 (load-file "~/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/exheres-mode/")
+(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/emacs-pcre/")
+(load-file "~/Internet/Git/Emacs/Utility/hop.el/hop.el")
 
 (require 'eat)
 (require 'eglot)
@@ -40,3 +42,4 @@
 
 (require 'magit)
 (require 'paper)
+(require 'pcre)
