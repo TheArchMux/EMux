@@ -57,11 +57,14 @@
 (define-key keymux-command-map (kbd "f d") 'dired-jump)
 (define-key keymux-command-map (kbd "f e") 'wymux/find-exheres)
 (define-key keymux-command-map (kbd "f f") 'find-file)
+(define-key keymux-command-map (kbd "f l") 'locate)
 (define-key keymux-command-map (kbd "f m") 'wymux/find-makefile)
 (define-key keymux-command-map (kbd "f p") 'ffap)
 (define-key keymux-command-map (kbd "f r") 'wymux/recentf-find)
 (define-key keymux-command-map (kbd "f s") 'save-buffer)
 
+(define-key keymux-command-map (kbd "h a f") 'apropos-command)
+(define-key keymux-command-map (kbd "h a v") 'apropos-variable)
 (define-key keymux-command-map (kbd "h d f") 'describe-function)
 (define-key keymux-command-map (kbd "h d v") 'describe-variable)
 (define-key keymux-command-map (kbd "h d k") 'describe-key)
@@ -72,7 +75,11 @@
 (define-key keymux-command-map (kbd "l") 'previous-line)
 (define-key keymux-command-map (kbd "\;") 'forward-char)
 
+(define-key keymux-command-map (kbd "g c") 'hop-char)
 (define-key keymux-command-map (kbd "g g") 'wymux/goto-char)
+(define-key keymux-command-map (kbd "g e") 'hop-word)
+(define-key keymux-command-map (kbd "g l") 'hop-line)
+(define-key keymux-command-map (kbd "g w") 'hop-line-skip-whitespace)
 
 (define-key keymux-command-map (kbd "m b") 'mark-whole-buffer)
 (define-key keymux-command-map (kbd "m m") 'back-to-indentation)
@@ -119,6 +126,7 @@
 (define-key keymux-command-map (kbd "<f5>") 'wymux/compile)
 (define-key keymux-command-map (kbd "<f10> p f") 'wymux/emms-play-find)
 (define-key keymux-command-map (kbd "<f10> p t") 'emms-play-directory-tree)
+(define-key keymux-command-map (kbd "<f12> g") 'wymux/git-clone)
 (define-key keymux-command-map (kbd "<f12> r") 'wymux/document-read)
 (define-key keymux-command-map (kbd "<f12> w") 'wymux/firefox)
 
