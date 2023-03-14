@@ -1,6 +1,6 @@
 (setq display-buffer-alist
       '(
-	("\\*compilation*"
+	("\\*compilation*\\|*Async*"
 	 (display-buffer-no-window))
 	("*Help*"
 	 (display-buffer-same-window))
