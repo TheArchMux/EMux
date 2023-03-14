@@ -96,3 +96,28 @@ Created: Friday, March-10-2023 14:42:23"
 	     (not (string-prefix-p "/doas:" buffer-file-name)))
     (setq buffer-file-name (concat "/doas:root@localhost:" buffer-file-name))
     (setq buffer-read-only nil)))
+
+(defun wymux/determine-compression (file)
+  "Return compression type of file.
+Created: Tuesday, March-14-2023 09:00:38"
+  (let ((extensions
+	 '(("gz" . "gz")
+	   ("zip" . "zip")
+	   ("bz2" . "bzip")
+	   ("xz" . "xz")
+	   ("7z" . "p7zip")
+	   ("rar" . "rar")))
+	(file-ext (file-name-extension file)))
+    (cdr (assoc file-ext extensions))))
+
+(defun wymux/determine-decompression-binary (compression-ext)
+  "Return compression type of file.
+Created: Tuesday, March-14-2023 09:00:38"
+  (let ((decompression-binary
+	 '(("gz" . "bsdtar -xf ")
+	   ("zip" . "unzip -d .")
+	   ("bzip" . "bsdtar -xf ")
+	   ("xz" . "bsdtar -xf ")
+	   ("7z" . "7z x ")
+	   ("rar" . "unrar x "))))
+    (cdr (assoc compression-ext decompression-binary))))
