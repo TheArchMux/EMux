@@ -149,7 +149,8 @@ Created: Monday, March-13-2023 15:34:43"
   (wymux/exherbo-set-category-package)
   (wymux/exherbo-get-version)
   (wymux/exherbo)
-  (wymux/exherbo-set-download-path))
+  (wymux/exherbo-set-download-path)
+  (wymux/keymux-exheres-mode-map))
 
 (defun wymux/exherbo-travel-local-compressed ()
   "Travel to local compressed file.
