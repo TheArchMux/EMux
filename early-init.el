@@ -12,7 +12,7 @@
 (load-theme 'lambda-light t)
 
 (set-face-attribute 'default nil :family "Iosevka" :height '120)
-(setq-default line-spacing 0.10)
+(setq-default line-spacing 0.00)
 
 (global-font-lock-mode -1)
 (menu-bar-mode -1)
