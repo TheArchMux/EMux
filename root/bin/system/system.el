@@ -33,7 +33,7 @@
 (defun wymux/increase-volume ()
   "Increase volume."
   (interactive)
-  (start-process "Increase volume" nil "amixer" "sset" "Master" "2%+"))https://github.com/syohex/emacs-pcre.githttps://github.com/syohex/emacs-pcre.githttps://github.com/syohex/emacs-pcre.git
+  (start-process "Increase volume" nil "amixer" "sset" "Master" "2%+"))
 
 (defun wymux/git-clone ()
   "Git clone Into local directory.
