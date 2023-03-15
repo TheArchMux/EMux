@@ -121,3 +121,10 @@ Created: Tuesday, March-14-2023 09:00:38"
 	   ("7z" . "7z x ")
 	   ("rar" . "unrar x "))))
     (cdr (assoc compression-ext decompression-binary))))
+
+(defun wymux/kill-file-path ()
+  "Set path of `buffer-file-name' to kill-ring.
+Created: Tuesday, March-14-2023 11:45:15"
+  (interactive)
+  (kill-new (buffer-file-name)))
+
