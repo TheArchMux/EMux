@@ -4,11 +4,14 @@ fundamental-mode
 (ctday (concat "Created: " (format-time-string "%A, %B-%d-%Y %H:%M:%S") "\""))
 (rtday (concat "Revised: " (format-time-string "%A, %B-%d-%Y %H:%M:%S")))
 (wym "wymux")
+(gpl3l (insert-file "/var/db/paludis/repositories/arbor/licences/GPL-3"))
+(mitl (insert-file "/var/db/paludis/repositories/arbor/licences/MIT"))
+(vpll (insert-file "/home/wymux/Media/Document/License/vpl.txt"))
 
 c-mode
 
 (def "#define ")
-(in "#include <"(read-from-minibuffer "Include:" )".h>")
+(in "#include <"(read-from-minibuffer "Include:" )".h>\n")
 (pr "printf(")
 (fpr "fprintf(")
 (ret "return")
@@ -17,6 +20,14 @@ c-mode
 
 c++-mode
 
+(cerr "std::cerr << ")
+(cout "std::cout << ")
+(def "#define ")
+(in "#include <"(read-from-minibuffer "Include:" )">\n")
+(inc "#include \""(read-from-minibuffer "Include:" )".h\"\n")
+(ret "return")
+(ret0 "return 0;")
+(ret1 "return 1;")
 (stri "std::string ")
 
 emacs-lisp-mode
@@ -41,6 +52,7 @@ eshell-mode
 makefile-mode
 
 (mkc (insert-file "~/Media/Document/Template/Makefile/C/Makefile"))
+(mkcpp (insert-file "~/Media/Document/Template/Makefile/Cpp/Makefile"))
 
 makefile-gmake-mode
 
