@@ -51,7 +51,6 @@
 (define-key keymux-command-map (kbd "d w") 'kill-word)
 (define-key keymux-command-map (kbd "d x b") 'wymux/kill-whole-buffer)
 
-
 (define-key keymux-command-map (kbd "D") 'kill-line)
 (define-key keymux-command-map (kbd "e") 'forward-word)
 
@@ -81,6 +80,7 @@
 (define-key keymux-command-map (kbd "g g") 'wymux/goto-char)
 (define-key keymux-command-map (kbd "g e") 'hop-word)
 (define-key keymux-command-map (kbd "g l") 'hop-line)
+(define-key keymux-command-map (kbd "g p") 'goto-last-point)
 (define-key keymux-command-map (kbd "g w") 'hop-line-skip-whitespace)
 
 (define-key keymux-command-map (kbd "m b") 'mark-whole-buffer)
@@ -107,6 +107,8 @@
 (define-key keymux-command-map (kbd "<tab> r") 'indent-region)
 (define-key keymux-command-map (kbd "<tab> <tab>") 'tab-to-tab-stop)
 
+(define-key keymux-command-map (kbd "C-b") 'wymux/switch-to-scratch)
+(define-key keymux-command-map (kbd "C-r") 'query-replace)
 (define-key keymux-command-map (kbd "C-[") 'end-of-buffer)
 (define-key keymux-command-map (kbd "C-]") 'beginning-of-buffer)
 
