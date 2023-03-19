@@ -2,7 +2,7 @@
       '(
 	("\\*compilation*\\|*Async*"
 	 (display-buffer-no-window))
-	("*Help*"
+	("*Help*\\|*Buffer List*\\|*Locate*"
 	 (display-buffer-same-window))
 	("magit: *"
 	 (display-buffer-same-window))))
