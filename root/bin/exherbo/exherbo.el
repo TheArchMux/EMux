@@ -65,7 +65,7 @@ Created: Friday, March-10-2023 12:01:18"
   (save-excursion
       (let* ((cur-file (file-name-nondirectory (buffer-file-name)))
 	     (cur-dir-v (format "%s" (nth 9 (split-string (buffer-file-name) "/"))))
-	     (other-dir (delete cur-dir-v (delete "." (delete ".." (directory-files "../../.")))))
+	     (other-dir (delete cur-dir-v (delete "." (delete ".." (directory-files (concat wymux-local-exherbo-directory wymux-exheres-category "/" wymux-exheres-package))))))
 	     (dir (completing-read "Diff diretory" other-dir)))
 	(ediff-files (replace-regexp-in-string cur-dir-v dir (buffer-file-name)) cur-file))))
 
