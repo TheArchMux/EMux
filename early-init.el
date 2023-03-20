@@ -10,9 +10,9 @@
 (add-to-list 'custom-theme-load-path "~/Internet/Git/Emacs/Theme/lambda-themes.git/")
 
 (load-theme 'lambda-light t)
-
-(set-face-attribute 'default nil :family "Iosevka" :height '120)
-(setq-default line-spacing 0.00)
+  
+(set-face-attribute 'default nil :family "Iosevka" :height '110)
+(setq line-spacing 0.00)
 
 (global-font-lock-mode -1)
 (menu-bar-mode -1)
