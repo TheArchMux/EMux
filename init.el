@@ -30,3 +30,7 @@
   (interactive)
   (start-process "Decrease brightness" nil "blmgr" "-500"))
 
+(set-frame-font "Iosevka 12" nil t)
+(setq-default line-spacing 0.00)
+(load-theme 'lambda-light t)
+  
