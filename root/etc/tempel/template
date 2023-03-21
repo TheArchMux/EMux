@@ -14,6 +14,7 @@ c-mode
 (in "#include <"(read-from-minibuffer "Include:" )".h>\n")
 (pr "printf(")
 (fpr "fprintf(")
+(fprs "fprintf(stderr, \"")
 (ret "return")
 (ret0 "return 0;")
 (ret1 "return 1;")
@@ -47,7 +48,16 @@ eshell-mode
 (cs "doas cave show ")
 (csl "doas cave sync -s local " (file-name-base (expand-file-name "../../../.")) " -r origin/"
 (file-name-base (expand-file-name ".")))
-(erx "doas cave resolve -x ")
+(css "doas cave sync ")
+(crl "doas cave resolve -x " (file-name-base (expand-file-name ".")))
+(crx "doas cave resolve -x ")
+
+
+latex-mode
+
+(clart "\\documentclass{article}")
+(document "\\begin{document}\n" r> n> "\\end{document}")
+(uspac "\\usepackage{" (completing-read "Package: " nil) "}")
 
 makefile-mode
 
