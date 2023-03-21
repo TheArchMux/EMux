@@ -39,6 +39,6 @@
   "Git clone Into local directory.
 Created: Tuesday, March-14-2023 11:11:59"
   (interactive)
-  (let ((git-url (car kill-ring))
+  (let ((git-url (shell-command-to-string "xclip -o -selection clipboard"))
 	(dir (read-directory-name "Git clone directory: " "~/Internet/Git/")))
     (async-shell-command (concat "git clone " git-url " " dir (file-name-base git-url)))))
