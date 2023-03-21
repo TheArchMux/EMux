@@ -9,6 +9,7 @@
 (add-hook 'eshell-load-hook 'eat-eshell-mode)
 (add-hook 'eshell-mode-hook 'abbrev-mode)
 (add-hook 'exheres-mode-hook 'wymux/exheres-mode-entrance)
+(add-hook 'latex-mode-hook 'abbrev-mode)
 (add-hook 'makefile-mode-hook 'abbrev-mode)
 (add-hook 'prog-mode-hook 'abbrev-mode)
 (add-hook 'shell-mode-hook 'abbrev-mode)
