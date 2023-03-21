@@ -46,9 +46,11 @@
 (define-key keymux-command-map (kbd "c r") 'comment-region)
 
 (define-key keymux-command-map (kbd "d d") 'kill-whole-line)
+(define-key keymux-command-map (kbd "d p") 'kill-paragraph)
 (define-key keymux-command-map (kbd "d r") 'kill-region)
 (define-key keymux-command-map (kbd "d s") 'kill-sexp)
 (define-key keymux-command-map (kbd "d w") 'kill-word)
+(define-key keymux-command-map (kbd "d x p") 'wymux/kill-file-path)
 (define-key keymux-command-map (kbd "d x b") 'wymux/kill-whole-buffer)
 
 (define-key keymux-command-map (kbd "D") 'kill-line)
@@ -64,12 +66,6 @@
 (define-key keymux-command-map (kbd "f r") 'wymux/recentf-find)
 (define-key keymux-command-map (kbd "f s") 'save-buffer)
 
-(define-key keymux-command-map (kbd "h a f") 'apropos-command)
-(define-key keymux-command-map (kbd "h a v") 'apropos-variable)
-(define-key keymux-command-map (kbd "h d f") 'describe-function)
-(define-key keymux-command-map (kbd "h d v") 'describe-variable)
-(define-key keymux-command-map (kbd "h d k") 'describe-key)
-(define-key keymux-command-map (kbd "h m") 'man)
 (define-key keymux-command-map (kbd "i") 'keymux-to-insert)
 (define-key keymux-command-map (kbd "j") 'backward-char)
 (define-key keymux-command-map (kbd "k") 'next-line)
@@ -102,7 +98,7 @@
 (define-key keymux-command-map (kbd "-") 'move-beginning-of-line)
 (define-key keymux-command-map (kbd "[") 'forward-paragraph)
 (define-key keymux-command-map (kbd "]") 'backward-paragraph)
-(define-key keymux-command-map (kbd "^") 'wymux/dired-up)
+;; (define-key keymux-command-map (kbd "^") 'wymux/dired-up)
 
 (define-key keymux-command-map (kbd "<tab> r") 'indent-region)
 (define-key keymux-command-map (kbd "<tab> <tab>") 'tab-to-tab-stop)
@@ -139,6 +135,7 @@
 (define-key keymux-command-map (kbd "C-0") 'read-only-mode)
 (define-key keymux-command-map (kbd "C-9") 'wymux/refresh-global-tempel-mode)
 
+(define-key keymux-command-map (kbd "\\ e") 'ett-add-track)
 (define-key keymux-command-map (kbd "\\ g") 'gnus-other-frame)
 (define-key keymux-command-map (kbd "\\ m") 'emms)
 (define-key keymux-command-map (kbd "\\ r") 'mh-rmail)
@@ -176,25 +173,25 @@
 (defun wymux/keymux-c-map ()
   "Define c modal functions.
 Created: Wednesday, March-08-2023 19:47:28"
-  (define-key keymux-command-map (kbd "SPC c") 'ggtags-create-tags)
-  (define-key keymux-command-map (kbd "SPC f") 'ggtags-find-tag-dwim))
+  (define-key keymux-command-map (kbd "h c") 'ggtags-create-tags)
+  (define-key keymux-command-map (kbd "h f") 'ggtags-find-tag-dwim))
 
 (defun wymux/keymux-exheres-mode-map ()
   "Bind keys for `exheres-mode'
 Created: Tuesday, March-14-2023 19:14:59"
-  (define-key keymux-command-map (kbd "SPC b") 'wymux/bump-exheres)
-  (define-key keymux-command-map (kbd "SPC d") 'wymux/exherbo-download-package)
-  (define-key keymux-command-map (kbd "SPC e") 'wymux/exherbo-ediff)
-  (define-key keymux-command-map (kbd "SPC f") 'wymux/find-exlib)
-  (define-key keymux-command-map (kbd "SPC t") 'wymux/exherbo-travel-local-compressed))
+  (define-key keymux-command-map (kbd "h b") 'wymux/bump-exheres)
+  (define-key keymux-command-map (kbd "h d") 'wymux/exherbo-download-package)
+  (define-key keymux-command-map (kbd "h e") 'wymux/exherbo-ediff)
+  (define-key keymux-command-map (kbd "h f") 'wymux/find-exlib)
+  (define-key keymux-command-map (kbd "h t") 'wymux/exherbo-travel-local-compressed))
 
 (defun wymux/unbind-keys ()
   "Unbind all 'C-h' major mode specific keys.
 Created: Tuesday, March-14-2023 19:19:20"
-  (unbind-key (kbd "SPC b"))
-  (unbind-key (kbd "SPC d"))
-  (unbind-key (kbd "SPC e"))
-  (unbind-key (kbd "SPC f"))
-  (unbind-key (kbd "SPC r"))
-  (unbind-key (kbd "SPC t"))
+  (keymap-unset keymux-command-map (kbd "h b"))
+  (keymap-unset keymux-command-map (kbd "h d"))
+  (keymap-unset keymux-command-map (kbd "h e"))
+  (keymap-unset keymux-command-map (kbd "h f"))
+  (keymap-unset keymux-command-map (kbd "h r"))
+  (keymap-unset keymux-command-map (kbd "h t"))
   )
