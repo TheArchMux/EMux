@@ -22,6 +22,7 @@
 
 (setq exwm-input-global-keys
       `(
+	([?\s-a] . execute-extended-command)
 	([?\s-f] . other-frame)
 	([?\s-m] . make-frame-command)
 	([?\s-d] . delete-frame)
