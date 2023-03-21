@@ -24,9 +24,13 @@
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/exheres-mode/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/emacs-pcre/")
 (load-file "~/Internet/Git/Emacs/Utility/hop.el/hop.el")
+(load-file "~/Internet/Git/Emacs/Utility/goto-last-point/goto-last-point.el")
+(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/embark/")
+(load-file "~/Internet/Git/Emacs/Utility/ett.git/ett.el")
 
 (require 'eat)
 (require 'eglot)
+(require 'embark)
 (require 'emms)
 (require 'emms-history)
 (require 'emms-playlist-mode)
@@ -39,6 +43,8 @@
 (require 'gnus)
 (require 'vertico)
 (require 'vertico-buffer)
+(require 'vertico-flat)
+(require 'vertico-unobtrusive)
 
 (require 'magit)
 (require 'paper)
