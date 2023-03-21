@@ -4,6 +4,40 @@
 (defcustom wymux-local-exherbo-directory "~/Internet/Compressed/Package/Exherbo/"
   "Directory of local exheres.")
 
+(defcustom wymux-local-mirror-file "~/Media/Document/Exherbo/mirrors.txt"
+  "File containing mirros.")
+
+(defvar wymux-exheres-mirror-alist '(
+					("alsaproject"	. "https://www.alsa-project.org/files/pub")
+					("apache"	. "https://apache.lauf-forum.at/")
+					("arbor"	. "https://distfiles.exherbo.org/distfiles/")
+					("cpan"		. "https://www.cpan.org/")
+					("ctan"		. "http://mirrors.ctan.org/")
+					("debian"	. "http://ftp2.de.debian.org/debian/")
+					("flightgear"	. "https://ftp.igh.cnrs.fr/pub/flightgear/ftp/")
+					("gentoo"	. "https://gentoo.osuosl.org/distfiles/")
+					("ggz"		. "https://mirrors.dotsrc.org/ggzgamingzone/ggz/")
+					("gnome"	. "https://download.gnome.org/")
+					("gnu"		. "https://ftp.gnu.org/gnu/")
+					("gnupg"	. "https://www.gnupg.org/ftp/gcrypt/")
+					("kde"		. "https://download.kde.org/")
+					("kernel"	. "https://cdn.kernel.org/pub/")
+					("libreoffice"	. "https://mirror.ibcp.fr/pub/tdf/libreoffice/")
+					("mplayer"	. "https://www1.mplayerhq.hu/MPlayer/")
+					("mysql"	. "https://ftp.gwdg.de/pub/misc/mysql/")
+					("openbsd"	. "https://ftp.spline.de/pub/OpenBSD/")
+					("postgresqlg"	. "https://ftp.postgresql.org/pub/")
+					("procmail"	. "http://www.procmail.org/")
+					("qt"		. "https://download.qt.io/")
+					("ruby"		. "https://cache.ruby-lang.org/pub/ruby/")
+					("samba"	. "https://www.samba.org/ftp/samba/")
+					("savannah"	. "https://download.savannah.nongnu.org/releases/")
+					("shorewall"	. "https://shorewall.org/pub/shorewall/")
+					("sourceforge"	. "https://freefr.dl.sourceforge.net/sourceforge/")
+					("sourceware"	. "https://mirrors.kernel.org/sourceware/")
+					("videolan"	. "https://downloads.videolan.org/pub/videolan/"))
+  "Mirror expansion.")
+
 (defcustom wymux-exheres-revision-p nil
   "Whether current exheres is revised version.")
 
@@ -55,7 +89,7 @@ Created: Monday, March-13-2023 09:26:32"
 Created: Friday, March-10-2023 11:39:44
 Revised: Friday, March-10-2023 13:14:41"
   (interactive)
-  (let ((regexp (string-trim (read-regexp "Exheres: "))))
+  (let ((regexp (string-trim (completing-read "Exheres: " nil))))
   (find-name-dired wymux-exheres-directory (concat "*" regexp "*"))))
 
 (defun wymux/exherbo-ediff ()
@@ -81,7 +115,16 @@ Revised: Sunday, March-12-2023 21:03:49"
 			     (shell-quote-argument package)) (current-buffer))
       (search-forward "Summary")
       (while (re-search-forward "\\(https?://\\|www\\.\\)[^\s]+\\(\s\\|$\\)" nil t)
-	(setq urls (string-trim (match-string 0)))))
+	(setq urls (string-trim (match-string 0))))
+      (when (re-search-forward "\\(mirror://\\)[^\s]+\\(\s\\|$\\)" nil t)
+	(progn
+	  (setq urls (string-trim (match-string 0)))
+	  (let* ((urlt (nth 2 (split-string wymux-exheres-url "/")))
+		 (urlst (cdr (assoc urlt wymux-exheres-mirror-alist))))
+	    (message "%s" urlst)
+	    (setq urls (replace-regexp-in-string (concat "mirror://" urlt "/") urlst urls))
+	    )))
+      )
     urls))
 
 (defun wymux/exherbo-acquire-category-package-exheres ()
