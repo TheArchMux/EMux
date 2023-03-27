@@ -1,6 +1,6 @@
 fundamental-mode
 
-(tday (format-time-string "%A, %B-%d-%Y %H:%M:%S"))
+(td (format-time-string "%A, %B-%d-%Y"))
 (ctday (concat "Created: " (format-time-string "%A, %B-%d-%Y %H:%M:%S") "\""))
 (rtday (concat "Revised: " (format-time-string "%A, %B-%d-%Y %H:%M:%S")))
 (wym "wymux")
@@ -15,7 +15,7 @@ c-mode
 (pr "printf(")
 (fpr "fprintf(")
 (fprs "fprintf(stderr, \"")
-(ret "return")
+(ret "return ")
 (ret0 "return 0;")
 (ret1 "return 1;")
 
@@ -30,6 +30,7 @@ c++-mode
 (ret0 "return 0;")
 (ret1 "return 1;")
 (stri "std::string ")
+(vect "std::vector<")
 
 emacs-lisp-mode
 
@@ -51,7 +52,8 @@ eshell-mode
 (css "doas cave sync ")
 (crl "doas cave resolve -x " (file-name-base (expand-file-name ".")))
 (crx "doas cave resolve -x ")
-
+(gtc "git checkout ")
+(gtcb "git checkout -b ")
 
 latex-mode
 
