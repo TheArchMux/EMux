@@ -128,3 +128,11 @@ Created: Tuesday, March-14-2023 11:45:15"
   (interactive)
   (kill-new (buffer-file-name)))
 
+(defun wymux/exherbo-extract-archive (directory file)
+  "Extract archive.
+Created: Friday, March-24-2023 17:32:27"
+  (with-temp-buffer
+    (cd directory)
+    (let* ((compression (wymux/determine-compression file))
+	   (binary (wymux/determine-decompression-binary file)))
+      (shell-command (concat binary file)))))
