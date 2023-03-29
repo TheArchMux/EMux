@@ -1,3 +1,6 @@
+(defconst wymux-font "Iosevka Medium 12")
+(defconst wymux-theme 'lambda-light)
+
 (load-file "~/.config/emacs/root/etc/init/load.el")
 
 (defun load-directory (directory)
@@ -30,7 +33,5 @@
   (interactive)
   (start-process "Decrease brightness" nil "blmgr" "-500"))
 
-(set-frame-font "Iosevka 12" nil t)
-(setq-default line-spacing 0.00)
-(load-theme 'lambda-light t)
-  
+(set-frame-font wymux-font nil t)
+(load-theme wymux-theme t)
