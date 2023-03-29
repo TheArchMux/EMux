@@ -1,0 +1,6 @@
+(define-key ggtags-navigation-map (kbd "C-j") 'previous-error)
+(define-key ggtags-navigation-map (kbd "C-\;") 'next-error)
+(define-key ggtags-navigation-map (kbd "C-k") 'ggtags-navigation-next-file)
+(define-key ggtags-navigation-map (kbd "C-l") 'ggtags-navigation-previous-file)
+(define-key ggtags-navigation-map (kbd "C-i") 'ggtags-navigation-start-file)
+(define-key ggtags-navigation-map (kbd "C-s") 'ggtags-navigation-isearch-forward)
