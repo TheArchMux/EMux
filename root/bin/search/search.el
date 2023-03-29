@@ -6,7 +6,7 @@
 Created: Thursday, March-09-2023 18:41:26
 Revision: Thursday, March-09-2023 22:03:08"
   (interactive)
-  (let ((search-term (read-from-minibuffer "Search: ")))
+  (let ((search-term (completing-read "Search: " nil nil nil (wymux/extract-word-at-point))))
     (setq wymux--search-term search-term)
     (wymux/search-forward)))
 
