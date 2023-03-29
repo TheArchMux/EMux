@@ -22,6 +22,7 @@ c-mode
 c++-mode
 
 (cerr "std::cerr << ")
+(cin "std::cin  ")
 (cout "std::cout << ")
 (def "#define ")
 (in "#include <"(read-from-minibuffer "Include:" )">\n")
@@ -29,6 +30,7 @@ c++-mode
 (ret "return")
 (ret0 "return 0;")
 (ret1 "return 1;")
+(stvi "static void ")
 (stri "std::string ")
 (vect "std::vector<")
 
