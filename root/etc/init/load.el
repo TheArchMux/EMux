@@ -1,8 +1,6 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/Window-Manager/exwm/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Window-Manager/xelb/")
 
-(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/vertico.git/")
-(add-to-list 'load-path "~/Internet/Git/Emacs/Utility/vertico.git/extensions/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/fzf-native.git/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Completion/flx.git")
 (load-file "~/Internet/Git/Emacs/Completion/fussy.git/fussy.el")
@@ -35,11 +33,6 @@
 (require 'exwm-randr)
 (require 'fzf-native)
 (require 'gnus)
-(require 'vertico)
-(require 'vertico-buffer)
-(require 'vertico-flat)
-(require 'vertico-multiform)
-(require 'vertico-unobtrusive)
 (require 'xeft)
 
 (require 'magit)
