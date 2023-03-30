@@ -11,7 +11,7 @@ fundamental-mode
 c-mode
 
 (def "#define ")
-(in "#include <"(read-from-minibuffer "Include:" )".h>\n")
+(in "#include <"(read-from-minibuffer "Include: " )".h>\n")
 (pr "printf(")
 (fpr "fprintf(")
 (fprs "fprintf(stderr, \"")
@@ -25,8 +25,8 @@ c++-mode
 (cin "std::cin  ")
 (cout "std::cout << ")
 (def "#define ")
-(in "#include <"(read-from-minibuffer "Include:" )">\n")
-(inc "#include \""(read-from-minibuffer "Include:" )".h\"\n")
+(in "#include <"(read-from-minibuffer "Include: " )">\n")
+(inc "#include \""(read-from-minibuffer "Include: " )".h\"\n")
 (ret "return")
 (ret0 "return 0;")
 (ret1 "return 1;")
@@ -55,7 +55,9 @@ eshell-mode
 (crl "doas cave resolve -x " (file-name-base (expand-file-name ".")))
 (crx "doas cave resolve -x ")
 (gtc "git checkout ")
+(gtcm "git checkout master")
 (gtcb "git checkout -b ")
+(gtpgt "git pull gitlab master")
 
 latex-mode
 
