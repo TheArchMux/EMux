@@ -16,3 +16,10 @@
 (setq ffap-require-prefix nil)
 (setq-default cursor-in-non-selected-windows nil)
 (setq scroll-margin 0)
+(setq completions-format 'horizontal)
+(setq completions-header-format nil)
+(setq completions-max-height 10)
+(setq completion-auto-select t)
+
+(define-key minibuffer-mode-map (kbd "C-n") 'minibuffer-next-completion) 
+(define-key minibuffer-mode-map (kbd "C-p") 'minibuffer-previous-completion) 
