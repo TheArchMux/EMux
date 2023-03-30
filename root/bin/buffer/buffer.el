@@ -161,3 +161,42 @@ Created: Tuesday, March-28-2023 12:47:01"
     (setq p2 (point))
     (delete-region p1 p2)
     (keymux-modal-mode -1)))
+
+(defun wymux/quote-until-whitespace (p1 p2 quote)
+  "Quote text until whitespace.
+Created: Thursday, March-30-2023 16:48:42"
+  (save-excursion
+    (goto-char p1)
+    (insert-char quote)
+    (goto-char p2)
+    (insert-char quote)))
+
+(defun wymux/remove-quote-sexp (p1 p2)
+  "Remove surrounding quote from sexp.
+Created: Thursday, March-30-2023 17:02:38"
+  (save-excursion
+      (goto-char p1)
+      (delete-char 1)
+      (goto-char p2)
+      (delete-char 1)))
+
+(defun wymux/toggle-quote-sexp ()
+  "Quote sexp.
+Created: Thursday, March-30-2023 16:58:02"
+  (interactive)
+  (unless (eq last-command this-command)
+    (put this-command 'state 0))
+  (let* ((bounds (bounds-of-thing-at-point 'sexp))
+	(p1 (car bounds))
+	(p2 (cdr bounds)))
+  (cond
+   ((equal 0 (get this-command 'state))
+    (wymux/quote-until-whitespace p1 (+ p2 1) (string-to-char "'"))
+    (put this-command 'state 1))
+   ((equal 1 (get this-command 'state))
+    (wymux/remove-quote-sexp (+ p1 0) (- p2 2))
+    (wymux/quote-until-whitespace p1 (- p2 1) (string-to-char "\""))
+    (put this-command 'state 2))
+   ((equal 2 (get this-command 'state))
+    (wymux/remove-quote-sexp (- p1 1) (- p2 1))
+    (put this-command 'state 0)))))

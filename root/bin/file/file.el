@@ -102,6 +102,7 @@ Created: Friday, March-10-2023 14:42:23"
 Created: Tuesday, March-14-2023 09:00:38"
   (let ((extensions
 	 '(("gz" . "gz")
+	   ("tgz" . "gz")
 	   ("zip" . "zip")
 	   ("bz2" . "bzip")
 	   ("xz" . "xz")
@@ -136,3 +137,13 @@ Created: Friday, March-24-2023 17:32:27"
     (let* ((compression (wymux/determine-compression file))
 	   (binary (wymux/determine-decompression-binary file)))
       (shell-command (concat binary file)))))
+
+(defun wymux/kill-file-relative ()
+  "Set relative path of file to `kill-ring'.
+Created: Thursday, March-30-2023 12:48:38"
+  (interactive)
+  (let ((file (expand-file-name (ido-read-file-name "File: ")))
+	(cur-file (file-name-nondirectory (buffer-file-name))))
+    (when (string-equal cur-file "README.md")
+      (replace-regexp-in-string (file-name-directory (buffer-file-name)) "" file))
+    (kill-new file)))

@@ -46,8 +46,9 @@
 (define-key keymux-command-map (kbd "d r") 'kill-region)
 (define-key keymux-command-map (kbd "d s") 'kill-sexp)
 (define-key keymux-command-map (kbd "d w") 'wymux/kill-word)
-(define-key keymux-command-map (kbd "d x p") 'wymux/kill-file-path)
 (define-key keymux-command-map (kbd "d x b") 'wymux/kill-whole-buffer)
+(define-key keymux-command-map (kbd "d x f") 'wymux/kill-file-relative)
+(define-key keymux-command-map (kbd "d x p") 'wymux/kill-file-path)
 (define-key keymux-command-map (kbd "D") 'kill-line)
 
 (define-key keymux-command-map (kbd "r") 'kill-word)
@@ -127,6 +128,7 @@
 (define-key keymux-command-map (kbd "C-d") 'duplicate-dwim)
 (define-key keymux-command-map (kbd "C-t") 'transpose-lines)
 (define-key keymux-command-map (kbd "C-r") 'query-replace)
+(define-key keymux-command-map (kbd "C-p") 'wymux/toggle-quote-sexp)
 (define-key keymux-command-map (kbd "C-y") 'wymux/toggle-quote)
 (define-key keymux-command-map (kbd "t") 'set-mark-command)
 
@@ -140,6 +142,7 @@
 (define-key keymux-command-map (kbd "\\ r") 'mh-rmail)
 (define-key keymux-command-map (kbd "\\ s") 'wymux/eshell)
 (define-key keymux-command-map (kbd "\\ v") 'magit)
+(define-key keymux-command-map (kbd "\\ x") 'xeft)
 
 (define-key keymux-command-map (kbd ".") 'repeat)
 (define-key keymux-command-map (kbd ",") 'repeat-complex-command)
