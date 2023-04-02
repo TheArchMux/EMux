@@ -3,6 +3,7 @@
             (when  (derived-mode-p 'c-mode 'c++-mode 'java-mode)
               (ggtags-mode 1))))
 (add-hook 'c-mode-common-hook 'wymux/keymux-c-map)
+(add-hook 'compilation-finish-functions 'wymux/kill-compile)
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 (add-hook 'eshell-load-hook 'abbrev-mode)
 (add-hook 'eshell-load-hook 'eat-eshell-mode)
