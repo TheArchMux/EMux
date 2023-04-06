@@ -1,6 +1,3 @@
-(require 'exwm)
-(require 'exwm-randr)
-
 (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
 
 (setq exwm-input-simulation-keys
@@ -10,11 +7,11 @@
         ([?\C-n] . [down])
         ([?\C-a] . [home])
         ([?\C-e] . [end])
-        ([?\M-v] . [prior])
+        ([?\C-u] . [prior])
         ([?\C-v] . [next])
         ([?\C-d] . [delete])
-        ([?\C-k] . [S-end delete])
-	([?\C-y] . (?\C-c))))
+	([?\C-j] . [return])
+        ([?\C-k] . [S-end delete])))
 
 (add-hook 'exwm-update-class-hook
           (lambda ()
@@ -23,24 +20,31 @@
 (setq exwm-input-global-keys
       `(
 	([?\s-a] . execute-extended-command)
-	([?\s-f] . other-frame)
-	([?\s-m] . make-frame-command)
-	([?\s-d] . delete-frame)
-	([?\s-w] . delete-window)
-	([?\s-b] . switch-to-buffer)
-	([?\s-=] . next-buffer)
-	([?\s-\-] . previous-buffer)
+	(,(kbd "<kp-divide>") . previous-buffer)
+	(,(kbd "<kp-multiply>") . next-buffer)
+	(,(kbd "<kp-left>") . windmove-left)
+	(,(kbd "<kp-right>") . windmove-right)
+	(,(kbd "<kp-up>") . windmove-up)
+	(,(kbd "<kp-down>") . windmove-down)
+	(,(kbd "<kp-home>") . split-window-horizontally)
+	(,(kbd "<kp-prior>") . split-window-vertically)
+	(,(kbd "<kp-end>") . delete-window)
+	(,(kbd "<kp-next>") . delete-frame)
+	(,(kbd "<kp-insert>") . other-frame)
+	(,(kbd "<kp-delete>") . make-frame-command)
+	(,(kbd "<kp-begin>") . kill-current-buffer)
+	(,(kbd "<kp-subtract>") . wymux/kill-buffer-delete-window)
+	(,(kbd "<kp-enter>") . switch-to-buffer)
 	([?\s-1] . delete-other-windows)
-	([?\s-2] . split-window-vertically)
-	([?\s-3] . split-window-horizontally)
-	([?\s-4] . wymux/kill-buffer-delete-window)
 	([?\s-5] . balance-windows)
-	([?\s-j] . windmove-left)
-	([?\s-k] . windmove-down)
-	([?\s-l] . windmove-up)
-	([?\s-\;] . windmove-right)
-	([?\s-x] . kill-current-buffer)
 	([?\s-q] . kill-emacs)
+	(,(kbd "<f6>") . tab-new)
+	(,(kbd "<f7>") . tab-previous)
+	(,(kbd "<f8>") . tab-next)
+	(,(kbd "<f9>") . tab-switch)
+	(,(kbd "<f10>") . tab-recent)
+	(,(kbd "<f11>") . tab-undo)
+	(,(kbd "<f12>") . tab-close)
 	([<XF86MonBrightnessDown>] . wymux/darken-monitor)
 	([<XF86MonBrightnessUp>] . wymux/brighten-monitor)	
 	))
@@ -51,6 +55,20 @@
              "xrandr" nil "xrandr --output DP-1-1 --mode 3440x1440 --primary --rate 100 --above eDP1")))
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+(add-hook 'exwm-manage-finish-hook
+          (lambda ()
+            (when (and exwm-class-name
+                       (string= exwm-class-name "firefox-default"))
+              (keymux-to-insert))))
+
+(add-hook 'window-state-change-hook
+          (lambda ()
+            (when (and exwm-class-name
+                       (string= exwm-class-name "firefox-default"))
+              (keymux-to-insert))))
+
+(add-hook 'window-state-change-hook 'keymux-cursor-refresh)
 
 (exwm-randr-enable)
 (exwm-enable)
