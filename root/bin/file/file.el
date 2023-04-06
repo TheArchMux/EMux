@@ -116,7 +116,7 @@ Created: Tuesday, March-14-2023 09:00:38"
 Created: Tuesday, March-14-2023 09:00:38"
   (let ((decompression-binary
 	 '(("gz" . "bsdtar -xf ")
-	   ("zip" . "unzip -d .")
+	   ("zip" . "unzip -d . ")
 	   ("bzip" . "bsdtar -xf ")
 	   ("xz" . "bsdtar -xf ")
 	   ("7z" . "7z x ")
