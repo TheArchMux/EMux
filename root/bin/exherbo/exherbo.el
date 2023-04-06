@@ -89,13 +89,20 @@ Created: Monday, March-13-2023 09:26:32"
   (let ((nvers (read-from-minibuffer "New version: " wymux-exheres-version)))
     nvers))
 
-(defun wymux/find-exheres ()
+(defun wymux/find-exheres (&optional ex)
   "Find exheres in 'exheres-directory'.
 Created: Friday, March-10-2023 11:39:44
 Revised: Friday, March-10-2023 13:14:41"
   (interactive)
-  (let ((regexp (string-trim (completing-read "Exheres: " nil))))
-    (find-name-dired wymux-exheres-directory (concat "*" regexp "*"))))
+  (when (not ex)
+    (let ((table (make-hash-table :test 'equal :size 10000)))
+      (with-temp-buffer
+	(insert-file-contents "~/.cache/exherbo_all.txt")
+	(while (not (eobp))
+	  (puthash (buffer-substring (point) (line-end-position)) nil table)
+	  (forward-line)))
+      (setq ex (completing-read "Exheres: " table))
+      (find-file-existing (concat wymux-exheres-directory "/" ex)))))
 
 (defun wymux/exherbo-ediff ()
   "Ediff between current buffer and other version automatically.
@@ -105,7 +112,7 @@ Created: Friday, March-10-2023 12:01:18"
     (let* ((cur-file (file-name-nondirectory (buffer-file-name)))
 	   (cur-dir-v (format "%s" (nth 9 (split-string (buffer-file-name) "/"))))
 	   (other-dir (delete cur-dir-v (delete "." (delete ".." (directory-files (concat wymux-local-exherbo-directory wymux-exheres-category "/" wymux-exheres-package))))))
-	   (dir (completing-read "Diff diretory" other-dir)))
+	   (dir (completing-read "Diff diretory: " other-dir)))
       (ediff-files (replace-regexp-in-string cur-dir-v dir (buffer-file-name)) cur-file))))
 
 (defun wymux/exherbo-get-url (category package)
