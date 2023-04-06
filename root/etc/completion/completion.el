@@ -1,9 +1,16 @@
-(require 'fzf-native)
+(setq completion-styles '(hotfuzz))
 
-(fzf-native-load-dyn)
+(setq hotfuzz-max-highlighted-completions 0)
 
-(setq fussy-use-cache t)
+(defun my-icomplete-styles ()
+  (setq-local completion-styles '(hotfuzz)))
 
-(setq fussy-score-fn 'fussy-fzf-native-score)
+(add-hook 'icomplete-minibuffer-setup-hook 'my-icomplete-styles)
 
-(setq completion-styles '(fussy))
+(setq completion-auto-select nil)
+(setq completions-format 'one-column)
+(setq completions-header-format nil)
+(setq completions-ignore-case t)
+(setq completions-max-height 10)
+
+(setq icomplete-prospects-height 1)
