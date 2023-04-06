@@ -11,3 +11,4 @@
 
 (set-face-foreground 'gnus-group-mail-1 (face-foreground 'default))
 
+(setq gnus-expert-user t)
