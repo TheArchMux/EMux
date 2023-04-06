@@ -1,1 +1,5 @@
 (setq enable-recursive-minibuffers t)
+(define-key minibuffer-local-completion-map (kbd "SPC") 'self-insert-command)
+(define-key minibuffer-local-completion-map (kbd "C-SPC") 'minibuffer-complete-word)
+(define-key minibuffer-mode-map (kbd "C-n") 'minibuffer-next-completion) 
+(define-key minibuffer-mode-map (kbd "C-p") 'minibuffer-previous-completion) 
