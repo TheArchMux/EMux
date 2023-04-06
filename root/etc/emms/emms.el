@@ -1,9 +1,3 @@
-(require 'emms)
-(require 'emms-history)
-(require 'emms-playlist-mode)
-(require 'emms-player-mpd)
-(require 'emms-setup)
-
 (setq emms-source-file-default-directory "~/Media/")
 (setq emms-player-mpd-music-directory "~/Media/Musica/")
 
