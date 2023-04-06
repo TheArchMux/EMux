@@ -57,6 +57,7 @@ eshell-mode
 (gtc "git checkout ")
 (gtcm "git checkout master")
 (gtcb "git checkout -b ")
+(gtcbl "git checkout -b " (file-name-base (expand-file-name ".")) " || git checkout " (file-name-base (expand-file-name ".")))
 (gtpgt "git pull gitlab master")
 
 latex-mode
