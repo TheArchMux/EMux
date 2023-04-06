@@ -14,3 +14,4 @@
 (setq completions-max-height 10)
 
 (setq icomplete-prospects-height 1)
+(setq icomplete-show-matches-on-no-input nil)
