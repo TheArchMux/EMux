@@ -9,5 +9,5 @@
 (setq nnfolder-directory "~/Media/Document/Gnus/Mail/archive/")
 (setq nnfolder-active-file "~/Media/Document/Gnus/Mail/archive/active")
 
-(set-face-foreground 'gnus-group-mail-1 "#000000")
+(set-face-foreground 'gnus-group-mail-1 (face-foreground 'default))
 
