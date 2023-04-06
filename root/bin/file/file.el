@@ -142,8 +142,21 @@ Created: Friday, March-24-2023 17:32:27"
   "Set relative path of file to `kill-ring'.
 Created: Thursday, March-30-2023 12:48:38"
   (interactive)
-  (let ((file (expand-file-name (ido-read-file-name "File: ")))
+  (let ((file (expand-file-name (read-file-name "File: ")))
 	(cur-file (file-name-nondirectory (buffer-file-name))))
     (when (string-equal cur-file "README.md")
       (replace-regexp-in-string (file-name-directory (buffer-file-name)) "" file))
     (kill-new file)))
+
+(defun wymux/find-file-subdirectory ()
+  "Open file.
+Created: Friday, March-31-2023 15:23:08"
+  (interactive)
+  (let ((file-list)
+	(table (make-hash-table :test 'equal :size 500000)))
+    (with-temp-buffer
+	(insert-file-contents "~/.cache/file_all.txt")
+      (while (not (eobp))
+	(puthash (buffer-substring (point) (line-end-position)) nil table)
+	(forward-line)))
+      (find-file (completing-read "Open file: " table))))
