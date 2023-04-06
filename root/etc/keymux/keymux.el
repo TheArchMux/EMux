@@ -6,10 +6,11 @@
 (defconst keymux-right-brackets
   (mapcar (lambda (x) (substring x 1 2)) keymux-bracket))
 
-(global-set-key (kbd "s-g") 'keymux-modal-mode)
+(global-set-key (kbd "<f5>") 'keymux-modal-mode)
 (global-set-key (kbd "C-\\") 'recenter-top-bottom)
 (global-set-key (kbd "C-]") 'hippie-completing-read)
 (global-set-key (kbd "C-0") 'tempel-done)
+(global-set-key (kbd "C-z") 'abort-recursive-edit)
 (global-set-key (kbd "C--") 'tempel-previous)
 (global-set-key (kbd "C-=") 'tempel-next)
 (global-set-key (kbd "<XF86MonBrightnessUp>") 'wymux/brighten-monitor)
@@ -63,7 +64,8 @@
 (define-key keymux-command-map (kbd "f l") 'locate)
 (define-key keymux-command-map (kbd "f m") 'wymux/find-makefile)
 (define-key keymux-command-map (kbd "f p") 'ffap)
-(define-key keymux-command-map (kbd "f r") 'wymux/recentf-find)
+(define-key keymux-command-map (kbd "f r") 'wymux/find-file-subdirectory)
+(define-key keymux-command-map (kbd "f t") 'wymux/recentf-find)
 (define-key keymux-command-map (kbd "f s") 'save-buffer)
 
 (define-key keymux-command-map (kbd "i") 'keymux-to-insert)
@@ -75,8 +77,8 @@
 (define-key keymux-command-map (kbd "h d s") 'describe-symbol)
 (define-key keymux-command-map (kbd "h d v") 'describe-variable)
 (define-key keymux-command-map (kbd "h f f") 'find-function)
-(define-key keymux-command-map (kbd "h f k") 'find-function-on-key)
 
+(define-key keymux-command-map (kbd "h f k") 'find-function-on-key)
 (define-key keymux-command-map (kbd "j") 'backward-char)
 (define-key keymux-command-map (kbd "k") 'next-line)
 (define-key keymux-command-map (kbd "l") 'previous-line)
@@ -124,12 +126,11 @@
 
 (define-key keymux-command-map (kbd "<tab> q") 'wymux/edit-string)
 (define-key keymux-command-map (kbd "<tab> p") 'wymux/edit-parenthesis)
+(define-key keymux-command-map (kbd "<tab> r") 'indent-region)
 
 (define-key keymux-command-map (kbd "C-d") 'duplicate-dwim)
 (define-key keymux-command-map (kbd "C-t") 'transpose-lines)
 (define-key keymux-command-map (kbd "C-r") 'query-replace)
-(define-key keymux-command-map (kbd "C-p") 'wymux/toggle-quote-sexp)
-(define-key keymux-command-map (kbd "C-y") 'wymux/toggle-quote)
 (define-key keymux-command-map (kbd "t") 'set-mark-command)
 
 (define-key keymux-command-map (kbd "C-v") 'visual-line-mode)
@@ -137,7 +138,7 @@
 (define-key keymux-command-map (kbd "C-0") 'read-only-mode)
 (define-key keymux-command-map (kbd "C-9") 'wymux/refresh-global-tempel-mode)
 
-(define-key keymux-command-map (kbd "\\ g") 'gnus-other-frame)
+(define-key keymux-command-map (kbd "\\ n") 'gnus-other-frame)
 (define-key keymux-command-map (kbd "\\ m") 'emms)
 (define-key keymux-command-map (kbd "\\ r") 'mh-rmail)
 (define-key keymux-command-map (kbd "\\ s") 'wymux/eshell)
@@ -147,16 +148,17 @@
 (define-key keymux-command-map (kbd ".") 'repeat)
 (define-key keymux-command-map (kbd ",") 'repeat-complex-command)
 
-(define-key keymux-command-map (kbd "SPC x b") 'eval-buffer)
-(define-key keymux-command-map (kbd "SPC x d") 'eval-defun)
-(define-key keymux-command-map (kbd "SPC x r") 'eval-region)
+(define-key keymux-command-map (kbd "<tab> i") 'imenu)
+(define-key keymux-command-map (kbd "<tab> x b") 'eval-buffer)
+(define-key keymux-command-map (kbd "<tab> x d") 'eval-defun)
+(define-key keymux-command-map (kbd "<tab> x r") 'eval-region)
 
-(define-key keymux-command-map (kbd "<f5>") 'wymux/compile)
-(define-key keymux-command-map (kbd "<f10> p f") 'wymux/emms-play-find)
-(define-key keymux-command-map (kbd "<f10> p t") 'emms-play-directory-tree)
-(define-key keymux-command-map (kbd "<f12> g") 'wymux/git-clone)
-(define-key keymux-command-map (kbd "<f12> r") 'wymux/document-read)
-(define-key keymux-command-map (kbd "<f12> w") 'wymux/firefox)
+(define-key keymux-command-map (kbd "\\ c") 'wymux/compile)
+(define-key keymux-command-map (kbd "\\ d") 'wymux/document-read)
+(define-key keymux-command-map (kbd "\\ g") 'wymux/git-clone)
+(define-key keymux-command-map (kbd "\\ p f") 'wymux/emms-play-find)
+(define-key keymux-command-map (kbd "\\ p t") 'emms-play-directory-tree)
+(define-key keymux-command-map (kbd "\\ w") 'wymux/firefox)
 
 (define-key keymux-command-map (kbd "0") 'digit-argument)
 (define-key keymux-command-map (kbd "1") 'digit-argument)
@@ -175,11 +177,7 @@
   "Modal mode."
   :global t
   :keymap keymux-command-map
-  (if keymux-modal-mode
-      (progn
-	(set-cursor-color "#8888FF"))
-    (progn
-      (set-cursor-color "#FF8888"))))
+  (keymux-cursor-refresh))
 
 (add-hook 'minibuffer-setup-hook 'keymux-to-insert)
 (add-hook 'minibuffer-exit-hook 'keymux-to-command)
@@ -211,7 +209,7 @@ Created: Tuesday, March-14-2023 19:14:59"
   (define-key keymux-command-map (kbd "SPC t") 'wymux/exherbo-travel-local-compressed))
 
 (defun wymux/unbind-keys ()
-  "Unbind all 'C-h' major mode specific keys.
+  "Unbind all 'SPC' major mode specific keys.
 Created: Tuesday, March-14-2023 19:19:20"
   (define-key keymux-command-map (kbd "SPC b") nil)
   (define-key keymux-command-map (kbd "SPC d") nil)
@@ -219,3 +217,20 @@ Created: Tuesday, March-14-2023 19:19:20"
   (define-key keymux-command-map (kbd "SPC f") nil)
   (define-key keymux-command-map (kbd "SPC r") nil)
   (define-key keymux-command-map (kbd "SPC t") nil))
+
+(defun keymux-cursor-enable ()
+  "Set active `keymux-modal-mode' cursor.
+Created: Sunday, April-02-2023 09:16:14"
+  (set-cursor-color "#8888FF"))
+
+(defun keymux-cursor-disable ()
+  "Set inactive `keymux-modal' cursor.
+Created: Sunday, April-02-2023 09:17:12"
+  (set-cursor-color "#FF8888"))
+
+(defun keymux-cursor-refresh ()
+  "Refresh color of cursor.
+Created: Sunday, April-02-2023 09:20:43"
+  (if keymux-modal-mode
+      (keymux-cursor-enable)
+    (keymux-cursor-disable)))
