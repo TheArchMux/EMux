@@ -1,5 +1,5 @@
 (defconst wymux-font "Iosevka Medium 12")
-(defconst wymux-theme 'lambda-light)
+(defconst wymux-theme 'tao-yang)
 
 (load-file "~/.config/emacs/root/etc/init/load.el")
 
@@ -35,3 +35,11 @@
 
 (set-frame-font wymux-font nil t)
 (load-theme wymux-theme t)
+
+(set-face-foreground 'default "#000000")
+(set-face-background 'default "#FFFFFF")
+
+(set-face-foreground 'minibuffer-prompt "#000000")
+(set-face-background 'minibuffer-prompt "#FFFFFF")
+(set-face-foreground 'show-paren-match "#FFFFFF")
+(set-face-background 'show-paren-match "#000000")
