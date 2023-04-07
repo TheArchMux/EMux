@@ -77,8 +77,9 @@
 (define-key keymux-command-map (kbd "h d s") 'describe-symbol)
 (define-key keymux-command-map (kbd "h d v") 'describe-variable)
 (define-key keymux-command-map (kbd "h f f") 'find-function)
-
 (define-key keymux-command-map (kbd "h f k") 'find-function-on-key)
+(define-key keymux-command-map (kbd "h m") 'man)
+
 (define-key keymux-command-map (kbd "j") 'backward-char)
 (define-key keymux-command-map (kbd "k") 'next-line)
 (define-key keymux-command-map (kbd "l") 'previous-line)
@@ -93,7 +94,6 @@
 (define-key keymux-command-map (kbd "g g") 'goto-line)
 (define-key keymux-command-map (kbd "g e") 'hop-word)
 (define-key keymux-command-map (kbd "g l") 'hop-line)
-(define-key keymux-command-map (kbd "g p") 'goto-last-point)
 (define-key keymux-command-map (kbd "g w") 'hop-line-skip-whitespace)
 
 (define-key keymux-command-map (kbd "m b") 'mark-whole-buffer)
@@ -110,8 +110,8 @@
 (define-key keymux-command-map (kbd "w r") 'wymux/zap-backward-up-to-char)
 (define-key keymux-command-map (kbd "w t") 'zap-up-to-char)
 (define-key keymux-command-map (kbd "x") 'delete-char)
-(define-key keymux-command-map (kbd "z l") 'comment-line)
-(define-key keymux-command-map (kbd "z r") 'comment-region)
+(define-key keymux-command-map (kbd "' l") 'comment-line)
+(define-key keymux-command-map (kbd "' r") 'comment-region)
 
 (define-key keymux-command-map (kbd "-") 'wymux/backward-whitespace)
 (define-key keymux-command-map (kbd "=") 'forward-whitespace)
@@ -138,7 +138,7 @@
 (define-key keymux-command-map (kbd "C-0") 'read-only-mode)
 (define-key keymux-command-map (kbd "C-9") 'wymux/refresh-global-tempel-mode)
 
-(define-key keymux-command-map (kbd "\\ n") 'gnus-other-frame)
+(define-key keymux-command-map (kbd "\\ n") 'gnus)
 (define-key keymux-command-map (kbd "\\ m") 'emms)
 (define-key keymux-command-map (kbd "\\ r") 'mh-rmail)
 (define-key keymux-command-map (kbd "\\ s") 'wymux/eshell)
@@ -148,7 +148,6 @@
 (define-key keymux-command-map (kbd ".") 'repeat)
 (define-key keymux-command-map (kbd ",") 'repeat-complex-command)
 
-(define-key keymux-command-map (kbd "<tab> i") 'imenu)
 (define-key keymux-command-map (kbd "<tab> x b") 'eval-buffer)
 (define-key keymux-command-map (kbd "<tab> x d") 'eval-defun)
 (define-key keymux-command-map (kbd "<tab> x r") 'eval-region)
@@ -156,11 +155,13 @@
 (define-key keymux-command-map (kbd "\\ c") 'wymux/compile)
 (define-key keymux-command-map (kbd "\\ d") 'wymux/document-read)
 (define-key keymux-command-map (kbd "\\ g") 'wymux/git-clone)
+(define-key keymux-command-map (kbd "\\ i") 'imenu)
 (define-key keymux-command-map (kbd "\\ p f") 'wymux/emms-play-find)
 (define-key keymux-command-map (kbd "\\ p t") 'emms-play-directory-tree)
 (define-key keymux-command-map (kbd "\\ w") 'wymux/firefox)
 
-(define-key keymux-command-map (kbd "0") 'digit-argument)
+(define-key keymux-command-map (kbd "0") 'goto-last-point)
+(define-key keymux-command-map (kbd "SPC 0") 'digit-argument)
 (define-key keymux-command-map (kbd "1") 'digit-argument)
 (define-key keymux-command-map (kbd "2") 'digit-argument)
 (define-key keymux-command-map (kbd "3") 'digit-argument)
