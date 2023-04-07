@@ -17,6 +17,7 @@
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/embark/")
 (add-to-list 'load-path "/home/wymux/Internet/Git/Emacs/Completion/hotfuzz/")
 (add-to-list 'load-path "/home/wymux/Internet/Git/Emacs/Utility/eev/")
+(load-file "~/Internet/Git/Emacs/Mode/keyfreq/keyfreq.el")
 
 (require 'eat)
 (require 'eev-load)
@@ -32,6 +33,7 @@
 (require 'gnus)
 (require 'hotfuzz)
 (require 'hotfuzz-module)
+(require 'keyfreq)
 (require 'magit)
 (require 'pcre)
 
