@@ -1,4 +1,4 @@
-(defconst wymux-font "Iosevka Medium 12")
+(defconst wymux-font "NK57 Monospace Cd Rg 14")
 (defconst wymux-theme 'tao-yang)
 
 (load-file "~/.config/emacs/root/etc/init/load.el")
@@ -16,7 +16,8 @@
        ((and (eq isdir nil) (string= (substring path -3) ".el"))
 	(load (file-name-sans-extension fullpath)))))))
 
-(load-directory "/home/wymux/.config/emacs/root")
+(load-directory "/home/wymux/.config/emacs/root/bin")
+(load-directory "/home/wymux/.config/emacs/root/etc")
 
 (defun wymux/firefox ()
   "Open firefox."
