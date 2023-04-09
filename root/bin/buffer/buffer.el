@@ -200,3 +200,41 @@ Created: Thursday, March-30-2023 16:58:02"
    ((equal 2 (get this-command 'state))
     (wymux/remove-quote-sexp (- p1 1) (- p2 1))
     (put this-command 'state 0)))))
+
+(defun wymux/toggle-view ()
+  "Toggle `scroll-lock-mode' and cursor.
+Created: Thursday, April-06-2023 21:50:40"
+  (interactive)
+  (when (eq nil (get this-command 'state))
+    (put this-command 'state 0))
+  (cond
+   ((equal 0 (get this-command 'state))
+    (scroll-lock-mode 1)
+    (setq-local cursor-type nil)
+    (wymux/pulse-remove)
+    (put this-command 'state 1))
+   ((equal 1 (get this-command 'state))
+    (scroll-lock-mode -1)
+    (setq-local cursor-type t)
+    (wymux/pulse-add)
+    (put this-command 'state 0))))
+
+(defun wymyx/eval-last-sexp ()
+  "Add `eval-last-sexp' to `kill-ring'.
+Created: Friday, April-07-2023 08:56:10"
+  (interactive)
+  (kill-new (format "%s" (eval-last-sexp 1))))
+
+(defun wymux/yank-to-register ()
+  "Yank to register.
+Created: Friday, April-07-2023 15:07:01"
+  (interactive)
+  (let (p1 p2)
+    (if (region-active-p)
+	(progn
+	  (setq p1 (region-beginning))
+	  (setq p2 (region-end)))
+      (progn
+	(setq p1 (line-beginning-position))
+	(setq p2 (line-end-position))))
+  (copy-to-register ?0 p1 p2)))
