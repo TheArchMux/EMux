@@ -1,4 +1,4 @@
-(defconst wymux-font "NK57 Monospace Cd Rg 14")
+(defconst wymux-font "Iosevka 12")
 (defconst wymux-theme 'tao-yang)
 
 (load-file "~/.config/emacs/root/etc/init/load.el")
@@ -40,7 +40,7 @@
 (set-face-foreground 'default "#000000")
 (set-face-background 'default "#FFFFFF")
 
-(set-face-foreground 'minibuffer-prompt "#000000")
-(set-face-background 'minibuffer-prompt "#FFFFFF")
+(set-face-foreground 'minibuffer-prompt (face-foreground 'default))
+(set-face-background 'minibuffer-prompt (face-background 'default))
 (set-face-foreground 'show-paren-match "#FFFFFF")
 (set-face-background 'show-paren-match "#000000")
