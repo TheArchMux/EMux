@@ -89,21 +89,6 @@ Created: Monday, March-13-2023 09:26:32"
   (let ((nvers (read-from-minibuffer "New version: " wymux-exheres-version)))
     nvers))
 
-(defun wymux/find-exheres (&optional ex)
-  "Find exheres in 'exheres-directory'.
-Created: Friday, March-10-2023 11:39:44
-Revised: Friday, March-10-2023 13:14:41"
-  (interactive)
-  (when (not ex)
-    (let ((table (make-hash-table :test 'equal :size 10000)))
-      (with-temp-buffer
-	(insert-file-contents "~/.cache/exherbo_all.txt")
-	(while (not (eobp))
-	  (puthash (buffer-substring (point) (line-end-position)) nil table)
-	  (forward-line)))
-      (setq ex (completing-read "Exheres: " table))
-      (find-file-existing (concat wymux-exheres-directory "/" ex)))))
-
 (defun wymux/exherbo-ediff ()
   "Ediff between current buffer and other version automatically.
 Created: Friday, March-10-2023 12:01:18"
@@ -244,3 +229,17 @@ Created: Tuesday, March-14-2023 09:30:55"
 	(exlib (concat "*" (wymux/extract-word-at-point) "*" )))
     (find-name-dired exlib-directory exlib)))
   
+(defun wymux/insert-dependency ()
+  "Insert Exherbo depndency.
+Created: Friday, April-14-2023 14:43:20"
+  (interactive)
+  (let ((table (make-hash-table :test 'equal :size '10000))
+	(version))
+    (when current-prefix-arg
+	(setq version (read-from-minibuffer "Version: " wymux-exheres-version)))
+    (with-temp-buffer
+      (insert-file-contents "~/.cache/exherbo_package_all.txt")
+      (while (not (eobp))
+	(puthash (buffer-substring (point) (line-end-position)) nil table)
+	(forward-line)))
+    (insert (completing-read "Dependency: " table))))
