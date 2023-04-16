@@ -22,3 +22,7 @@
                  'regex
                  (emms-player-simple-regexp
                   "flac"))
+
+(set-face-foreground 'emms-playlist-track-face (face-foreground 'default))
+(set-face-foreground 'emms-playlist-selected-face (face-foreground 'default))
+(set-face-background 'emms-playlist-selected-face (face-background 'default))
