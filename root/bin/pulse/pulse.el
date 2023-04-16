@@ -7,5 +7,16 @@
   "Pulse current line."
   (pulse-momentary-highlight-one-line (point)))
 
-(dolist (command wymux-pulse-command)
-  (advice-add command :after 'wymux/pulse-line))
+(defun wymux/pulse-add ()
+  "Add pulse.
+Revised: Thursday, April-06-2023 22:09:17"
+  (dolist (command wymux-pulse-command)
+    (advice-add command :after 'wymux/pulse-line)))
+
+(defun wymux/pulse-remove ()
+  "Remove pulse.
+Created: Thursday, April-06-2023 22:09:40"
+  (dolist (command wymux-pulse-command)
+    (advice-remove command 'wymux/pulse-line)))
+
+(wymux/pulse-add)
