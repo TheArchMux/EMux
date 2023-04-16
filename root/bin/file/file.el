@@ -160,3 +160,12 @@ Created: Friday, March-31-2023 15:23:08"
 	(puthash (buffer-substring (point) (line-end-position)) nil table)
 	(forward-line)))
       (find-file (completing-read "Open file: " table))))
+
+(defun wymux/find-subfile ()
+  "Open file in subdirectory.
+Created: Sunday, April-16-2023 08:10:27"
+  (interactive)
+  (let (file-list file)
+    (setq file-list (directory-files-recursively default-directory ""))
+    (setq file (completing-read "File: " file-list))
+    (find-file-existing file)))
