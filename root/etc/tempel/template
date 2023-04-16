@@ -65,7 +65,8 @@ latex-mode
 
 (clart "\\documentclass{article}")
 (document "\\begin{document}\n" r> n> "\\end{document}")
-(uspac "\\usepackage{" (completing-read "Package: " nil) "}")
+(uspc "\\usepackage{" (completing-read "Package: " nil) "}")
+(pchyrfc "\hypersetup{\n\tcolorlinks=true,\n\tlinkcolor=blue,\n\turlcolor=true,\n}\n")
 
 makefile-mode
 
