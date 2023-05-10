@@ -1,6 +1,3 @@
-(defconst wymux-font "Iosevka 12")
-(defconst wymux-theme 'tao-yang)
-
 (load-file "~/.config/emacs/root/etc/init/load.el")
 
 (defun load-directory (directory)
@@ -34,13 +31,10 @@
   (interactive)
   (start-process "Decrease brightness" nil "blmgr" "-500"))
 
-(set-frame-font wymux-font nil t)
-(load-theme wymux-theme t)
-
-(set-face-foreground 'default "#000000")
-(set-face-background 'default "#FFFFFF")
+(setq-default line-spacing 0.00)
+(set-face-attribute 'default nil :font "NK57 Monospace" :height '140 :weight 'normal :width 'condensed)
+(load-theme 'lambda-light t)
 
 (set-face-foreground 'minibuffer-prompt (face-foreground 'default))
 (set-face-background 'minibuffer-prompt (face-background 'default))
-(set-face-foreground 'show-paren-match "#FFFFFF")
-(set-face-background 'show-paren-match "#000000")
+
