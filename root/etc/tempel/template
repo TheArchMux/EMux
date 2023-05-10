@@ -1,6 +1,6 @@
 fundamental-mode
 
-(td (format-time-string "%A, %B-%d-%Y"))
+(tdy (format-time-string "%A, %B-%d-%Y"))
 (ctday (concat "Created: " (format-time-string "%A, %B-%d-%Y %H:%M:%S") "\""))
 (rtday (concat "Revised: " (format-time-string "%A, %B-%d-%Y %H:%M:%S")))
 (wym "wymux")
@@ -51,6 +51,7 @@ eshell-mode
 (cs "doas cave show ")
 (csl "doas cave sync -s local " (file-name-base (expand-file-name "../../../.")) " -r origin/"
 (file-name-base (expand-file-name ".")))
+(csh "doas cave search --index ~/.cache/cave_all ")
 (css "doas cave sync ")
 (crl "doas cave resolve -x " (file-name-base (expand-file-name ".")))
 (crx "doas cave resolve -x ")
@@ -64,9 +65,13 @@ eshell-mode
 latex-mode
 
 (clart "\\documentclass{article}")
-(document "\\begin{document}\n" r> n> "\\end{document}")
+(bdocument "\\begin{document}\n" r> n> "\\end{document}")
 (uspc "\\usepackage{" (completing-read "Package: " nil) "}")
 (pchyrfc "\hypersetup{\n\tcolorlinks=true,\n\tlinkcolor=blue,\n\turlcolor=true,\n}\n")
+
+html-mode
+
+(htmlt (insert-file "~/Media/Document/Template/Html/template.html"))
 
 makefile-mode
 
