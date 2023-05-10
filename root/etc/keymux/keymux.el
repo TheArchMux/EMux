@@ -6,10 +6,9 @@
 (defconst keymux-right-brackets
   (mapcar (lambda (x) (substring x 1 2)) keymux-bracket))
 
-(global-set-key (kbd "<f5>") 'keymux-modal-mode)
 (global-set-key (kbd "s-g") 'keymux-modal-mode)
 (global-set-key (kbd "C-\\") 'recenter-top-bottom)
-(global-set-key (kbd "C-]") 'hippie-completing-read)
+(global-set-key (kbd "C-,") 'hippie-completing-read)
 (global-set-key (kbd "C-0") 'tempel-done)
 (global-set-key (kbd "C-z") 'abort-recursive-edit)
 (global-set-key (kbd "C--") 'tempel-previous)
@@ -57,6 +56,7 @@
 (define-key keymux-command-map (kbd "e") 'backward-kill-word)
 (define-key keymux-command-map (kbd "c") 'backward-word)
 (define-key keymux-command-map (kbd "v") 'forward-word)
+(define-key keymux-command-map (kbd "g") 'embark-act)
 
 (define-key keymux-command-map (kbd "f a") 'wymux/find-all)
 (define-key keymux-command-map (kbd "f d") 'dired-jump)
@@ -86,11 +86,11 @@
 (define-key keymux-command-map (kbd "o") 'previous-line)
 (define-key keymux-command-map (kbd ";") 'forward-char)
 
-(define-key keymux-command-map (kbd "g c") 'hop-char)
-(define-key keymux-command-map (kbd "g g") 'goto-line)
-(define-key keymux-command-map (kbd "g e") 'hop-word)
-(define-key keymux-command-map (kbd "g l") 'hop-line)
-(define-key keymux-command-map (kbd "g w") 'hop-line-skip-whitespace)
+(define-key keymux-command-map (kbd "s c") 'hop-char)
+(define-key keymux-command-map (kbd "s g") 'goto-line)
+(define-key keymux-command-map (kbd "s e") 'hop-word)
+(define-key keymux-command-map (kbd "s l") 'hop-line)
+(define-key keymux-command-map (kbd "s w") 'hop-line-skip-whitespace)
 
 (define-key keymux-command-map (kbd "m b") 'mark-whole-buffer)
 (define-key keymux-command-map (kbd "m m") 'back-to-indentation)
@@ -125,9 +125,10 @@
 (define-key keymux-command-map (kbd "<tab> r") 'indent-region)
 
 (define-key keymux-command-map (kbd "C-d") 'duplicate-dwim)
-(define-key keymux-command-map (kbd "C-t") 'transpose-lines)
 (define-key keymux-command-map (kbd "C-r") 'query-replace)
 (define-key keymux-command-map (kbd "t") 'set-mark-command)
+(define-key keymux-command-map (kbd "p g") 'grep)
+(define-key keymux-command-map (kbd "p r") 'rgrep)
 
 (define-key keymux-command-map (kbd "C-y") 'yank-pop)
 
@@ -157,6 +158,7 @@
 (define-key keymux-command-map (kbd "\\ f f") 'wymux/emms-play-find)
 (define-key keymux-command-map (kbd "\\ f t") 'emms-play-directory-tree)
 (define-key keymux-command-map (kbd "\\ w") 'wymux/firefox)
+(define-key keymux-command-map (kbd "z p") 'wymux/open-cpp-scratch)
 
 (define-key keymux-command-map (kbd "0") 'goto-last-point)
 (define-key keymux-command-map (kbd "SPC 0") 'digit-argument)
