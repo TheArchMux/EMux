@@ -6,5 +6,6 @@
 	 (display-buffer-same-window))
 	("magit: *"
 	 (display-buffer-same-window))
-	("magit-diff: *"
+	("magit-diff: *\\|*Embark Actions*"
 	 (display-buffer-below-selected))))
+
