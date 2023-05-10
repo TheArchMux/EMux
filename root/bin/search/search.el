@@ -8,7 +8,9 @@ Revision: Thursday, March-09-2023 22:03:08"
   (interactive)
   (let ((search-term (read-from-minibuffer "Search: " nil nil nil (wymux/extract-word-at-point))))
     (setq wymux--search-term search-term)
-    (wymux/search-forward)))
+    (if current-prefix-arg nil
+	(wymux/search-forward)
+      (wymux/search-backward))))
 
 (defun wymux/search-forward ()
   "Search next for 'wymux--search-term'.
