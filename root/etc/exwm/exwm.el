@@ -22,7 +22,7 @@
 	 ([?\s-a] . execute-extended-command)
 	 ([?\s-t] . switch-to-buffer)
 	 ([?\s-0] . delete-other-windows)
-	 (,(kbd "s-w") . delete-window)
+	 (,(kbd "<kp-up>") . delete-window)
 	 ([?\s-1] . delete-other-windows)
 	 ([?\s-5] . balance-windows)
 	 ([?\s-q] . kill-emacs)
@@ -30,20 +30,9 @@
 	 ([?\s-l] . windmove-down)
 	 ([?\s-\;] . windmove-up)
 	 ([?\s-\'] . windmove-right)
-	 ([?\s-d] . kill-current-buffer)
 	 ([?\s-f] . other-frame)
-	 (,(kbd "s-i") . previous-buffer)
-	 (,(kbd "s-p") . next-buffer)
-	 (,(kbd "s-t") . split-window-horizontally)
-	 (,(kbd "s-y") . split-window-vertically)
-	 (,(kbd "<f4>") . other-frame)
-	 (,(kbd "<f6>") . tab-new)
-	 (,(kbd "<f7>") . tab-previous)
-	 (,(kbd "<f8>") . tab-next)
-	 (,(kbd "<f9>") . tab-switch)
-	 (,(kbd "<f10>") . tab-recent)
-	 (,(kbd "<f11>") . tab-undo)
-	 (,(kbd "<f12>") . tab-close)
+	 (,(kbd "<kp-home>") . split-window-horizontally)
+	 (,(kbd "<kp-prior>") . split-window-vertically)
 	 ([<XF86MonBrightnessDown>] . wymux/darken-monitor)
 	 ([<XF86MonBrightnessUp>] . wymux/brighten-monitor)
 	 (,(kbd "<kp-left>") . previous-buffer)
@@ -84,18 +73,18 @@
 	     (make-frame)
 	     (other-frame 1)))
 
- (add-hook 'after-init-hook
+(add-hook 'after-init-hook
            (lambda ()
              (start-process-shell-command
               "xrandr" nil "xrandr --output DP-1-1 --mode 3440x1440 --primary --rate 100 --above eDP1")))
 
- (add-hook 'window-state-change-hook
+(add-hook 'window-state-change-hook
            (lambda ()
              (when (and exwm-class-name
 			(string= exwm-class-name "firefox-default"))
                (keymux-to-insert))))
 
- (add-hook 'window-state-change-hook 'keymux-cursor-refresh)
+(add-hook 'window-state-change-hook 'keymux-cursor-refresh)
 
- (exwm-randr-enable)
- (exwm-enable)
+(exwm-randr-enable)
+(exwm-enable)
