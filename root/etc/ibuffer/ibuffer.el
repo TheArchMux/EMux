@@ -13,6 +13,7 @@
 		   (mode . customize-mode)
 		   (mode . help-mode)
 		   (mode . completion-list-mode)
+		   (mode . locate-mode)
 		   (mode . messages-buffer-mode)
 		   (mode . occur-mode)
 		   (name . "^\\*scratch\\*$")
