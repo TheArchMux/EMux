@@ -56,7 +56,7 @@
 (define-key keymux-command-map (kbd "e") 'backward-kill-word)
 (define-key keymux-command-map (kbd "c") 'backward-word)
 (define-key keymux-command-map (kbd "v") 'forward-word)
-(define-key keymux-command-map (kbd "g") 'embark-act)
+(define-key keymux-command-map (kbd "g g") 'embark-act)
 
 (define-key keymux-command-map (kbd "f a") 'wymux/find-all)
 (define-key keymux-command-map (kbd "f d") 'dired-jump)
@@ -86,11 +86,11 @@
 (define-key keymux-command-map (kbd "o") 'previous-line)
 (define-key keymux-command-map (kbd ";") 'forward-char)
 
-(define-key keymux-command-map (kbd "s c") 'hop-char)
-(define-key keymux-command-map (kbd "s g") 'goto-line)
-(define-key keymux-command-map (kbd "s e") 'hop-word)
-(define-key keymux-command-map (kbd "s l") 'hop-line)
-(define-key keymux-command-map (kbd "s w") 'hop-line-skip-whitespace)
+(define-key keymux-command-map (kbd "g c") 'hop-char)
+(define-key keymux-command-map (kbd "g o") 'goto-line)
+(define-key keymux-command-map (kbd "g e") 'hop-word)
+(define-key keymux-command-map (kbd "g l") 'hop-line)
+(define-key keymux-command-map (kbd "g w") 'hop-line-skip-whitespace)
 
 (define-key keymux-command-map (kbd "m b") 'mark-whole-buffer)
 (define-key keymux-command-map (kbd "m m") 'back-to-indentation)
@@ -106,8 +106,6 @@
 (define-key keymux-command-map (kbd "w r") 'wymux/zap-backward-up-to-char)
 (define-key keymux-command-map (kbd "w t") 'zap-up-to-char)
 (define-key keymux-command-map (kbd "x") 'delete-char)
-(define-key keymux-command-map (kbd "s l") 'comment-line)
-(define-key keymux-command-map (kbd "s r") 'comment-region)
 
 (define-key keymux-command-map (kbd "-") 'wymux/backward-whitespace)
 (define-key keymux-command-map (kbd "=") 'forward-whitespace)
@@ -209,6 +207,11 @@ Created: Tuesday, March-14-2023 19:14:59"
   (define-key keymux-command-map (kbd "SPC f") 'wymux/find-exlib)
   (define-key keymux-command-map (kbd "SPC i") 'wymux/insert-dependency)
   (define-key keymux-command-map (kbd "SPC t") 'wymux/exherbo-travel-local-compressed))
+
+(defun wymux/keymux-html-mode-map ()
+  "Bind keys for `html-mode'
+Created: Tuesday, May-16-2023 18:43:23"
+  (define-key keymux-command-map (kbd "SPC v") 'browse-url-of-buffer))
 
 (defun wymux/unbind-keys ()
   "Unbind all 'SPC' major mode specific keys.
