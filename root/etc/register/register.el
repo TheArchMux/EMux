@@ -2,3 +2,4 @@
 (set-register ?d '(file . "~/Media/Document/"))
 (set-register ?e '(file . "~/Internet/Git/Exherbo"))
 (set-register ?g '(file . "~/Internet/Git"))
+(set-register ?t '(file . "/tmp"))
