@@ -4,8 +4,8 @@
 	 (display-buffer-no-window))
 	("*Help*\\|*Buffer List*\\|*Locate*\\|*Apropos*\\|*Completions*"
 	 (display-buffer-same-window))
-	("magit: *"
+	("magit: *\\|*Embark Actions*"
 	 (display-buffer-same-window))
-	("magit-diff: *\\|*Embark Actions*"
+	("magit-diff: *"
 	 (display-buffer-below-selected))))
 
