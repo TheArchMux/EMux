@@ -1,0 +1,20 @@
+(defun wymux/transform-style-sheet-path ()
+  "Convert 'style.css' to closest style sheet.
+Created: Wednesday, May-17-2023 10:51:46"
+  (interactive)
+  (let ((dir default-directory)
+	(dirs)
+	(css-file)
+	(css-path ""))
+    (while (not css-file)
+      (setq css-file (locate-dominating-file dir "style.css"))
+      (setq dir (expand-file-name "../")))
+    (message dir)
+    (setq dir (replace-regexp-in-string (expand-file-name css-file) "" dir))
+    (message dir)
+    (setq dirs (split-string (file-name-directory dir) "/" t))
+    (dotimes (i (length dirs))
+      (setq css-path (concat css-path "../")))
+    (setq css-path (concat css-path "../style.css"))
+    (insert css-path)))
+
