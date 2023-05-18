@@ -32,10 +32,9 @@
   (start-process "Decrease brightness" nil "blmgr" "-500"))
 
 (setq-default line-spacing 0.00)
-(set-face-attribute 'default nil :font "Berkeley Mono" :height '90 :weight 'normal :width 'normal)
-(set-face-attribute 'variable-pitch nil :font "Berkeley Mono Variable" :height '90 :weight 'normal :width 'condensed)
+(set-face-attribute 'default nil :font "NK57 Monospace" :height '140 :weight 'normal :width 'condensed)
+(set-face-attribute 'variable-pitch nil :font "NK57 Monospace" :height '140 :weight 'normal :width 'condensed)
 (load-theme 'lambda-light t)
 
 (set-face-foreground 'minibuffer-prompt (face-foreground 'default))
 (set-face-background 'minibuffer-prompt (face-background 'default))
-
