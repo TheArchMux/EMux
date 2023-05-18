@@ -1,0 +1,16 @@
+name: EMux-Github
+on: [push]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt-get install emacs -y
+    - name: Test
+      run: |
+        emacs --eval early-init.el --eval init.el
