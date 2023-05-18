@@ -89,7 +89,7 @@ Created: Thursday, March-23-2023 18:13:23"
    ((equal 2 (get this-command 'state))
     (wymux/unquote-symbol)
     (put this-command 'state 0))))
-   
+
 (defun wymux/kill-buffer-name (name)
   "Kill buffer matching name.
 Created: Friday, March-24-2023 13:37:36"
@@ -124,7 +124,8 @@ Created: Saturday, March-25-2023 21:37:26"
 Created: Saturday, March-25-2023 21:38:23"
   (interactive)
   (wymux/goto-quote)
-  (zap-up-to-char 1 (string-to-char "\"")))
+  (zap-up-to-char 1 (string-to-char "\""))
+  (keymux-to-insert))
 
 (defun wymux/kill-paragraph ()
   "Kill entire paragraph.
@@ -175,10 +176,10 @@ Created: Thursday, March-30-2023 16:48:42"
   "Remove surrounding quote from sexp.
 Created: Thursday, March-30-2023 17:02:38"
   (save-excursion
-      (goto-char p1)
-      (delete-char 1)
-      (goto-char p2)
-      (delete-char 1)))
+    (goto-char p1)
+    (delete-char 1)
+    (goto-char p2)
+    (delete-char 1)))
 
 (defun wymux/toggle-quote-sexp ()
   "Quote sexp.
@@ -187,19 +188,19 @@ Created: Thursday, March-30-2023 16:58:02"
   (unless (eq last-command this-command)
     (put this-command 'state 0))
   (let* ((bounds (bounds-of-thing-at-point 'sexp))
-	(p1 (car bounds))
-	(p2 (cdr bounds)))
-  (cond
-   ((equal 0 (get this-command 'state))
-    (wymux/quote-until-whitespace p1 (+ p2 1) (string-to-char "'"))
-    (put this-command 'state 1))
-   ((equal 1 (get this-command 'state))
-    (wymux/remove-quote-sexp (+ p1 0) (- p2 2))
-    (wymux/quote-until-whitespace p1 (- p2 1) (string-to-char "\""))
-    (put this-command 'state 2))
-   ((equal 2 (get this-command 'state))
-    (wymux/remove-quote-sexp (- p1 1) (- p2 1))
-    (put this-command 'state 0)))))
+	 (p1 (car bounds))
+	 (p2 (cdr bounds)))
+    (cond
+     ((equal 0 (get this-command 'state))
+      (wymux/quote-until-whitespace p1 (+ p2 1) (string-to-char "'"))
+      (put this-command 'state 1))
+     ((equal 1 (get this-command 'state))
+      (wymux/remove-quote-sexp (+ p1 0) (- p2 2))
+      (wymux/quote-until-whitespace p1 (- p2 1) (string-to-char "\""))
+      (put this-command 'state 2))
+     ((equal 2 (get this-command 'state))
+      (wymux/remove-quote-sexp (- p1 1) (- p2 1))
+      (put this-command 'state 0)))))
 
 (defun wymux/toggle-view ()
   "Toggle `scroll-lock-mode' and cursor.
@@ -237,4 +238,21 @@ Created: Friday, April-07-2023 15:07:01"
       (progn
 	(setq p1 (line-beginning-position))
 	(setq p2 (line-end-position))))
-  (copy-to-register ?0 p1 p2)))
+    (copy-to-register ?0 p1 p2)))
+
+(defun wymux/kill-between-curly-brace ()
+  "Kill between curly braces.
+Created: Tuesday, May-16-2023 18:47:17"
+  (interactive)
+  (let (p1 p2)
+    (search-backward "{")
+    (forward-char 1)
+    (setq p1 (point))
+    (search-forward "}")
+    (backward-char 2)
+    (setq p2 (point))
+    (if (eq current-prefix-arg 1)
+	(delete-region p1 p2)
+      (kill-region p1 p2))
+    (newline)
+    (indent-for-tab-command)))
