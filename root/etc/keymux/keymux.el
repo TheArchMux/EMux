@@ -221,7 +221,8 @@ Created: Tuesday, March-14-2023 19:19:20"
   (define-key keymux-command-map (kbd "SPC e") nil)
   (define-key keymux-command-map (kbd "SPC f") nil)
   (define-key keymux-command-map (kbd "SPC r") nil)
-  (define-key keymux-command-map (kbd "SPC t") nil))
+  (define-key keymux-command-map (kbd "SPC t") nil)
+  (define-key keymux-command-map (kbd "SPC v") nil))
 
 (defun keymux-cursor-enable ()
   "Set active `keymux-modal-mode' cursor.
