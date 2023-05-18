@@ -1,0 +1,6 @@
+image: alpine/edge
+packages:
+ - emacs
+tasks:
+- test: |
+  	emacs -l early-init.el -l init.el
