@@ -12,6 +12,7 @@
 		   (mode . Custom-mode)
 		   (mode . customize-mode)
 		   (mode . help-mode)
+		   (mode . calendar-mode)
 		   (mode . completion-list-mode)
 		   (mode . locate-mode)
 		   (mode . messages-buffer-mode)
