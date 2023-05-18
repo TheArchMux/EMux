@@ -1,5 +1,4 @@
 (blink-cursor-mode -1)
-(feline-mode -1)
 (global-eldoc-mode -1)
 (global-hl-line-mode 1)
 (global-so-long-mode 1)
@@ -12,6 +11,7 @@
 (recentf-mode 1)
 (repeat-mode 1)
 (save-place-mode 1)
+(window-divider-mode 1)
 (winner-mode 1)
 
 (setq use-short-answers t)
