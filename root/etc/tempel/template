@@ -50,7 +50,7 @@ eshell-mode
 
 (cs "doas cave show ")
 (csl "doas cave sync -s local " (file-name-base (expand-file-name "../../../.")) " -r origin/"
-(file-name-base (expand-file-name ".")))
+(file-name-base (expand-file-name ".")) " ")
 (csh "doas cave search --index ~/.cache/cave_all ")
 (css "doas cave sync ")
 (crl "doas cave resolve -x " (file-name-base (expand-file-name ".")))
@@ -86,3 +86,7 @@ shell-mode
 
 (cs "doas cave show ")
 (erx "doas cave resolve -x ")
+
+sh-mode
+
+(shellt "#!/usr/bin/env sh\n\n")
