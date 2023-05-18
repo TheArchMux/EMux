@@ -1,7 +1,6 @@
 (setq emms-source-file-default-directory "~/Media/")
 (setq emms-player-mpd-music-directory "~/Media/Musica/")
 
-(emms-history-load)
 (emms-minimalistic)
 
 (setq emms-player-mpd-server-name "localhost")
