@@ -9,6 +9,11 @@
 (setq nnfolder-directory "~/Media/Document/Gnus/Mail/archive/")
 (setq nnfolder-active-file "~/Media/Document/Gnus/Mail/archive/active")
 
-(set-face-foreground 'gnus-group-mail-1 (face-foreground 'default))
-
 (setq gnus-expert-user t)
+
+(defun wymux/gnus-face-foreground ()
+  "Set face of `gnus-group-mail-1'.
+Created: Saturday, May-13-2023 10:09:34"
+  (set-face-foreground 'gnus-group-mail-1 (face-foreground 'default)))
+
+(add-hook 'gnus-mode-hook 'wymux/gnus-face-foreground)
