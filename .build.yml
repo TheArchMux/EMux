@@ -3,4 +3,4 @@ packages:
  - emacs
 tasks:
 - test: |
-  	emacs -l early-init.el -l init.el
+    emacs -l early-init.el -l init.el
