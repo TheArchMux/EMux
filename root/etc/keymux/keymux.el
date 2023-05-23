@@ -1,5 +1,7 @@
 (defvar keymux-bracket '("()" "[]" "{}" "<>"))
 
+(defvar keymux-modal-list '("exheres-mode" "html-mode" "c-mode" "c++-mode"))
+
 (defconst keymux-left-brackets
   (mapcar (lambda (x) (substring x 0 1)) keymux-bracket))
 
@@ -177,66 +179,3 @@
   :global t
   :keymap keymux-command-map
   (keymux-cursor-refresh))
-
-(add-hook 'minibuffer-setup-hook 'keymux-to-insert)
-(add-hook 'minibuffer-exit-hook 'keymux-to-command)
-
-(defun keymux-to-command ()
-  "-> Command mode."
-  (interactive)
-  (keymux-modal-mode 1))
-
-(defun keymux-to-insert ()
-  "-> Insertion mode."
-  (interactive)
-  (keymux-modal-mode -1))
-
-(defun wymux/keymux-c-map ()
-  "Define c modal functions.
-Created: Wednesday, March-08-2023 19:47:28"
-  (define-key keymux-command-map (kbd "SPC f") 'ggtags-find-tag-dwim)
-  (define-key keymux-command-map (kbd "SPC r") 'ggtags-query-replace)
-  (define-key keymux-command-map (kbd "SPC s") 'ggtags-find-other-symbol))
-
-(defun wymux/keymux-exheres-mode-map ()
-  "Bind keys for `exheres-mode'
-Created: Tuesday, March-14-2023 19:14:59"
-  (define-key keymux-command-map (kbd "SPC b") 'wymux/bump-exheres)
-  (define-key keymux-command-map (kbd "SPC d") 'wymux/exherbo-download-package)
-  (define-key keymux-command-map (kbd "SPC e") 'wymux/exherbo-ediff)
-  (define-key keymux-command-map (kbd "SPC f") 'wymux/find-exlib)
-  (define-key keymux-command-map (kbd "SPC i") 'wymux/insert-dependency)
-  (define-key keymux-command-map (kbd "SPC t") 'wymux/exherbo-travel-local-compressed))
-
-(defun wymux/keymux-html-mode-map ()
-  "Bind keys for `html-mode'
-Created: Tuesday, May-16-2023 18:43:23"
-  (define-key keymux-command-map (kbd "SPC v") 'browse-url-of-buffer))
-
-(defun wymux/unbind-keys ()
-  "Unbind all 'SPC' major mode specific keys.
-Created: Tuesday, March-14-2023 19:19:20"
-  (define-key keymux-command-map (kbd "SPC b") nil)
-  (define-key keymux-command-map (kbd "SPC d") nil)
-  (define-key keymux-command-map (kbd "SPC e") nil)
-  (define-key keymux-command-map (kbd "SPC f") nil)
-  (define-key keymux-command-map (kbd "SPC r") nil)
-  (define-key keymux-command-map (kbd "SPC t") nil)
-  (define-key keymux-command-map (kbd "SPC v") nil))
-
-(defun keymux-cursor-enable ()
-  "Set active `keymux-modal-mode' cursor.
-Created: Sunday, April-02-2023 09:16:14"
-  (set-cursor-color "#8888FF"))
-
-(defun keymux-cursor-disable ()
-  "Set inactive `keymux-modal' cursor.
-Created: Sunday, April-02-2023 09:17:12"
-  (set-cursor-color "#FF8888"))
-
-(defun keymux-cursor-refresh ()
-  "Refresh color of cursor.
-Created: Sunday, April-02-2023 09:20:43"
-  (if keymux-modal-mode
-      (keymux-cursor-enable)
-    (keymux-cursor-disable)))

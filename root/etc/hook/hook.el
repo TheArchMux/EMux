@@ -10,11 +10,18 @@
 (add-hook 'eshell-mode-hook 'abbrev-mode)
 (add-hook 'exheres-mode-hook 'wymux/exheres-mode-entrance)
 (add-hook 'latex-mode-hook 'abbrev-mode)
+(add-hook 'html-mode-hook 'wymux/keymux-html-mode-map)
 (add-hook 'makefile-mode-hook 'abbrev-mode)
 (add-hook 'prog-mode-hook 'abbrev-mode)
 (add-hook 'shell-mode-hook 'abbrev-mode)
+(add-hook 'sh-mode-hook 'abbrev-mode)
 (add-hook 'xeft-mode-hook 'abbrev-mode)
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . wymux/yaml-mode))
 (add-to-list 'find-file-not-found-functions 'wymux/make-directory)
 (add-to-list 'find-file-hook 'wymux/find-doas)
+(customize-set-variable 'after-focus-change-function 'wymux/update-window-modeline)
+
+(add-hook 'minibuffer-setup-hook 'keymux-to-insert)
+(add-hook 'minibuffer-exit-hook 'keymux-to-command)
