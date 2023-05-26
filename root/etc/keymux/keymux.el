@@ -1,6 +1,7 @@
 (defvar keymux-bracket '("()" "[]" "{}" "<>"))
 
-(defvar keymux-modal-list '("exheres-mode" "html-mode" "c-mode" "c++-mode"))
+(defvar keymux-modal-list '("exheres-mode" "html-mode" "c-mode" "c++-mode"
+			    "wymux/go-mode"))
 
 (defconst keymux-left-brackets
   (mapcar (lambda (x) (substring x 0 1)) keymux-bracket))
@@ -8,13 +9,10 @@
 (defconst keymux-right-brackets
   (mapcar (lambda (x) (substring x 1 2)) keymux-bracket))
 
-(global-set-key (kbd "s-g") 'keymux-modal-mode)
+(global-set-key (kbd "<kp-enter>") 'keymux-modal-mode)
 (global-set-key (kbd "C-\\") 'recenter-top-bottom)
 (global-set-key (kbd "C-,") 'hippie-completing-read)
-(global-set-key (kbd "C-0") 'tempel-done)
 (global-set-key (kbd "C-z") 'abort-recursive-edit)
-(global-set-key (kbd "C--") 'tempel-previous)
-(global-set-key (kbd "C-=") 'tempel-next)
 (global-set-key (kbd "<XF86MonBrightnessUp>") 'wymux/brighten-monitor)
 (global-set-key (kbd "<XF86MonBrightnessDown>") 'wymux/darken-monitor)
 (global-set-key (kbd "<XF86AudioLowerVolume>") 'wymux/decrease-volume)
@@ -120,9 +118,9 @@
 (define-key keymux-command-map (kbd "<home>") 'beginning-of-buffer)
 (define-key keymux-command-map (kbd "<end>") 'end-of-buffer)
 
-(define-key keymux-command-map (kbd "<tab> q") 'wymux/edit-string)
-(define-key keymux-command-map (kbd "<tab> p") 'wymux/edit-parenthesis)
-(define-key keymux-command-map (kbd "<tab> r") 'indent-region)
+;; (define-key keymux-command-map (kbd "<tab> q") 'wymux/edit-string)
+;; (define-key keymux-command-map (kbd "<tab> p") 'wymux/edit-parenthesis)
+;; (define-key keymux-command-map (kbd "<tab> r") 'indent-region)
 
 (define-key keymux-command-map (kbd "C-d") 'duplicate-dwim)
 (define-key keymux-command-map (kbd "C-r") 'query-replace)
@@ -142,23 +140,20 @@
 (define-key keymux-command-map (kbd ".") 'repeat)
 (define-key keymux-command-map (kbd ",") 'repeat-complex-command)
 
-(define-key keymux-command-map (kbd "<tab> k b") 'eval-buffer)
-(define-key keymux-command-map (kbd "<tab> k d") 'eval-defun)
-(define-key keymux-command-map (kbd "<tab> k r") 'eval-region)
+;; (define-key keymux-command-map (kbd "<tab> k b") 'eval-buffer)
+;; (define-key keymux-command-map (kbd "<tab> k d") 'eval-defun)
+;; (define-key keymux-command-map (kbd "<tab> k r") 'eval-region)
 
-(define-key keymux-command-map (kbd "\\ n") 'gnus)
-(define-key keymux-command-map (kbd "\\ m") 'emms)
-(define-key keymux-command-map (kbd "\\ r") 'mh-rmail)
-(define-key keymux-command-map (kbd "\\ s") 'wymux/eshell)
-(define-key keymux-command-map (kbd "\\ v") 'magit)
-(define-key keymux-command-map (kbd "\\ c") 'wymux/compile)
-(define-key keymux-command-map (kbd "\\ d") 'wymux/document-read)
-(define-key keymux-command-map (kbd "\\ e") 'imenu)
-(define-key keymux-command-map (kbd "\\ g") 'wymux/git-clone)
-(define-key keymux-command-map (kbd "\\ f f") 'wymux/emms-play-find)
-(define-key keymux-command-map (kbd "\\ f t") 'emms-play-directory-tree)
-(define-key keymux-command-map (kbd "\\ w") 'wymux/firefox)
-(define-key keymux-command-map (kbd "z p") 'wymux/open-cpp-scratch)
+(define-key keymux-command-map (kbd "<kp-home>") 'gnus)
+(define-key keymux-command-map (kbd "<kp-up>") 'emms)
+(define-key keymux-command-map (kbd "<kp-prior>") 'mh-rmail)
+(define-key keymux-command-map (kbd "<kp-left>") 'wymux/eshell)
+(define-key keymux-command-map (kbd "<kp-right>") 'magit)
+(define-key keymux-command-map (kbd "<kp-begin>") 'wymux/compile)
+(define-key keymux-command-map (kbd "<kp-end>") 'wymux/document-read)
+(define-key keymux-command-map (kbd "<kp-down> <kp-down>") 'wymux/emms-play-find)
+(define-key keymux-command-map (kbd "<kp-down> <kp-begin>") 'emms-play-directory-tree)
+(define-key keymux-command-map (kbd "<kp-next>") 'wymux/firefox)
 
 (define-key keymux-command-map (kbd "0") 'goto-last-point)
 (define-key keymux-command-map (kbd "SPC 0") 'digit-argument)
