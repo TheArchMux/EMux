@@ -17,10 +17,12 @@
 
 (global-set-key (kbd "C-c i") 'ibuffer)
 (global-set-key (kbd "C-c p c") 'compile)
+(global-set-key (kbd "C-c p d") 'wymux/document-read)
 (global-set-key (kbd "C-c p e") 'emms)
 (global-set-key (kbd "C-c p g") 'gnus)
 (global-set-key (kbd "C-c p m") 'mh-rmail)
 (global-set-key (kbd "C-c p t") 'emms-play-directory-tree)
+(global-set-key (kbd "C-c p s") 'wymux/eshell)
 (global-set-key (kbd "C-c p w") 'wymux/firefox)
 
 ;; Navigation
