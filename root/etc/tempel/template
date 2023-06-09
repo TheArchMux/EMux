@@ -12,6 +12,7 @@ c-mode
 
 (def "#define ")
 (in "#include <"(read-from-minibuffer "Include: " )".h>\n")
+(inq "#include \""(read-from-minibuffer "Include: ")".h\"\n")
 (pr "printf(")
 (fpr "fprintf(")
 (fprs "fprintf(stderr, \"")
