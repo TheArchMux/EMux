@@ -25,3 +25,4 @@
 (setq max-mini-window-height 0.1)
 (setq epg-pinentry-mode 'loopback)
 (setenv "GPG_AGENT_INFO" nil)
+(customize-set-variable 'disable-theme-functions 'ignored)
