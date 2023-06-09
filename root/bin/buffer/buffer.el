@@ -256,3 +256,19 @@ Created: Tuesday, May-16-2023 18:47:17"
       (kill-region p1 p2))
     (newline)
     (indent-for-tab-command)))
+
+(defun wymux/upcase-line ()
+  "Upcase line.
+Created: Monday, June-05-2023 14:09:58"
+  (interactive)
+  (let (p1 p2)
+    (move-beginning-of-line 1)
+    (setq p1 (point))
+    (move-end-of-line 1)
+    (setq p2 (point))
+    (narrow-to-region p1 p2)
+    (move-beginning-of-line 1)
+    (replace-string "-" "_")
+    (move-end-of-line 1)
+    (upcase-word -99)
+    (widen)))
