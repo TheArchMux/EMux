@@ -155,8 +155,7 @@
 (define-key keymux-command-map (kbd "<kp-down> <kp-begin>") 'emms-play-directory-tree)
 (define-key keymux-command-map (kbd "<kp-next>") 'wymux/firefox)
 
-(define-key keymux-command-map (kbd "0") 'goto-last-point)
-(define-key keymux-command-map (kbd "SPC 0") 'digit-argument)
+(define-key keymux-command-map (kbd "0") 'digit-argument)
 (define-key keymux-command-map (kbd "1") 'digit-argument)
 (define-key keymux-command-map (kbd "2") 'digit-argument)
 (define-key keymux-command-map (kbd "3") 'digit-argument)
