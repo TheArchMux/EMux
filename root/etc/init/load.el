@@ -19,6 +19,7 @@
 (load-file "~/Internet/Git/Emacs/Utility/embark/embark.el")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/howm/")
 (add-to-list 'load-path "~/Internet/Git/Emacs/Utility/eev/")
+(load-file "/home/wymux/Internet/Git/Emacs/Mode/ggtags.git/ggtags.el")
 
 (require 'eat)
 (require 'eev-load)
