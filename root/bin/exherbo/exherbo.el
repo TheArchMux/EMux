@@ -8,7 +8,7 @@
   "File containing mirros.")
 
 (defvar wymux-exheres-mirror-alist '(
-				     ("alsaproject"	. "https://www.alsa-project.org/files/pub")
+				     ("alsaproject"	. "https://www.alsa-project.org/files/pub/")
 				     ("apache"	. "https://apache.lauf-forum.at/")
 				     ("arbor"	. "https://distfiles.exherbo.org/distfiles/")
 				     ("cpan"		. "https://www.cpan.org/")
@@ -81,7 +81,7 @@ Revised: Friday, March-24-2023 12:32:32"
 	  (setq version (substring version nil (- (length version) 3)))
 	  (setq wymux-exherbo-revision-p t))
       (setq wymux-exherbo-revision-p nil))
-    (setq wymux-exheres-version version)))
+    (setq wymux-exheres-version (read-from-minibuffer "Current Exherbo varsion: " version))))
 
 (defun wymux/exherbo-get-new-version ()
   "User supplied version.
