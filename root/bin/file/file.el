@@ -169,3 +169,9 @@ Created: Sunday, April-16-2023 08:10:27"
     (setq file-list (directory-files-recursively default-directory ""))
     (setq file (completing-read "File: " file-list))
     (find-file-existing file)))
+
+(defun wymux/find-file-at-point (&optional filename)
+  "`find-file-at-point' without confirmation.
+Created: Tuesday, June-13-2023 17:12:51"
+  (interactive)
+  (find-file (ffap-file-at-point)))
