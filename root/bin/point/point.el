@@ -18,3 +18,11 @@ Created: Thursday, March-30-2023 16:51:24"
   (let ((bound (bounds-of-thing-at-point 'sexp)))
     (when bound
       (message (buffer-substring-no-properties (car bound) (cdr bound))))))
+
+(defun wymux/extract-filename-at-point ()
+  "Extract point's filename.
+Created: Tuesday, June-13-2023 17:28:33"
+  (interactive)
+  (let ((bound (bounds-of-thing-at-point 'filename)))
+    (when bound
+      (expand-file-name (message (buffer-substring-no-properties (car bound) (cdr bound)))))))
