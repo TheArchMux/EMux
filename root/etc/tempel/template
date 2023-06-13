@@ -19,6 +19,7 @@ c-mode
 (ret "return ")
 (ret0 "return 0;")
 (ret1 "return 1;")
+(stint "static int")
 
 c++-mode
 
