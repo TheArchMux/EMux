@@ -33,10 +33,10 @@
 	(,(kbd "<f7>") . other-window)
 	(,(kbd "s-=") . previous-buffer)
 	(,(kbd "s--") . next-buffer)
-	(,(kbd "<XF86MonBrightnessUp>") 'wymux/brighten-monitor)
-	(,(kbd "<XF86MonBrightnessDown>") 'wymux/darken-monitor)
-	(,(kbd "<XF86AudioLowerVolume>") 'wymux/decrease-volume)
-	(,(kbd "<XF86AudioRaiseVolume>") 'wymux/increase-volume)
+	(,(kbd "<XF86MonBrightnessUp>") . wymux/brighten-monitor)
+	(,(kbd "<XF86MonBrightnessDown>") . wymux/darken-monitor)
+	(,(kbd "<XF86AudioLowerVolume>") . wymux/decrease-volume)
+	(,(kbd "<XF86AudioRaiseVolume>") . wymux/increase-volume)
 	))
 
 (defvar wymux-exwm-repeat-command '(previous-buffer
