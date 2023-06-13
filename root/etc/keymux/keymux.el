@@ -9,15 +9,6 @@
 (defconst keymux-right-brackets
   (mapcar (lambda (x) (substring x 1 2)) keymux-bracket))
 
-(global-set-key (kbd "<kp-enter>") 'keymux-modal-mode)
-(global-set-key (kbd "C-\\") 'recenter-top-bottom)
-(global-set-key (kbd "C-,") 'hippie-completing-read)
-(global-set-key (kbd "C-z") 'abort-recursive-edit)
-(global-set-key (kbd "<XF86MonBrightnessUp>") 'wymux/brighten-monitor)
-(global-set-key (kbd "<XF86MonBrightnessDown>") 'wymux/darken-monitor)
-(global-set-key (kbd "<XF86AudioLowerVolume>") 'wymux/decrease-volume)
-(global-set-key (kbd "<XF86AudioRaiseVolume>") 'wymux/increase-volume)
-
 (defgroup keymux-modal-mode nil
   "Global modal minor mode."
   :group 'keyboard)
