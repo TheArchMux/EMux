@@ -1,5 +1,7 @@
+(set-register ?b '(file . "~/.local/bin/"))
 (set-register ?c '(file . "~/.config/emacs/root/"))
 (set-register ?d '(file . "~/Media/Document/"))
 (set-register ?e '(file . "~/Internet/Git/Exherbo"))
+(set-register ?i '(file . "~/Internet/Compressed/"))
 (set-register ?g '(file . "~/Internet/Git"))
 (set-register ?t '(file . "/tmp"))
