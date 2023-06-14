@@ -42,3 +42,9 @@ Created: Tuesday, March-14-2023 11:11:59"
   (let ((git-url (shell-command-to-string "xclip -o -selection clipboard"))
 	(dir (read-directory-name "Git clone directory: " "~/Internet/Git/")))
     (async-shell-command (concat "git clone " git-url " " dir (file-name-base git-url)))))
+
+(defun wymux/shot ()
+  "Screenshot.
+Created: Tuesday, June-13-2023 18:24:41"
+  (interactive)
+  (start-process "Screenshot" nil "shot.sh" "--image-selection"))
