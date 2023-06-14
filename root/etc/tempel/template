@@ -1,3 +1,4 @@
+; -*- Mode: lisp-data; -*-
 fundamental-mode
 
 (tdy (format-time-string "%A, %B-%d-%Y"))
