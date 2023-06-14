@@ -212,8 +212,7 @@ Created: Monday, March-13-2023 15:34:43"
   (wymux/exherbo-set-category-package)
   (wymux/exherbo-get-version)
   (wymux/exherbo)
-  (wymux/exherbo-set-download-path)
-  (wymux/keymux-exheres-mode-map))
+  (wymux/exherbo-set-download-path))
 
 (defun wymux/exherbo-travel-local-compressed ()
   "Travel to local compressed file.
@@ -243,3 +242,14 @@ Created: Friday, April-14-2023 14:43:20"
 	(puthash (buffer-substring (point) (line-end-position)) nil table)
 	(forward-line)))
     (insert (completing-read "Dependency: " table))))
+
+(defun wymux/exherbo-compile-current-package ()
+  "Compile current package.
+Created: Wednesday, June-14-2023 13:49:17"
+  (interactive)
+  (wymux/eshell)
+  (insert "doas cave sync -s local ")
+  (insert (file-name-base (expand-file-name "../../../.")) " -r origin/"
+(file-name-base (expand-file-name ".")) " ")
+  (insert " && doas cave resolve -x ")
+  (insert (file-name-base (expand-file-name "."))))
