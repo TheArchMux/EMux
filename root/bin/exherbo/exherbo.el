@@ -80,8 +80,7 @@ Revised: Friday, March-24-2023 12:32:32"
 	(progn
 	  (setq version (substring version nil (- (length version) 3)))
 	  (setq wymux-exherbo-revision-p t))
-      (setq wymux-exherbo-revision-p nil))
-    (setq wymux-exheres-version (read-from-minibuffer "Current Exherbo varsion: " version))))
+      (setq wymux-exherbo-revision-p nil))))
 
 (defun wymux/exherbo-get-new-version ()
   "User supplied version.
@@ -212,7 +211,8 @@ Created: Monday, March-13-2023 15:34:43"
   (wymux/exherbo-set-category-package)
   (wymux/exherbo-get-version)
   (wymux/exherbo)
-  (wymux/exherbo-set-download-path))
+  (wymux/exherbo-set-download-path)
+  (setq wymux-exheres-version (read-from-minibuffer "Current Exherbo varsion: " wymux-exheres-version)))
 
 (defun wymux/exherbo-travel-local-compressed ()
   "Travel to local compressed file.
