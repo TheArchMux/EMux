@@ -172,6 +172,12 @@ Created: Sunday, April-16-2023 08:10:27"
 
 (defun wymux/find-file-at-point (&optional filename)
   "`find-file-at-point' without confirmation.
-Created: Tuesday, June-13-2023 17:12:51"
+Created: Tuesday, June-13-2023 17:12:51
+Revised: Thursday, June-15-2023 20:48:35"
   (interactive)
-  (find-file (ffap-file-at-point)))
+  (unless
+      (find-function (function-called-at-point))
+    (find-file (ffap-file-at-point))))
+
+
+
