@@ -20,8 +20,10 @@ Created: Friday, June-16-2023 11:09:12"
     (setq files (string-trim (shell-command-to-string "git ls-files -m"))))
   (get-buffer-create "Wymux git modified files")
   (switch-to-buffer "Wymux git modified files")
+  (read-only-mode 1)
   (insert files)
   (local-set-key "c" 'wymux/git-stage-this-file)
+  (local-set-key "g" 'wymux/git-status)
   (local-set-key "q" 'kill-this-buffer)))
 
 (defun wymux/git-stage-this-file ()
@@ -32,4 +34,9 @@ Created: Friday, June-16-2023 11:43:12"
     (shell-command (concat "git add " file))
     (mesage (concat ("Staged " file)))))
 
-
+(defun wymux/git-status ()
+  "Git status.
+Created: Thursday, June-22-2023 20:26:53"
+  (interactive)
+  (erase-buffer)
+  (insert (shell-command-to-string "git status")))
