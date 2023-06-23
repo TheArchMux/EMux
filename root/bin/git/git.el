@@ -14,19 +14,20 @@ Created: Tuesday, June-13-2023 18:51:33"
   "List modified files of git repository.
 Created: Friday, June-16-2023 11:09:12"
   (interactive)
-  (let ((files))
-  (with-temp-buffer
-    (cd (file-name-parent-directory (string-trim (shell-command-to-string "git rev-parse --git-dir"))))
-    (setq files (string-trim (shell-command-to-string "git ls-files -m"))))
-  (get-buffer-create "Wymux git modified files")
-  (switch-to-buffer "Wymux git modified files")
-  (read-only-mode 1)
-  (insert files)
+  (erase-buffer)
+  (insert (shell-command-to-string "git ls-files -m")))
+
+(defun wymux/git-buffer-init ()
+  "Initiate Wymux git buffer
+Created: Friday, June-23-2023 13:04:44"
+  (interactive)
+  (wymux/change-git-buffer)
   (local-set-key "c" 'wymux/git-stage-this-file)
   (local-set-key "g" 'wymux/git-status)
+  (local-set-key "m" 'wymux/git-modified-files)
   (local-set-key "u" 'wymux/git-unstage)
-  (local-set-key "q" 'kill-this-buffer)))
-
+  (local-set-key "q" 'kill-this-buffer))
+  
 (defun wymux/git-stage-this-file ()
   "Commit line's file.
 Created: Friday, June-16-2023 11:43:12"
@@ -49,3 +50,10 @@ Created: Friday, June-23-2023 12:51:19"
   (let ((file (string-trim (thing-at-point 'line))))
     (shell-command (concat "git restore --staged " file))
     (message (concat "Unstaged" file))))
+
+(defun wymux/change-git-buffer ()
+  "Change to `Wymux git buffer'
+Created: Friday, June-23-2023 12:56:50"
+  (get-buffer-create "Wymux git")
+  (switch-to-buffer "Wymux git")
+  (cd (file-name-parent-directory (string-trim (shell-command-to-string "git rev-parse --git-dir")))))
