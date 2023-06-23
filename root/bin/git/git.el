@@ -24,6 +24,7 @@ Created: Friday, June-16-2023 11:09:12"
   (insert files)
   (local-set-key "c" 'wymux/git-stage-this-file)
   (local-set-key "g" 'wymux/git-status)
+  (local-set-key "u" 'wymux/git-unstage)
   (local-set-key "q" 'kill-this-buffer)))
 
 (defun wymux/git-stage-this-file ()
@@ -32,7 +33,7 @@ Created: Friday, June-16-2023 11:43:12"
   (interactive)
   (let ((file (string-trim (thing-at-point 'line))))
     (shell-command (concat "git add " file))
-    (mesage (concat ("Staged " file)))))
+    (mesage (concat "Staged " file))))
 
 (defun wymux/git-status ()
   "Git status.
@@ -40,3 +41,11 @@ Created: Thursday, June-22-2023 20:26:53"
   (interactive)
   (erase-buffer)
   (insert (shell-command-to-string "git status")))
+
+(defun wymux/git-unstage ()
+  "Git unstage.
+Created: Friday, June-23-2023 12:51:19"
+  (interactive)
+  (let ((file (string-trim (thing-at-point 'line))))
+    (shell-command (concat "git restore --staged " file))
+    (message (concat "Unstaged" file))))
